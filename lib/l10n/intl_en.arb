@@ -6,6 +6,7 @@
   "logout_confirm": "Are you sure that you want to logout",
   "confirm": "confirm",
   "conditions": "Conditions",
+  "visitor": "Visitor",
   "cancel": "Cancel",
   "next": "Next",
   "or": "or",
@@ -28,7 +29,7 @@
   "landing_page_text_three":"Scan any bottle to learn more about the sake it contains.",
   "landing_page_text_four": "Join Us",
   "register_title": "Create an account",
-  "login_title": "Welcome",
+  "login_title": "Welcome back",
   "CounterText": "{counter, plural, zero{You have never pushed the button.} one{You have pushed 1 time.} other{You have pushed the button {counter} times.}}",
 
 

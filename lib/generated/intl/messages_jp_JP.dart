@@ -43,7 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "landing_page_text_three" : MessageLookupByLibrary.simpleMessage("Scan any bottle to learn more about the sake it contains."),
     "landing_page_text_two" : MessageLookupByLibrary.simpleMessage("Our app lets you discover the world\'s largest selection of sake, right from your phone."),
     "login" : MessageLookupByLibrary.simpleMessage("Login"),
-    "login_title" : MessageLookupByLibrary.simpleMessage("Welcome"),
+    "login_title" : MessageLookupByLibrary.simpleMessage("Welcome back"),
     "logout" : MessageLookupByLibrary.simpleMessage("Logout"),
     "logout_confirm" : MessageLookupByLibrary.simpleMessage("Are you sure that you want to logout"),
     "need_account" : MessageLookupByLibrary.simpleMessage("Need an account? Register"),
@@ -55,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "register_title" : MessageLookupByLibrary.simpleMessage("登録"),
     "register_with_email" : MessageLookupByLibrary.simpleMessage("Register with email"),
     "sign_in_failed" : MessageLookupByLibrary.simpleMessage("Sign in failed"),
-    "skip" : MessageLookupByLibrary.simpleMessage("Skip")
+    "skip" : MessageLookupByLibrary.simpleMessage("Skip"),
+    "visitor" : MessageLookupByLibrary.simpleMessage("Visitor")
   };
 }

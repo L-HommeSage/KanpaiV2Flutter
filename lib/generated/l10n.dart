@@ -103,6 +103,16 @@ class S {
     );
   }
 
+  /// `Visitor`
+  String get visitor {
+    return Intl.message(
+      'Visitor',
+      name: 'visitor',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Cancel`
   String get cancel {
     return Intl.message(
@@ -323,10 +333,10 @@ class S {
     );
   }
 
-  /// `Welcome`
+  /// `Welcome back`
   String get login_title {
     return Intl.message(
-      'Welcome',
+      'Welcome back',
       name: 'login_title',
       desc: '',
       args: [],

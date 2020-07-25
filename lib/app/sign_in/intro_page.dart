@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:kanpai/app/sign_in/conditions_page.dart';
 import 'package:kanpai/app/sign_in/email_sign_in_model.dart';
-import 'package:kanpai/app/sign_in/sign_in_manager.dart';
+import 'package:kanpai/app/sign_in/social_sign_in_manager.dart';
 import 'package:kanpai/app/sign_in/sign_in_page.dart';
 import 'package:kanpai/app/sign_in/social_button_widget.dart';
 import 'package:kanpai/common_widgets/platform_exeption_alert_dialog.dart';
@@ -17,7 +16,7 @@ import 'package:provider/provider.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({@required this.manager, @required this.isLoading});
-  final SignInManager manager;
+  final SocialSignInManager manager;
   final bool isLoading;
 
   static Widget create(BuildContext context) {
@@ -25,9 +24,9 @@ class IntroPage extends StatelessWidget {
     return ChangeNotifierProvider<ValueNotifier<bool>>(
       create: (_) => ValueNotifier<bool>(false),
       child: Consumer<ValueNotifier<bool>>(
-        builder: (_, isLoading, __) => Provider<SignInManager>(
-          create: (_) => SignInManager(auth: auth, isLoading: isLoading),
-          child: Consumer<SignInManager>(
+        builder: (_, isLoading, __) => Provider<SocialSignInManager>(
+          create: (_) => SocialSignInManager(auth: auth, isLoading: isLoading),
+          child: Consumer<SocialSignInManager>(
             builder: (context, manager, _) => IntroPage(
               manager: manager,
               isLoading: isLoading.value,
@@ -71,12 +70,6 @@ class IntroPage extends StatelessWidget {
     );
   }
 
-  void _showConditionsPage(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(builder: (context) => ConditionsPage()),
-    );
-  }
-
   Widget build(BuildContext context) {
     return Scaffold(
       body: _buildIntroductionScreen(context),
@@ -91,11 +84,11 @@ class IntroPage extends StatelessWidget {
         size: 80,
       ),
       child: IntroductionScreen(
-        globalBackgroundColor: kPrimaryColor,
+        globalBackgroundColor: kTextIconColor,
         done: Text(
-          S.of(context).conditions,
+          S.of(context).visitor,
           style: TextStyle(
-              fontFamily: "Lato", fontSize: 14, color: kSecondaryTextColor),
+              fontFamily: "Lato", fontSize: 14, color: kLightPrimaryColor),
         ),
         skip: Text(
           S.of(context).skip,
@@ -103,12 +96,12 @@ class IntroPage extends StatelessWidget {
         ),
         showSkipButton: true,
         pages: _getPages(context),
-        onDone: () => _showConditionsPage(context),
+        onDone: () => _signInAnonymously(context),
         skipFlex: 0,
         nextFlex: 0,
         next: const Icon(
           Icons.arrow_forward,
-          color: kPrimaryTextColor,
+          color: kLightPrimaryColor,
         ),
         dotsDecorator: const DotsDecorator(
           size: Size(10.0, 10.0),
@@ -142,8 +135,8 @@ class IntroPage extends StatelessWidget {
           padding: const EdgeInsets.all(40.0),
           child: SvgPicture.asset("images/undraw_having_fun.svg"),
         ),*/
-        titleWidget:
-            _buildAnimatedText(context, S.of(context).landing_page_text_one),
+        titleWidget: _buildAnimatedText(context,
+            S.of(context).landing_page_text_one, 90, kPrimaryTextColor),
         body: "",
       ),
       PageViewModel(
@@ -165,8 +158,8 @@ class IntroPage extends StatelessWidget {
           padding: const EdgeInsets.all(40.0),
           child: SvgPicture.asset("images/undraw_healthy_options_sdo3.svg"),
         ),*/
-        titleWidget:
-            _buildAnimatedText2(context, S.of(context).landing_page_text_two),
+        titleWidget: _buildAnimatedText(context,
+            S.of(context).landing_page_text_two, 460, kLightPrimaryColor),
         body: "",
       ),
       PageViewModel(
@@ -189,8 +182,8 @@ class IntroPage extends StatelessWidget {
           padding: const EdgeInsets.all(40.0),
           child: SvgPicture.asset("images/undraw_having_fun.svg"),
         ),*/
-        titleWidget:
-            _buildAnimatedText3(context, S.of(context).landing_page_text_three),
+        titleWidget: _buildAnimatedText(context,
+            S.of(context).landing_page_text_three, 360, kLightPrimaryColor),
         body: "",
       ),
       PageViewModel(
@@ -213,7 +206,8 @@ class IntroPage extends StatelessWidget {
             SizedBox(
               height: 100,
             ),
-            _buildAnimatedText4(context, S.of(context).landing_page_text_four),
+            _buildAnimatedText(context, S.of(context).landing_page_text_four,
+                90, kLightPrimaryColor),
           ],
         ),
         bodyWidget: Column(
@@ -247,31 +241,18 @@ class IntroPage extends StatelessWidget {
               ),
               text: S.of(context).register_with_email,
             ),
-            _buildOrDivider(context),
-            RaisedButton(
-              child: Text(
-                S.of(context).go_anonymously,
-                style: TextStyle(
-                  color: kPrimaryTextColor,
-                  fontFamily: 'Lato',
-                  fontSize: 14,
-                ),
-              ),
-              color: kDarkPrimaryColor,
-              disabledColor: kDarkPrimaryColor,
-              onPressed: isLoading ? null : () => _signInAnonymously(context),
-            ),
           ],
         ),
       ),
     ];
   }
 
-  Column _buildAnimatedText(BuildContext context, String text) {
+  Column _buildAnimatedText(
+      BuildContext context, String text, double height, Color textColor) {
     return Column(
       children: <Widget>[
         SizedBox(
-          height: 90,
+          height: height,
         ),
         Container(
           padding: EdgeInsets.symmetric(horizontal: 16),
@@ -282,78 +263,8 @@ class IntroPage extends StatelessWidget {
             text: [
               text,
             ],
-            textStyle: kHeadlinesTextStyle,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Column _buildAnimatedText2(BuildContext context, String text) {
-    return Column(
-      children: <Widget>[
-        SizedBox(
-          height: 460,
-        ),
-        Container(
-          height: 100,
-          child: TyperAnimatedTextKit(
-            isRepeatingAnimation: false,
-            textAlign: TextAlign.center,
-            text: [
-              text,
-            ],
             textStyle: TextStyle(
-                color: kLightPrimaryColor,
-                fontSize: 25,
-                fontFamily: kFontFamilyHeadlines),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Column _buildAnimatedText3(BuildContext context, String text) {
-    return Column(
-      children: <Widget>[
-        SizedBox(
-          height: 360,
-        ),
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 30),
-          height: 100,
-          child: TyperAnimatedTextKit(
-            isRepeatingAnimation: false,
-            textAlign: TextAlign.center,
-            text: [
-              text,
-            ],
-            textStyle: TextStyle(
-                color: Colors.white,
-                fontSize: 25,
-                fontFamily: kFontFamilyHeadlines),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Column _buildAnimatedText4(BuildContext context, String text) {
-    return Column(
-      children: <Widget>[
-        SizedBox(
-          height: 90,
-        ),
-        Container(
-          height: 100,
-          child: TyperAnimatedTextKit(
-            isRepeatingAnimation: false,
-            textAlign: TextAlign.center,
-            text: [
-              text,
-            ],
-            textStyle: TextStyle(
-                color: Colors.white,
+                color: textColor,
                 fontSize: 25,
                 fontFamily: kFontFamilyHeadlines),
           ),
@@ -362,33 +273,6 @@ class IntroPage extends StatelessWidget {
     );
   }
 }
-
-Padding _buildOrDivider(BuildContext context) {
-  return Padding(
-    padding: const EdgeInsets.all(16.0),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        horizontalLine(),
-        Text(
-          S.of(context).or,
-          style: kCommonTextStyle,
-          textAlign: TextAlign.center,
-        ),
-        horizontalLine(),
-      ],
-    ),
-  );
-}
-
-Widget horizontalLine() => Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16),
-      child: Container(
-        height: 2,
-        width: 100,
-        color: Colors.black12,
-      ),
-    );
 
 //   image: DecorationImage(
 //       image: AssetImage("images/backgroundImage.PNG"),

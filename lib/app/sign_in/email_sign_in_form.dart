@@ -75,6 +75,8 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
         children: <Widget>[
+          _buildTitle(context),
+          SizedBox(height: 16),
           Container(
             decoration: BoxDecoration(
                 color: kLightPrimaryColor,
@@ -170,6 +172,18 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       focusNode: _pwdFocusNode,
       onEditingComplete: _submit,
       onChanged: widget.model.updatePassword,
+    );
+  }
+
+  Text _buildTitle(BuildContext context) {
+    return Text(
+      (widget.model.signInType == SignInType.register)
+          ? S.of(context).register_title
+          : S.of(context).login_title,
+      style: TextStyle(
+          color: kDarkPrimaryColor,
+          fontFamily: kFontFamilyHeadlines,
+          fontSize: 25),
     );
   }
 }

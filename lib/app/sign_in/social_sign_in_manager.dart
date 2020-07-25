@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:kanpai/services/auth.dart';
 
-class SignInManager {
-  SignInManager({
+class SocialSignInManager {
+  SocialSignInManager({
     @required this.auth,
     this.isLoading,
   });

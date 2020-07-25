@@ -6,6 +6,7 @@
   "logout_confirm": "Are you sure that you want to logout",
   "confirm": "confirm",
   "conditions": "Conditions",
+  "visitor": "Visitor",
   "cancel": "Cancel",
   "next": "Next",
   "skip": "Skip",
@@ -28,7 +29,7 @@
   "landing_page_text_three":"Scan any bottle to learn more about the sake it contains.",
   "landing_page_text_four": "Rejoins nous",
   "register_title": "登録",
-  "login_title": "Welcome",
+  "login_title": "Welcome back",
   "CounterText": "{counter, plural, zero{Vous n'avez jamais appuyé.} other{Vous avez appuyé {counter} fois.}}",
 
   "sign_in_failed": "Sign in failed",

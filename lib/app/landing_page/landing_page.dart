@@ -4,6 +4,7 @@ import 'package:kanpai/app/home/home_page.dart';
 import 'package:kanpai/app/sign_in/intro_page.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/services/auth.dart';
+import 'package:kanpai/services/database.dart';
 
 import 'package:provider/provider.dart';
 
@@ -19,7 +20,10 @@ class LandingPage extends StatelessWidget {
           if (user == null) {
             return IntroPage.create(context);
           }
-          return HomePage();
+          return Provider<Database>(
+            create: (_) => FiresStoreDatabase(uid: user.uid),
+            child: HomePage(),
+          );
         } else {
           return Scaffold(
             body: Center(

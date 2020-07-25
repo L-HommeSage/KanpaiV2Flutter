@@ -55,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "register_title" : MessageLookupByLibrary.simpleMessage("Créer un compte"),
     "register_with_email" : MessageLookupByLibrary.simpleMessage("S\'incrire"),
     "sign_in_failed" : MessageLookupByLibrary.simpleMessage("Echec de le connéxion"),
-    "skip" : MessageLookupByLibrary.simpleMessage("Passer")
+    "skip" : MessageLookupByLibrary.simpleMessage("Passer"),
+    "visitor" : MessageLookupByLibrary.simpleMessage("Visiteur")
   };
 }
