@@ -22,6 +22,11 @@ const kHeadlinesTextStyle = TextStyle(
   fontSize: 25,
   color: kPrimaryTextColor,
 );
+const kDarkHeadlinesTextStyle = TextStyle(
+  fontFamily: 'Playfair_Display',
+  fontSize: 25,
+  color: kPrimaryColor,
+);
 
 const kCommonTextStyle = TextStyle(
   fontFamily: 'Lato',

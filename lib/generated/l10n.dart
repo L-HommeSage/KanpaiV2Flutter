@@ -73,6 +73,16 @@ class S {
     );
   }
 
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Are you sure that you want to logout`
   String get logout_confirm {
     return Intl.message(

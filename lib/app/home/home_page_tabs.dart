@@ -16,6 +16,7 @@ class _HomePageTabsState extends State<HomePageTabs> {
   double _xOffset = 0;
   double _yOffset = 0;
   double _scaleFactor = 1;
+  double _radius = 0;
 
   bool _toggleDrawer = false;
 
@@ -38,7 +39,7 @@ class _HomePageTabsState extends State<HomePageTabs> {
       transform: Matrix4.translationValues(_xOffset, _yOffset, 0)
         ..scale(_scaleFactor),
       child: ClipRRect(
-          borderRadius: BorderRadius.circular((_toggleDrawer) ? 20 : 0),
+          borderRadius: BorderRadius.circular(_radius),
           child: _buildHomePageInnerContent()),
     );
   }
@@ -96,6 +97,7 @@ class _HomePageTabsState extends State<HomePageTabs> {
             _xOffset = 230;
             _yOffset = 120;
             _scaleFactor = 0.7;
+            _radius = 25;
             _toggleDrawer = !_toggleDrawer;
           });
         } else {
@@ -103,6 +105,7 @@ class _HomePageTabsState extends State<HomePageTabs> {
             _xOffset = 0;
             _yOffset = 0;
             _scaleFactor = 1;
+            _radius = 0;
             _toggleDrawer = !_toggleDrawer;
           });
         }

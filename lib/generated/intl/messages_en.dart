@@ -54,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "register" : MessageLookupByLibrary.simpleMessage("Register"),
     "register_title" : MessageLookupByLibrary.simpleMessage("Create an account"),
     "register_with_email" : MessageLookupByLibrary.simpleMessage("Register with Email"),
+    "settings" : MessageLookupByLibrary.simpleMessage("Settings"),
     "sign_in_failed" : MessageLookupByLibrary.simpleMessage("Sign in failed"),
     "skip" : MessageLookupByLibrary.simpleMessage("Skip"),
     "visitor" : MessageLookupByLibrary.simpleMessage("Visitor")

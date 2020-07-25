@@ -3,6 +3,7 @@
   "pageTitle": "Accueil",
   "errorPage": "ERREUR PAGE",
   "logout": "Se déconnecter",
+  "settings": "Paramètres",
   "logout_confirm": "Êtes-vous sûr de vouloir vous déconnecter",
   "confirm": "confirmer",
   "conditions": "Conditions",
