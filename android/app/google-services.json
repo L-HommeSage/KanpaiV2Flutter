@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "349679991298",
+    "firebase_url": "https://kanpaiv2.firebaseio.com",
+    "project_id": "kanpaiv2",
+    "storage_bucket": "kanpaiv2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:349679991298:android:035875b225cea68997c51b",
+        "android_client_info": {
+          "package_name": "com.u1967.kanpai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "349679991298-ifh7bupg3kutnbajpvhi6kjeqjfs3l00.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.u1967.kanpai",
+            "certificate_hash": "c5c43e1495fb5555bbbacaaa8155d8b1d7158775"
+          }
+        },
+        {
+          "client_id": "349679991298-lv7ujcfq447v6ap0u32elr8jqdhg3vga.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDej3OFl7ou3I21PMlbi8km43SBIbb6IJk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "349679991298-lv7ujcfq447v6ap0u32elr8jqdhg3vga.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

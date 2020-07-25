@@ -1,0 +1,38 @@
+{
+  "appTitle": "Titre fr",
+  "pageTitle": "Accueil",
+  "errorPage": "ERREUR PAGE",
+  "logout": "Se déconnecter",
+  "logout_confirm": "Êtes-vous sûr de vouloir vous déconnecter",
+  "confirm": "confirmer",
+  "conditions": "Conditions",
+  "cancel": "Annuler",
+  "next": "Suivant",
+  "skip": "Passer",
+  "or": "ou",
+  "email_example": "exemple@email.com",
+  "empty_email": "Email vide",
+  "empty_pwd": "Mot de passe vide",
+  "password": "Mot de passe",
+  "connection": "connexion",
+  "register": "S'inscrire",
+  "register_with_email": "S'incrire",
+  "login": "S'identifier",
+  "need_account": "Besoin d'un compte? S'inscrire",
+  "have_account": "J'ai un compte? Me connecter",
+  "facebook": "Continuer avec Facebook",
+  "google": "Continuer avec Google",
+  "go_anonymously": "Continuer anonymement",
+  "landing_page_text_one":"Obtenez des évaluations honnêtes de notre communauté.",
+  "landing_page_text_two":"Notre application vous permet de découvrir la plus grande sélection de saké au monde, depuis votre téléphone.",
+  "landing_page_text_three":"Scannez n'importe quelle bouteille pour en savoir plus sur le saké qu'elle contient.",
+  "landing_page_text_four": "Rejoins nous",
+  "register_title": "Créer un compte",
+  "login_title": "Bienvenue",
+  "CounterText": "{counter, plural, zero{Vous n'avez jamais appuyé.} one{Vous avez appuyé 1 fois.} other{Vous avez appuyé {counter} fois.}}",
+
+
+  "sign_in_failed": "Echec de le connéxion",
+  "error_weak_password" :"Le mot de passe est invalide. Le mot de passe doit contenir au moins 6 caractères."
+
+}
