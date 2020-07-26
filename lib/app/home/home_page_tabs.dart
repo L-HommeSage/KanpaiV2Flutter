@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kanpai/app/home/tab_bar_history.dart';
-import 'package:kanpai/app/home/tab_bar_news.dart';
-import 'package:kanpai/app/home/tab_bar_search.dart';
+import 'file:///C:/Users/anton/OneDrive/Bureau/kanpai/lib/app/home/maps/tab_bar_history.dart';
+import 'file:///C:/Users/anton/OneDrive/Bureau/kanpai/lib/app/home/news/tab_bar_news.dart';
+import 'file:///C:/Users/anton/OneDrive/Bureau/kanpai/lib/app/home/search/tab_bar_search.dart';
 import 'package:kanpai/common_widgets/floating_scan_button_widget.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -65,7 +65,7 @@ class _HomePageTabsState extends State<HomePageTabs> {
                 tabs: <Tab>[
                   Tab(icon: Icon(MdiIcons.storefront)),
                   Tab(icon: Icon(MdiIcons.foodVariant)),
-                  Tab(icon: Icon(Icons.home)),
+                  Tab(icon: Icon(MdiIcons.earth)),
                 ],
               ),
             ),
