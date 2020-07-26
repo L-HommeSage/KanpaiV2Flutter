@@ -124,19 +124,13 @@ class IntroPage extends StatelessWidget {
             image: DecorationImage(
                 image: AssetImage("images/backgroundImage1.PNG"),
                 fit: BoxFit.cover),
-            /*gradient: LinearGradient(
-              begin: Alignment.bottomRight,
-              end: Alignment.topLeft,
-              colors: [kLightPrimaryColor, kDarkPrimaryColor],
-            ),*/
           ),
         ),
-        /* image: Padding(
-          padding: const EdgeInsets.all(40.0),
-          child: SvgPicture.asset("images/undraw_having_fun.svg"),
-        ),*/
-        titleWidget: _buildAnimatedText(context,
-            S.of(context).landing_page_text_one, 90, kPrimaryTextColor),
+        titleWidget: _buildAnimatedText(
+            context,
+            S.of(context).landing_page_text_one,
+            MediaQuery.of(context).size.height / 6,
+            kPrimaryTextColor),
         body: "",
       ),
       PageViewModel(
@@ -146,20 +140,12 @@ class IntroPage extends StatelessWidget {
                 image: AssetImage("images/backgroundImage3.PNG"),
                 fit: BoxFit.cover),
           ),
-          /* BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.bottomLeft,
-              end: Alignment.topRight,
-              colors: [kLightPrimaryColor, kDarkPrimaryColor],
-            ),
-          ),*/
         ),
-        /*image: Padding(
-          padding: const EdgeInsets.all(40.0),
-          child: SvgPicture.asset("images/undraw_healthy_options_sdo3.svg"),
-        ),*/
-        titleWidget: _buildAnimatedText(context,
-            S.of(context).landing_page_text_two, 460, kLightPrimaryColor),
+        titleWidget: _buildAnimatedText(
+            context,
+            S.of(context).landing_page_text_two,
+            MediaQuery.of(context).size.height / 1.4,
+            kLightPrimaryColor),
         body: "",
       ),
       PageViewModel(
@@ -169,21 +155,12 @@ class IntroPage extends StatelessWidget {
                 image: AssetImage("images/backgroundImage4.PNG"),
                 fit: BoxFit.cover),
           ),
-
-          /*BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.bottomRight,
-              end: Alignment.topLeft,
-              colors: [kLightPrimaryColor, kDarkPrimaryColor],
-            ),
-          ),*/
         ),
-        /*image: Padding(
-          padding: const EdgeInsets.all(40.0),
-          child: SvgPicture.asset("images/undraw_having_fun.svg"),
-        ),*/
-        titleWidget: _buildAnimatedText(context,
-            S.of(context).landing_page_text_three, 360, kLightPrimaryColor),
+        titleWidget: _buildAnimatedText(
+            context,
+            S.of(context).landing_page_text_three,
+            MediaQuery.of(context).size.height / 2,
+            kLightPrimaryColor),
         body: "",
       ),
       PageViewModel(
@@ -193,13 +170,6 @@ class IntroPage extends StatelessWidget {
                 image: AssetImage("images/backgroundImage2.PNG"),
                 fit: BoxFit.cover),
           ),
-          /* BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.bottomLeft,
-              end: Alignment.topRight,
-              colors: [kLightPrimaryColor, kDarkPrimaryColor],
-            ),
-          ),*/
         ),
         titleWidget: Column(
           children: <Widget>[
@@ -210,12 +180,12 @@ class IntroPage extends StatelessWidget {
                 90, kLightPrimaryColor),
           ],
         ),
-        bodyWidget: Column(
+        bodyWidget: SizedBox(
+          height: MediaQuery.of(context).size.height / 4,
+        ),
+        footer: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            SizedBox(
-              height: 100,
-            ),
             SocialButton(
               color: Color(0xFF3b5998),
               textColor: Colors.white,
@@ -256,7 +226,6 @@ class IntroPage extends StatelessWidget {
         ),
         Container(
           padding: EdgeInsets.symmetric(horizontal: 16),
-          height: 100,
           child: TyperAnimatedTextKit(
             isRepeatingAnimation: false,
             textAlign: TextAlign.center,
