@@ -55,4 +55,44 @@ class Sake {
       'characteristics': characteristics,
     };
   }
+
+  factory Sake.fromMap(Map<String, dynamic> data) {
+    if (data == null) {
+      return null;
+    }
+    final String name = data['name'];
+    final String family = data['family'];
+    final String house = data['house'];
+    final String description = data['description'];
+    final String polished = data['polished'];
+    final String rice = data['rice'];
+    final String region = data['region'];
+    final String country = data['country'];
+    final String photoUrl = data['photoUrl'];
+    final double alcohol = data['alcohol'];
+    final double rating = data['rating'];
+    final int nbRatings = data['nbRatings'];
+    final int temperature = data['temperature'];
+    final List<double> volume = data['volume'];
+    final List<String> pairings = data['pairings'];
+    final List<String> characteristics = data['characteristics'];
+    return Sake(
+      name: name,
+      family: family,
+      house: house,
+      description: description,
+      polished: polished,
+      rice: rice,
+      region: region,
+      country: country,
+      photoUrl: photoUrl,
+      alcohol: alcohol,
+      rating: rating,
+      nbRatings: nbRatings,
+      temperature: temperature,
+      volume: volume,
+      pairings: pairings,
+      characteristics: characteristics,
+    );
+  }
 }

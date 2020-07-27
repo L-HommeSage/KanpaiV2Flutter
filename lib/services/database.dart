@@ -20,8 +20,13 @@ class FireStoreDatabase implements Database {
   /// Read Sakes ///
   void readSake() {
     final path = APIPath.getSake(sakeId: "3256223100226");
-    final document = Firestore.instance.document(path);
-    final snapshots = document.snapshots();
+    final reference = Firestore.instance.document(path);
+    final snapshots = reference.snapshots();
+    snapshots.listen(
+      (snapshot) {
+        print(snapshot.data);
+      },
+    );
   }
 
   /// Create Reviews ///
@@ -59,4 +64,12 @@ class FireStoreDatabase implements Database {
     print('$path: $data');
     await reference.setData(data);
   }
+
+  /// Generic Stream reader ///
+   Stream<List<T>> _collectionStream<T>(
+  {@required String path, @required T builder(Map<String,dynamic>data),}
+    ){
+    final reference = Firestore.instance.collection(path);
+    final snapshots = reference.snapshots();
+   }
 }
