@@ -9,8 +9,6 @@ import 'package:provider/provider.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(systemNavigationBarColor: Colors.transparent));
   runApp(MyApp());
 }
 

@@ -8,13 +8,21 @@ abstract class Database {
   Future<void> createReviewEn({Review review, String sakeId});
   Future<void> createReviewFr({Review review, String sakeId});
   Future<void> createReviewJp({Review review, String sakeId});
+  void readSake();
   Future<void> createComment(
       {Comment comment, String sakeId, String lang, String reviewId});
 }
 
-class FiresStoreDatabase implements Database {
-  FiresStoreDatabase({@required this.uid}) : assert(uid != null);
+class FireStoreDatabase implements Database {
+  FireStoreDatabase({@required this.uid}) : assert(uid != null);
   final String uid;
+
+  /// Read Sakes ///
+  void readSake() {
+    final path = APIPath.getSake(sakeId: "3256223100226");
+    final document = Firestore.instance.document(path);
+    final snapshots = document.snapshots();
+  }
 
   /// Create Reviews ///
   Future<void> createReviewEn({Review review, String sakeId}) async =>

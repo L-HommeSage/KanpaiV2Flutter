@@ -21,7 +21,7 @@ class LandingPage extends StatelessWidget {
             return IntroPage.create(context);
           }
           return Provider<Database>(
-            create: (_) => FiresStoreDatabase(uid: user.uid),
+            create: (_) => FireStoreDatabase(uid: user.uid),
             child: HomePage(),
           );
         } else {

@@ -42,6 +42,7 @@ class HiddenDrawerMenu extends StatelessWidget {
       child: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
             _buildHeader(),
             _buildContent(),

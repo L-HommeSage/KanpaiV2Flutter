@@ -1,4 +1,7 @@
 class APIPath {
+  /// Get Sake ///
+  static String getSake({String sakeId}) => '/sakes/$sakeId';
+
   /// Sake Descriptions ///
   static String sakeDescriptionEn({String sakeId}) =>
       '/sakes/$sakeId/descriptions/en';

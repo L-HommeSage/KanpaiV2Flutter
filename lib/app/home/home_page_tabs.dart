@@ -5,6 +5,7 @@ import 'file:///C:/Users/anton/OneDrive/Bureau/kanpai/lib/app/home/news/tab_bar_
 import 'file:///C:/Users/anton/OneDrive/Bureau/kanpai/lib/app/home/search/tab_bar_search.dart';
 import 'package:kanpai/common_widgets/floating_scan_button_widget.dart';
 import 'package:kanpai/constants/style.dart';
+import 'package:kanpai/generated/l10n.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class HomePageTabs extends StatefulWidget {
@@ -12,13 +13,35 @@ class HomePageTabs extends StatefulWidget {
   _HomePageTabsState createState() => _HomePageTabsState();
 }
 
-class _HomePageTabsState extends State<HomePageTabs> {
+class _HomePageTabsState extends State<HomePageTabs>
+    with SingleTickerProviderStateMixin {
   double _xOffset = 0;
   double _yOffset = 0;
   double _scaleFactor = 1;
   double _radius = 0;
-
   bool _toggleDrawer = false;
+
+  String _currentTitle = "";
+
+  final List<Tab> _myTabs = <Tab>[
+    Tab(icon: Icon(MdiIcons.storefront)),
+    Tab(icon: Icon(MdiIcons.foodVariant)),
+    Tab(icon: Icon(MdiIcons.earth)),
+  ];
+  TabController _tabController;
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(vsync: this, length: _myTabs.length);
+    _tabController.index = 0;
+    _setTitle(_tabController.index);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,45 +67,55 @@ class _HomePageTabsState extends State<HomePageTabs> {
     );
   }
 
-  DefaultTabController _buildHomePageInnerContent() {
-    return DefaultTabController(
-      length: 3,
-      initialIndex: 0,
-      child: Scaffold(
-        body: CustomScrollView(
-          slivers: <Widget>[
-            SliverAppBar(
-              backgroundColor: kDarkPrimaryColor,
-              pinned: true,
-              floating: true,
-              leading: _buildIconDrawerButton(),
-              flexibleSpace: FlexibleSpaceBar(),
-              bottom: TabBar(
-                unselectedLabelColor: kTextIconColor,
-                labelColor: kPrimaryTextColor,
-                indicatorColor: kPrimaryTextColor,
-                indicatorWeight: 2,
-                tabs: <Tab>[
-                  Tab(icon: Icon(MdiIcons.storefront)),
-                  Tab(icon: Icon(MdiIcons.foodVariant)),
-                  Tab(icon: Icon(MdiIcons.earth)),
-                ],
-              ),
+  Scaffold _buildHomePageInnerContent() {
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            backgroundColor: kDarkPrimaryColor,
+            pinned: true,
+            title: Text(_currentTitle, style: kHeadlinesTextStyle),
+            floating: true,
+            leading: _buildIconDrawerButton(),
+            flexibleSpace: FlexibleSpaceBar(),
+            bottom: TabBar(
+              unselectedLabelColor: kTextIconColor,
+              labelColor: kPrimaryTextColor,
+              indicatorColor: kPrimaryTextColor,
+              indicatorWeight: 2,
+              controller: _tabController,
+              tabs: _myTabs,
+              onTap: (index) {
+                _setTitle(index);
+              },
             ),
-            SliverFillRemaining(
-              child: TabBarView(
-                children: <Widget>[
-                  TabBarNews(),
-                  TabBarSearch(),
-                  TabBarHistory(),
-                ],
-              ),
-            )
-          ],
-        ),
-        floatingActionButton: FloatingScanButton(),
+          ),
+          SliverFillRemaining(
+            child: TabBarView(
+              controller: _tabController,
+              children: <Widget>[
+                TabBarNews(),
+                TabBarSearch(),
+                TabBarHistory(),
+              ],
+            ),
+          )
+        ],
       ),
+      floatingActionButton: FloatingScanButton(),
     );
+  }
+
+  void _setTitle(index) {
+    if (index == 0) {
+      setState(() => _currentTitle = S.current.news);
+    } else if (index == 1) {
+      setState(() => _currentTitle = S.current.search);
+    } else if (index == 2) {
+      setState(() => _currentTitle = S.current.explore);
+    } else {
+      setState(() => _currentTitle = "");
+    }
   }
 
   IconButton _buildIconDrawerButton() {
