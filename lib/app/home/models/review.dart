@@ -2,7 +2,8 @@ import 'package:kanpai/app/home/models/comment.dart';
 
 class Review {
   Review(
-      {this.review,
+      {this.id,
+      this.review,
       this.username,
       this.profilePictureURL,
       this.rating,
@@ -10,6 +11,7 @@ class Review {
       this.userLikes,
       this.comments});
 
+  final String id;
   final String review;
   final String username;
   final String profilePictureURL;
@@ -22,11 +24,36 @@ class Review {
     return {
       'review': review,
       'username': username,
-      'rating': rating,
       'profilePictureURL': profilePictureURL,
+      'rating': rating,
       'date': date,
       'likesIds': userLikes,
       'comments': comments,
     };
+  }
+
+  factory Review.fromMap(Map<String, dynamic> data, String documentId) {
+    if (data == null) {
+      return null;
+    }
+    final String review = data['review'];
+    final String username = data['username'];
+    final String profilePictureURL = data['profilePictureURL'];
+    final double rating =
+        (data['rating'] == null) ? data['rating'] : data['rating'].toDouble();
+    final DateTime date = data['date'];
+    final Map<String, String> userLikes = Map.from(data['userLikes']);
+    final List<Comment> comments = List.from(data['comments']);
+
+    return Review(
+      id: documentId,
+      review: review,
+      username: username,
+      profilePictureURL: profilePictureURL,
+      rating: rating,
+      date: date,
+      userLikes: userLikes,
+      comments: comments,
+    );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kanpai/common_widgets/avatar_picture.dart';
 import 'package:kanpai/common_widgets/platform_alert_dialog_widget.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
@@ -32,6 +33,7 @@ class HiddenDrawerMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<User>(context, listen: false);
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -44,7 +46,7 @@ class HiddenDrawerMenu extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
-            _buildHeader(),
+            _buildHeader(user),
             _buildContent(),
             _buildFooter(context)
           ],
@@ -117,19 +119,21 @@ class HiddenDrawerMenu extends StatelessWidget {
     );
   }
 
-  Padding _buildHeader() {
+  Padding _buildHeader(User user) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Row(
         children: <Widget>[
-          CircleAvatar(
+          Avatar(
             radius: 25,
+            photoUrl: user.photoUrl,
           ),
           SizedBox(width: 10),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                "Username",
+                user.displayName,
                 style: kDarkHeadlinesTextStyle,
               ),
               Row(children: <Widget>[

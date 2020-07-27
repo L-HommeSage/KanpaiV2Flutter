@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kanpai/app/home/home_page.dart';
+import 'package:kanpai/app/home/sake/sake_page.dart';
 import 'package:kanpai/app/landing_page/landing_page.dart';
 import 'package:kanpai/app/sign_in/email_sign_in_model.dart';
 import 'package:kanpai/app/sign_in/sign_in_page.dart';
@@ -24,6 +25,10 @@ class RouterGenerator {
             signInType: SignInType.login,
           ),
         );
+      /*case '/SakePage':
+        return MaterialPageRoute(
+          builder: (_) => SakePage(),
+        );*/
       case '/second':
         //if (args is String) {
         //return MaterialPageRoute(

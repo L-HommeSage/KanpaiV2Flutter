@@ -1,6 +1,7 @@
 class Sake {
   Sake(
-      {this.name,
+      {this.id,
+      this.name,
       this.family,
       this.house,
       this.description,
@@ -17,21 +18,22 @@ class Sake {
       this.pairings,
       this.characteristics});
 
+  final String id;
   final String name;
   final String family;
   final String house;
   final String description;
-  final String polished;
   final String rice;
   final String region;
   final String country;
   final String photoUrl;
   final double alcohol;
   final double rating;
+  final double polished;
   final int nbRatings;
   final int
       temperature; // 1:frais / 2:ambiant / 3:chaud / 4:frais ambiant / 5:frais chaud / 6:ambiant chaud / 7:frais ambiant chaud
-  final List<double> volume;
+  final List<int> volume;
   final List<String> pairings;
   final List<String> characteristics;
 
@@ -41,13 +43,13 @@ class Sake {
       'family': family,
       'house': house,
       'description': description,
-      'polished': polished,
       'rice': rice,
       'region': region,
       'country': country,
       'photoUrl': photoUrl,
       'alcohol': alcohol,
       'rating': rating,
+      'polished': polished,
       'nbRatings': nbRatings,
       'temperature': temperature,
       'volume': volume,
@@ -56,27 +58,42 @@ class Sake {
     };
   }
 
-  factory Sake.fromMap(Map<String, dynamic> data) {
+  factory Sake.fromMap(Map<String, dynamic> data, String documentId) {
     if (data == null) {
       return null;
     }
+
+    /*if (data['alcohol'].runtimeType != double) {
+
+    }*/
     final String name = data['name'];
     final String family = data['family'];
     final String house = data['house'];
     final String description = data['description'];
-    final String polished = data['polished'];
     final String rice = data['rice'];
     final String region = data['region'];
     final String country = data['country'];
     final String photoUrl = data['photoUrl'];
-    final double alcohol = data['alcohol'];
-    final double rating = data['rating'];
-    final int nbRatings = data['nbRatings'];
-    final int temperature = data['temperature'];
-    final List<double> volume = data['volume'];
-    final List<String> pairings = data['pairings'];
-    final List<String> characteristics = data['characteristics'];
+    final double alcohol = (data['alcohol'] == null)
+        ? data['alcohol']
+        : data['alcohol'].toDouble();
+    final double rating =
+        (data['rating'] == null) ? data['rating'] : data['rating'].toDouble();
+    final double polished = (data['polished'] == null)
+        ? data['polished']
+        : data['polished'].toDouble();
+    final int nbRatings = (data['nbRatings'] == null)
+        ? data['nbRatings']
+        : data['nbRatings'].toInt();
+    final int temperature = (data['temperature'] == null)
+        ? data['temperature']
+        : data['temperature'].toInt();
+    final List<int> volume = List.from(data['volume']);
+    final List<String> pairings = List.from(data['pairings']);
+    final List<String> characteristics = List.from(data['characteristics']);
+
     return Sake(
+      id: documentId,
       name: name,
       family: family,
       house: house,
