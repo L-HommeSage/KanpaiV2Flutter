@@ -13,8 +13,7 @@ class Avatar extends StatelessWidget {
       radius: radius,
       backgroundImage: photoUrl != null
           ? NetworkImage(photoUrl)
-          : NetworkImage(
-              "https://lh3.googleusercontent.com/proxy/2diqz8HNf2eyqEL4VE7ll7HzyuGyIqf3MptnKfaHdB_yDYerAZD3_S8juqlaQd14_MzpluSwDZ0x19rKw3zjwSFCc-ogexILujdwbwO3Jy9uqu3AAROaxOA_s6PTMnfdvg3W9dO8-q-VCE4fDSqLISRXMO8"),
+          : AssetImage("images/Portrait1.PNG"),
       //child: photoUrl == null ? Icon(Icons.camera_alt,size: radius):null,
     );
   }

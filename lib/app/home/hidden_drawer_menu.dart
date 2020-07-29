@@ -129,7 +129,7 @@ class HiddenDrawerMenu extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
               Text(
-                user.displayName,
+                user.displayName != null ? user.displayName : S.current.visitor,
                 style: kDarkHeadlinesTextStyle,
               ),
               Row(children: <Widget>[
