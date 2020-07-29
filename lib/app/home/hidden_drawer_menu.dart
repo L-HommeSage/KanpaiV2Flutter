@@ -37,14 +37,13 @@ class HiddenDrawerMenu extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
             colors: [kPrimaryTextColor, kTextIconColor]),
       ),
       child: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
             _buildHeader(user),
             _buildContent(),
@@ -57,7 +56,7 @@ class HiddenDrawerMenu extends StatelessWidget {
 
   Column _buildContent() {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
         _buildDrawerFlatButton(MdiIcons.bottleWine, () {}, "Mes sakés"),
         _buildDrawerDivider(),
@@ -83,16 +82,17 @@ class HiddenDrawerMenu extends StatelessWidget {
       IconData icon, Function onPressed, String text) {
     return FlatButton(
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
+          Text(
+            text,
+            style: kCommonTextStyle,
+          ),
+          SizedBox(width: 8),
           Icon(
             icon,
             color: kSecondaryTextColor,
           ),
-          SizedBox(width: 6),
-          Text(
-            text,
-            style: kCommonTextStyle,
-          )
         ],
       ),
       onPressed: onPressed,
@@ -112,7 +112,7 @@ class HiddenDrawerMenu extends StatelessWidget {
           Text(
             text,
             style: kCommonTextStyle,
-          )
+          ),
         ],
       ),
       onPressed: onPressed,
@@ -123,14 +123,10 @@ class HiddenDrawerMenu extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-          Avatar(
-            radius: 25,
-            photoUrl: user.photoUrl,
-          ),
-          SizedBox(width: 10),
           Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
               Text(
                 user.displayName,
@@ -144,10 +140,15 @@ class HiddenDrawerMenu extends StatelessWidget {
                 Text(
                   "France, Paris",
                   style: kCommonTextStyle,
-                )
+                ),
               ])
             ],
-          )
+          ),
+          SizedBox(width: 10),
+          Avatar(
+            radius: 25,
+            photoUrl: user.photoUrl,
+          ),
         ],
       ),
     );
@@ -155,16 +156,17 @@ class HiddenDrawerMenu extends StatelessWidget {
 
   Row _buildFooter(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
         SizedBox(width: 6),
-        _buildFooterFlatButton(Icons.settings, () {}, S.of(context).settings),
+        _buildFooterFlatButton(Icons.exit_to_app,
+            () => _confirmSignOut(context), S.of(context).logout),
         Container(
           width: 2,
           height: 20,
           color: kSecondaryTextColor,
         ),
-        _buildFooterFlatButton(Icons.exit_to_app,
-            () => _confirmSignOut(context), S.of(context).logout),
+        _buildFooterFlatButton(Icons.settings, () {}, S.of(context).settings),
       ],
     );
   }

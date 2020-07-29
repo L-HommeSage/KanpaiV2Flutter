@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/anton/OneDrive/Bureau/kanpai/lib/app/home/maps/tab_bar_history.dart';
-import 'file:///C:/Users/anton/OneDrive/Bureau/kanpai/lib/app/home/news/tab_bar_news.dart';
-import 'file:///C:/Users/anton/OneDrive/Bureau/kanpai/lib/app/home/search/tab_bar_search.dart';
+import 'package:kanpai/app/home/maps/tab_bar_map.dart';
+import 'package:kanpai/app/home/news/tab_bar_news.dart';
+import 'package:kanpai/app/home/search/tab_bar_search.dart';
 import 'package:kanpai/common_widgets/floating_scan_button_widget.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
@@ -29,10 +29,12 @@ class _HomePageTabsState extends State<HomePageTabs>
     Tab(icon: Icon(MdiIcons.earth)),
   ];
   TabController _tabController;
+  ScrollController _scrollController;
   @override
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: _myTabs.length);
+    _scrollController = ScrollController();
     _tabController.index = 0;
     _setTitle(_tabController.index);
   }
@@ -40,6 +42,7 @@ class _HomePageTabsState extends State<HomePageTabs>
   @override
   void dispose() {
     _tabController.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -69,38 +72,41 @@ class _HomePageTabsState extends State<HomePageTabs>
 
   Scaffold _buildHomePageInnerContent() {
     return Scaffold(
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            backgroundColor: kDarkPrimaryColor,
-            pinned: true,
-            title: Text(_currentTitle, style: kHeadlinesTextStyle),
-            floating: true,
-            leading: _buildIconDrawerButton(),
-            flexibleSpace: FlexibleSpaceBar(),
-            bottom: TabBar(
-              unselectedLabelColor: kTextIconColor,
-              labelColor: kPrimaryTextColor,
-              indicatorColor: kPrimaryTextColor,
-              indicatorWeight: 2,
-              controller: _tabController,
-              tabs: _myTabs,
-              onTap: (index) {
-                _setTitle(index);
-              },
-            ),
-          ),
-          SliverFillRemaining(
-            child: TabBarView(
-              controller: _tabController,
-              children: <Widget>[
-                TabBarNews(),
-                TabBarSearch(),
-                TabBarHistory(),
+      body: NestedScrollView(
+        controller: _scrollController,
+        headerSliverBuilder: (BuildContext context, bool boxIsScrolled) {
+          return <Widget>[
+            SliverAppBar(
+              backgroundColor: kDarkPrimaryColor,
+              pinned: true,
+              forceElevated: boxIsScrolled,
+              title: Text(_currentTitle, style: kHeadlinesTextStyle),
+              floating: true,
+              actions: <Widget>[
+                _buildIconDrawerButton(),
               ],
+              bottom: TabBar(
+                unselectedLabelColor: kTextIconColor,
+                labelColor: kPrimaryTextColor,
+                indicatorColor: kPrimaryTextColor,
+                indicatorWeight: 2,
+                controller: _tabController,
+                tabs: _myTabs,
+                onTap: (index) {
+                  _setTitle(index);
+                },
+              ),
             ),
-          )
-        ],
+          ];
+        },
+        body: TabBarView(
+          controller: _tabController,
+          children: <Widget>[
+            TabBarNews(),
+            TabBarSearch(),
+            TabBarMap(),
+          ],
+        ),
       ),
       floatingActionButton: FloatingScanButton(),
     );
@@ -121,13 +127,13 @@ class _HomePageTabsState extends State<HomePageTabs>
   IconButton _buildIconDrawerButton() {
     return IconButton(
       icon: Icon(
-        (_toggleDrawer) ? Icons.arrow_back_ios : Icons.menu,
+        (_toggleDrawer) ? Icons.arrow_forward_ios : Icons.menu,
         color: kPrimaryTextColor,
       ),
       onPressed: () {
         if (!_toggleDrawer) {
           setState(() {
-            _xOffset = 230;
+            _xOffset = -100;
             _yOffset = 120;
             _scaleFactor = 0.7;
             _radius = 25;

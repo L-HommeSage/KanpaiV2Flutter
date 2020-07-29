@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kanpai/constants/style.dart';
 
-class TabBarSearch extends StatelessWidget {
+class TabBarMap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -11,7 +11,7 @@ class TabBarSearch extends StatelessWidget {
         child: Material(
           elevation: 4,
           borderRadius: BorderRadius.circular(5),
-          color: index % 2 == 0 ? kDarkPrimaryColor : kLightPrimaryColor,
+          color: index % 2 == 0 ? kTextIconColor : kSecondaryTextColor,
           child: Center(
             child: Text(index.toString()),
           ),
