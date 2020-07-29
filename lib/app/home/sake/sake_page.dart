@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kanpai/app/home/models/sake.dart';
 import 'package:kanpai/app/home/sake/detail_sliver_delegate_sake_header.dart';
+import 'package:kanpai/app/home/sake/sake_inner_content.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/services/database.dart';
 import 'package:flutter/foundation.dart';
@@ -26,14 +27,13 @@ class _SakePageState extends State<SakePage> with TickerProviderStateMixin {
   void initState() {
     _colorAnimationController =
         AnimationController(vsync: this, duration: Duration(seconds: 0));
-    _colorTween = ColorTween(begin: Colors.transparent, end: kPrimaryTextColor)
+    _colorTween = ColorTween(begin: Colors.transparent, end: kDarkPrimaryColor)
+        .animate(CurvedAnimation(
+            parent: _colorAnimationController, curve: Curves.easeInBack));
+    _iconColorTween = ColorTween(begin: kPrimaryColor, end: kPrimaryTextColor)
         .animate(_colorAnimationController);
-    _iconColorTween = ColorTween(begin: kPrimaryTextColor, end: kPrimaryColor)
-        .animate(_colorAnimationController);
-
     _textAnimationController =
         AnimationController(vsync: this, duration: Duration(seconds: 0));
-
     _transTween = Tween(begin: Offset(-10, 40), end: Offset(-10, 0))
         .animate(_textAnimationController);
 
@@ -42,10 +42,10 @@ class _SakePageState extends State<SakePage> with TickerProviderStateMixin {
 
   bool _scrollListener(ScrollNotification scrollInfo) {
     if (scrollInfo.metrics.axis == Axis.vertical) {
-      _colorAnimationController.animateTo(scrollInfo.metrics.pixels / 300);
+      _colorAnimationController.animateTo(scrollInfo.metrics.pixels / 250);
 
       _textAnimationController
-          .animateTo((scrollInfo.metrics.pixels - 220) / 50);
+          .animateTo((scrollInfo.metrics.pixels - 350) / 50);
       return true;
     } else {
       return false;
@@ -82,41 +82,38 @@ class _SakePageState extends State<SakePage> with TickerProviderStateMixin {
               slivers: <Widget>[
                 _buildSliverHead(sake),
                 SliverToBoxAdapter(
-                  child: _buildDetails(),
+                  child: _buildDetails(sake),
                 )
               ],
             ),
-            Container(
-              height: 80,
-              child: AnimatedBuilder(
-                animation: _colorAnimationController,
-                builder: (context, child) => AppBar(
-                  backgroundColor: _colorTween.value,
-                  elevation: 0,
-                  titleSpacing: 0.0,
-                  title: Transform.translate(
-                    offset: _transTween.value,
-                    child: Text(
-                      sake.name,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16),
-                    ),
-                  ),
-                  leading: IconButton(
-                    icon: Icon(
-                      Icons.arrow_back,
-                    ),
-                    onPressed: () => Navigator.of(context).pop(),
-                  ),
-                  iconTheme: IconThemeData(
-                    color: _iconColorTween.value,
-                  ),
-                ),
-              ),
-            ),
+            _buildSakeAppBar(sake),
           ],
+        ),
+      ),
+    );
+  }
+
+  Container _buildSakeAppBar(Sake sake) {
+    return Container(
+      height: 80,
+      child: AnimatedBuilder(
+        animation: _colorAnimationController,
+        builder: (context, child) => AppBar(
+          backgroundColor: _colorTween.value,
+          elevation: 0,
+          title: Transform.translate(
+            offset: _transTween.value,
+            child: Text(sake.name, style: kHeadlinesTextStyle),
+          ),
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+            ),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+          iconTheme: IconThemeData(
+            color: _iconColorTween.value,
+          ),
         ),
       ),
     );
@@ -125,7 +122,7 @@ class _SakePageState extends State<SakePage> with TickerProviderStateMixin {
   Widget _buildSliverHead(Sake sake) {
     return SliverPersistentHeader(
       delegate: DetailSliverDelegate(expandedHeight,
-          "images/backgroundImage6.PNG", roundedContainerHeight, sake),
+          "images/backgroundImage5.PNG", roundedContainerHeight, sake),
     );
   }
 
@@ -135,7 +132,7 @@ class _SakePageState extends State<SakePage> with TickerProviderStateMixin {
     );
   }
 
-  Widget _buildDetails() {
+  Widget _buildDetails(Sake sake) {
     return Stack(
       children: <Widget>[
         Container(
@@ -150,35 +147,11 @@ class _SakePageState extends State<SakePage> with TickerProviderStateMixin {
               topLeft: Radius.circular(25),
             ),
           ),
-          child: Column(
-            children: <Widget>[
-              _buildLoremIpsum(),
-              _buildLoremIpsum(),
-              _buildLoremIpsum(),
-              _buildLoremIpsum(),
-              _buildLoremIpsum(),
-              _buildLoremIpsum(),
-              _buildLoremIpsum(),
-              _buildLoremIpsum(),
-              _buildLoremIpsum(),
-              _buildLoremIpsum(),
-              _buildLoremIpsum(),
-              _buildLoremIpsum(),
-              _buildLoremIpsum(),
-            ],
+          child: SakeInnerContent(
+            sake: sake,
           ),
         ),
       ],
-    );
-  }
-
-  Container _buildLoremIpsum() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-      child: Text(
-        kLoremIpsum,
-        style: kCommonTextStyle,
-      ),
     );
   }
 }

@@ -53,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "or" : MessageLookupByLibrary.simpleMessage("or"),
     "pageTitle" : MessageLookupByLibrary.simpleMessage("Home page"),
     "password" : MessageLookupByLibrary.simpleMessage("Password"),
+    "ratings" : MessageLookupByLibrary.simpleMessage("Ratings"),
     "register" : MessageLookupByLibrary.simpleMessage("Register"),
     "register_title" : MessageLookupByLibrary.simpleMessage("Create an account"),
     "register_with_email" : MessageLookupByLibrary.simpleMessage("Register with Email"),

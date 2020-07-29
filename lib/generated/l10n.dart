@@ -273,6 +273,16 @@ class S {
     );
   }
 
+  /// `Ratings`
+  String get ratings {
+    return Intl.message(
+      'Ratings',
+      name: 'ratings',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Need an account? Register`
   String get need_account {
     return Intl.message(
