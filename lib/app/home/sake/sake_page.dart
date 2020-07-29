@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kanpai/app/home/models/sake.dart';
+import 'package:kanpai/app/home/sake/detail_sliver_delegate_sake_header.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/services/database.dart';
 import 'package:flutter/foundation.dart';
@@ -37,24 +38,25 @@ class _SakePageState extends State<SakePage> {
 
   Widget _buildSakeContent(Sake sake, BuildContext context) {
     return Scaffold(
-        body: CustomScrollView(
-      slivers: <Widget>[
-        SliverAppBar(
-          floating: true,
-          leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back,
-              color: kPrimaryTextColor,
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            floating: true,
+            leading: IconButton(
+              icon: Icon(
+                Icons.arrow_back,
+                color: kPrimaryTextColor,
+              ),
+              onPressed: () => Navigator.of(context).pop(),
             ),
-            onPressed: () => Navigator.of(context).pop(),
           ),
-        ),
-        _buildSliverHead(sake),
-        SliverToBoxAdapter(
-          child: _buildDetails(),
-        )
-      ],
-    ));
+          _buildSliverHead(sake),
+          SliverToBoxAdapter(
+            child: _buildDetails(),
+          )
+        ],
+      ),
+    );
   }
 
   Widget _buildSliverHead(Sake sake) {
@@ -71,26 +73,39 @@ class _SakePageState extends State<SakePage> {
   }
 
   Widget _buildDetails() {
-    return Column(
+    return Stack(
       children: <Widget>[
         Container(
-          color: kTextIconColor,
-          height: 1,
+          color: kDarkPrimaryColor,
+          height: 100,
         ),
-        _buildLoremIpsum(),
-        _buildLoremIpsum(),
-        _buildLoremIpsum(),
-        _buildLoremIpsum(),
-        _buildLoremIpsum(),
-        _buildLoremIpsum(),
-        _buildLoremIpsum(),
-        _buildLoremIpsum(),
-        _buildLoremIpsum(),
-        _buildLoremIpsum(),
-        _buildLoremIpsum(),
-        _buildLoremIpsum(),
-        _buildLoremIpsum(),
-        _buildLoremIpsum(),
+        Container(
+          decoration: BoxDecoration(
+            color: kPrimaryColor,
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(25),
+              topLeft: Radius.circular(25),
+            ),
+          ),
+          child: Column(
+            children: <Widget>[
+              _buildLoremIpsum(),
+              _buildLoremIpsum(),
+              _buildLoremIpsum(),
+              _buildLoremIpsum(),
+              _buildLoremIpsum(),
+              _buildLoremIpsum(),
+              _buildLoremIpsum(),
+              _buildLoremIpsum(),
+              _buildLoremIpsum(),
+              _buildLoremIpsum(),
+              _buildLoremIpsum(),
+              _buildLoremIpsum(),
+              _buildLoremIpsum(),
+              _buildLoremIpsum(),
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -103,86 +118,5 @@ class _SakePageState extends State<SakePage> {
         style: kCommonTextStyle,
       ),
     );
-  }
-}
-
-class DetailSliverDelegate extends SliverPersistentHeaderDelegate {
-  DetailSliverDelegate(this.expandedHeight, this.backgroundImage,
-      this.roundedContainerHeight, this.sake);
-  final double expandedHeight;
-  final String backgroundImage;
-  final double roundedContainerHeight;
-  final Sake sake;
-
-  @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return Stack(
-      children: <Widget>[
-        Image.asset(
-          backgroundImage,
-          width: MediaQuery.of(context).size.width,
-          height: expandedHeight + 20,
-          fit: BoxFit.cover,
-        ),
-        Positioned(
-          top: expandedHeight - roundedContainerHeight - shrinkOffset,
-          left: 0,
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: roundedContainerHeight,
-            decoration: BoxDecoration(
-              color: kPrimaryColor,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(25),
-                topRight: Radius.circular(25),
-              ),
-            ),
-          ),
-        ),
-        Positioned(
-          top: expandedHeight - 220 - shrinkOffset,
-          left: 30,
-          child: Row(
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  Text(
-                    sake.name,
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontFamily: kFontFamilyHeadlines,
-                        color: kPrimaryTextColor),
-                  ),
-                  Text(
-                    sake.house,
-                    style: kCommonTextStyle,
-                  )
-                ],
-              ),
-              SizedBox(width: MediaQuery.of(context).size.width / 3.2),
-              Transform.translate(
-                offset: Offset(0, -80),
-                child: Image.asset(
-                  "images/Amabuki_Kimoto.png",
-                  height: 300,
-                ),
-              )
-            ],
-          ),
-        )
-      ],
-    );
-  }
-
-  @override
-  double get maxExtent => expandedHeight;
-
-  @override
-  double get minExtent => 0;
-
-  @override
-  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
-    return true;
   }
 }
