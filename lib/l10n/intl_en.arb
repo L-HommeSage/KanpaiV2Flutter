@@ -36,8 +36,12 @@
   "register_title": "Create an account",
   "login_title": "Welcome back",
   "CounterText": "{counter, plural, zero{You have never pushed the button.} one{You have pushed 1 time.} other{You have pushed the button {counter} times.}}",
-"japan": "Japan",
+  "japan": "Japan",
   "france": "France",
+  "alcohol": "Alcohol",
+  "polished": "Polished",
+  "volume": "Volume",
+  "taste_characteristics": "Taste Characteristics",
 
   "sign_in_failed": "Sign in failed",
   "error_weak_password" :"The given password is invalid. Password should be at least 6 characters."

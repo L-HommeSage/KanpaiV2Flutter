@@ -426,6 +426,46 @@ class S {
     );
   }
 
+  /// `Alcohol`
+  String get alcohol {
+    return Intl.message(
+      'Alcohol',
+      name: 'alcohol',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Polished`
+  String get polished {
+    return Intl.message(
+      'Polished',
+      name: 'polished',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Volume`
+  String get volume {
+    return Intl.message(
+      'Volume',
+      name: 'volume',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Taste Characteristics`
+  String get taste_characteristics {
+    return Intl.message(
+      'Taste Characteristics',
+      name: 'taste_characteristics',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sign in failed`
   String get sign_in_failed {
     return Intl.message(

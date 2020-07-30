@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "CounterText" : m0,
+    "alcohol" : MessageLookupByLibrary.simpleMessage("Alcool"),
     "appTitle" : MessageLookupByLibrary.simpleMessage("Titre fr"),
     "cancel" : MessageLookupByLibrary.simpleMessage("Annuler"),
     "conditions" : MessageLookupByLibrary.simpleMessage("Conditions"),
@@ -55,6 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "or" : MessageLookupByLibrary.simpleMessage("ou"),
     "pageTitle" : MessageLookupByLibrary.simpleMessage("Accueil"),
     "password" : MessageLookupByLibrary.simpleMessage("Mot de passe"),
+    "polished" : MessageLookupByLibrary.simpleMessage("Polissage"),
     "ratings" : MessageLookupByLibrary.simpleMessage("Notes"),
     "register" : MessageLookupByLibrary.simpleMessage("S\'inscrire"),
     "register_title" : MessageLookupByLibrary.simpleMessage("Créer un compte"),
@@ -63,6 +65,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "settings" : MessageLookupByLibrary.simpleMessage("Paramètres"),
     "sign_in_failed" : MessageLookupByLibrary.simpleMessage("Echec de le connéxion"),
     "skip" : MessageLookupByLibrary.simpleMessage("Passer"),
-    "visitor" : MessageLookupByLibrary.simpleMessage("Visiteur")
+    "taste_characteristics" : MessageLookupByLibrary.simpleMessage("Caractéristiques gustatives"),
+    "visitor" : MessageLookupByLibrary.simpleMessage("Visiteur"),
+    "volume" : MessageLookupByLibrary.simpleMessage("Volume")
   };
 }

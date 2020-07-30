@@ -38,6 +38,10 @@
   "CounterText": "{counter, plural, zero{Vous n'avez jamais appuyé.} one{Vous avez appuyé 1 fois.} other{Vous avez appuyé {counter} fois.}}",
   "japan": "Japon",
   "france": "France",
+  "alcohol": "Alcool",
+  "polished": "Polissage",
+  "volume": "Volume",
+  "taste_characteristics": "Caractéristiques gustatives",
 
   "sign_in_failed": "Echec de le connéxion",
   "error_weak_password" :"Le mot de passe est invalide. Le mot de passe doit contenir au moins 6 caractères."

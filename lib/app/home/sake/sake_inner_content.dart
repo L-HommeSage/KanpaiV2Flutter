@@ -35,8 +35,43 @@ class SakeInnerContent extends StatelessWidget {
           ),
         ),
         _buildStreamDescription(context),
-        _buildMainInfo()
+        SizedBox(height: 8),
+        _buildMainInfo(),
+        SizedBox(height: 8),
+        Divider(),
+        SizedBox(height: 8),
+        _buildStackedImageTitle(),
+        SizedBox(height: 12),
       ],
+    );
+  }
+
+  Stack _buildStackedImageTitle() {
+    return Stack(
+      children: <Widget>[
+        Center(
+          child: Image.asset(
+            'images/wave1.png',
+            height: 100,
+          ),
+        ),
+        Transform.translate(
+            offset: Offset(0, 27), child: _buildCharacteristicsTitle()),
+      ],
+    );
+  }
+
+  Center _buildCharacteristicsTitle() {
+    return Center(
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+        decoration: BoxDecoration(
+            color: Color(0xDEFFF7F1),
+            border: Border.all(color: kDividerColor, width: 1),
+            borderRadius: BorderRadius.circular(3)),
+        child: Text('  ${S.current.taste_characteristics}  ',
+            style: kHeadlinesTextStyle),
+      ),
     );
   }
 
@@ -46,23 +81,62 @@ class SakeInnerContent extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Column(
-          children: <Widget>[Text("alcohol"), Text(sake.alcohol.toString())],
+          children: <Widget>[
+            Text(S.current.volume, style: kCommonTextStyle),
+            Row(
+              children: <Widget>[
+                Text('${_getVolume()}', style: kHeadlinesTextStyle),
+                SizedBox(width: 4),
+                Text((sake.volume[0] >= 1000) ? 'L' : 'cL',
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: kFontFamilyHeadlines,
+                        color: kPrimaryTextColor)),
+              ],
+            )
+          ],
         ),
         Container(
-          height: 30,
-          width: 2,
+          height: 35,
+          width: 1,
           color: kSecondaryTextColor,
         ),
         Column(
-          children: <Widget>[Text("alcohol"), Text(sake.alcohol.toString())],
+          children: <Widget>[
+            Text(S.current.polished, style: kCommonTextStyle),
+            Row(
+              children: <Widget>[
+                Text('${sake.polished.toString()}', style: kHeadlinesTextStyle),
+                SizedBox(width: 4),
+                Text('%',
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: kFontFamilyHeadlines,
+                        color: kPrimaryTextColor)),
+              ],
+            )
+          ],
         ),
         Container(
-          height: 30,
-          width: 2,
+          height: 35,
+          width: 1,
           color: kSecondaryTextColor,
         ),
         Column(
-          children: <Widget>[Text("alcohol"), Text(sake.alcohol.toString())],
+          children: <Widget>[
+            Text(S.current.alcohol, style: kCommonTextStyle),
+            Row(
+              children: <Widget>[
+                Text('${sake.alcohol.toString()}', style: kHeadlinesTextStyle),
+                SizedBox(width: 4),
+                Text('%',
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: kFontFamilyHeadlines,
+                        color: kPrimaryTextColor)),
+              ],
+            )
+          ],
         ),
       ],
     );
@@ -72,6 +146,17 @@ class SakeInnerContent extends StatelessWidget {
     return Container(
       child: Text(kLoremIpsum),
     );
+  }
+
+  double _getVolume() {
+    double volume = 0;
+    if (sake.volume[0] >= 1000) {
+      volume = sake.volume[0].toDouble() / 1000;
+    } else {
+      volume = sake.volume[0].toDouble() / 10;
+    }
+
+    return volume;
   }
 
   Row _buildFlag(String country) {
@@ -147,7 +232,7 @@ class SakeInnerContent extends StatelessWidget {
                   textAlign: TextAlign.justify,
                   style: TextStyle(
                       fontFamily: kFontFamilyCommonText,
-                      fontSize: 14,
+                      fontSize: 16,
                       color: kTextIconColor),
                 ),
               ),

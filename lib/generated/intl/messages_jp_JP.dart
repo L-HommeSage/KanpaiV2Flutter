@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "CounterText" : m0,
+    "alcohol" : MessageLookupByLibrary.simpleMessage("Alcohol"),
     "appTitle" : MessageLookupByLibrary.simpleMessage("Titre JP"),
     "cancel" : MessageLookupByLibrary.simpleMessage("Cancel"),
     "conditions" : MessageLookupByLibrary.simpleMessage("Conditions"),
@@ -55,6 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "or" : MessageLookupByLibrary.simpleMessage("or"),
     "pageTitle" : MessageLookupByLibrary.simpleMessage("japanese"),
     "password" : MessageLookupByLibrary.simpleMessage("Password"),
+    "polished" : MessageLookupByLibrary.simpleMessage("Polished"),
     "ratings" : MessageLookupByLibrary.simpleMessage("Ratings"),
     "register" : MessageLookupByLibrary.simpleMessage("Register"),
     "register_title" : MessageLookupByLibrary.simpleMessage("登録"),
@@ -63,6 +65,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "settings" : MessageLookupByLibrary.simpleMessage("Settings"),
     "sign_in_failed" : MessageLookupByLibrary.simpleMessage("Sign in failed"),
     "skip" : MessageLookupByLibrary.simpleMessage("Skip"),
-    "visitor" : MessageLookupByLibrary.simpleMessage("Visitor")
+    "taste_characteristics" : MessageLookupByLibrary.simpleMessage("Taste Characteristics"),
+    "visitor" : MessageLookupByLibrary.simpleMessage("Visitor"),
+    "volume" : MessageLookupByLibrary.simpleMessage("Volume")
   };
 }

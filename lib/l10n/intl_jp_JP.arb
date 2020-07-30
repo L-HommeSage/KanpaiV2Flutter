@@ -38,6 +38,10 @@
   "CounterText": "{counter, plural, zero{Vous n'avez jamais appuyé.} other{Vous avez appuyé {counter} fois.}}",
   "japan": "Japan",
   "france": "France",
+  "alcohol": "Alcohol",
+  "polished": "Polished",
+  "volume": "Volume",
+  "taste_characteristics": "Taste Characteristics",
 
 
   "sign_in_failed": "Sign in failed",
