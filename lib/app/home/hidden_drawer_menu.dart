@@ -45,7 +45,7 @@ class HiddenDrawerMenu extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            _buildHeader(user),
+            _buildHeader(user, context),
             _buildContent(),
             _buildFooter(context)
           ],
@@ -119,7 +119,7 @@ class HiddenDrawerMenu extends StatelessWidget {
     );
   }
 
-  Padding _buildHeader(User user) {
+  Padding _buildHeader(User user, BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Row(
@@ -129,7 +129,9 @@ class HiddenDrawerMenu extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
               Text(
-                user.displayName != null ? user.displayName : S.current.visitor,
+                (user.displayName == null || user.displayName == '')
+                    ? S.of(context).visitor
+                    : user.displayName,
                 style: kDarkHeadlinesTextStyle,
               ),
               Row(children: <Widget>[

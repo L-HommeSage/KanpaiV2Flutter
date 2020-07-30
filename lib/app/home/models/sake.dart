@@ -4,12 +4,12 @@ class Sake {
       this.name,
       this.family,
       this.house,
-      this.description,
       this.polished,
       this.rice,
       this.region,
       this.country,
       this.photoUrl,
+      this.description,
       this.alcohol,
       this.rating,
       this.nbRatings,
@@ -22,11 +22,11 @@ class Sake {
   final String name;
   final String family;
   final String house;
-  final String description;
   final String rice;
   final String region;
   final String country;
   final String photoUrl;
+  final String description;
   final double alcohol;
   final double rating;
   final double polished;
@@ -42,7 +42,6 @@ class Sake {
       'name': name,
       'family': family,
       'house': house,
-      'description': description,
       'rice': rice,
       'region': region,
       'country': country,
@@ -58,18 +57,21 @@ class Sake {
     };
   }
 
+  factory Sake.getDescription(Map<String, dynamic> data, String documentId) {
+    if (data == null) {
+      return null;
+    }
+    final String description = data['description'];
+    return Sake(description: description);
+  }
+
   factory Sake.fromMap(Map<String, dynamic> data, String documentId) {
     if (data == null) {
       return null;
     }
-
-    /*if (data['alcohol'].runtimeType != double) {
-
-    }*/
     final String name = data['name'];
     final String family = data['family'];
     final String house = data['house'];
-    final String description = data['description'];
     final String rice = data['rice'];
     final String region = data['region'];
     final String country = data['country'];
@@ -97,7 +99,6 @@ class Sake {
       name: name,
       family: family,
       house: house,
-      description: description,
       polished: polished,
       rice: rice,
       region: region,

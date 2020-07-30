@@ -47,7 +47,7 @@ class DetailSliverDelegate extends SliverPersistentHeaderDelegate {
           child: Row(
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(left: 50.0),
+                padding: const EdgeInsets.only(left: 30.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -103,7 +103,7 @@ class DetailSliverDelegate extends SliverPersistentHeaderDelegate {
                   ],
                 ),
               ),
-              SizedBox(width: MediaQuery.of(context).size.width / 6),
+              SizedBox(width: MediaQuery.of(context).size.width / 5),
               Transform.translate(
                 offset: Offset(0, -90),
                 child: Image.asset(

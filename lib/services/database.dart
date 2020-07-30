@@ -14,6 +14,9 @@ abstract class Database {
   Future<void> setReviewJp(
       {Review review, String sakeId}); // same but in japanese
   Stream<Sake> sakeStream(String sakeId);
+  Stream<Sake> sakeDescriptionStreamEn(String sakeId);
+  Stream<Sake> sakeDescriptionStreamFr(String sakeId);
+  Stream<Sake> sakeDescriptionStreamJp(String sakeId);
   //void readSake();
   Future<void> setComment(
       {Comment comment, String sakeId, String lang, String reviewId});
@@ -30,6 +33,24 @@ class FireStoreDatabase implements Database {
   Stream<Sake> sakeStream(String sakeId) => _service.documentStream(
         path: APIPath.getSake(sakeId: sakeId),
         builder: (data, sakeId) => Sake.fromMap(data, sakeId),
+      );
+
+  Stream<Sake> sakeDescriptionStreamEn(String sakeId) =>
+      _service.documentStream(
+        path: APIPath.sakeDescriptionEn(sakeId: sakeId),
+        builder: (data, sakeId) => Sake.getDescription(data, sakeId),
+      );
+
+  Stream<Sake> sakeDescriptionStreamFr(String sakeId) =>
+      _service.documentStream(
+        path: APIPath.sakeDescriptionFr(sakeId: sakeId),
+        builder: (data, sakeId) => Sake.getDescription(data, sakeId),
+      );
+
+  Stream<Sake> sakeDescriptionStreamJp(String sakeId) =>
+      _service.documentStream(
+        path: APIPath.sakeDescriptionJp(sakeId: sakeId),
+        builder: (data, sakeId) => Sake.getDescription(data, sakeId),
       );
 
   /// Read Reviews ///

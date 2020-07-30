@@ -36,7 +36,8 @@
   "register_title": "Créer un compte",
   "login_title": "Bienvenue",
   "CounterText": "{counter, plural, zero{Vous n'avez jamais appuyé.} one{Vous avez appuyé 1 fois.} other{Vous avez appuyé {counter} fois.}}",
-
+  "japan": "Japon",
+  "france": "France",
 
   "sign_in_failed": "Echec de le connéxion",
   "error_weak_password" :"Le mot de passe est invalide. Le mot de passe doit contenir au moins 6 caractères."

@@ -34,7 +34,7 @@ class _SakePageState extends State<SakePage> with TickerProviderStateMixin {
         .animate(_colorAnimationController);
     _textAnimationController =
         AnimationController(vsync: this, duration: Duration(seconds: 0));
-    _transTween = Tween(begin: Offset(-10, 40), end: Offset(-10, 0))
+    _transTween = Tween(begin: Offset(-12, 50), end: Offset(-12, 0))
         .animate(_textAnimationController);
 
     super.initState();
@@ -45,7 +45,7 @@ class _SakePageState extends State<SakePage> with TickerProviderStateMixin {
       _colorAnimationController.animateTo(scrollInfo.metrics.pixels / 250);
 
       _textAnimationController
-          .animateTo((scrollInfo.metrics.pixels - 350) / 50);
+          .animateTo((scrollInfo.metrics.pixels - 335) / 50);
       return true;
     } else {
       return false;
@@ -102,9 +102,21 @@ class _SakePageState extends State<SakePage> with TickerProviderStateMixin {
           backgroundColor: _colorTween.value,
           elevation: 0,
           title: Transform.translate(
-            offset: _transTween.value,
-            child: Text(sake.name, style: kHeadlinesTextStyle),
-          ),
+              offset: _transTween.value,
+              child: RichText(
+                textAlign: TextAlign.start,
+                text: TextSpan(
+                    text: sake.name,
+                    style: kHeadlinesTextStyle,
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: '\n${sake.family}',
+                          style: TextStyle(
+                              fontFamily: kFontFamilyCommonText,
+                              fontSize: 14,
+                              color: kSecondaryTextColor))
+                    ]),
+              )),
           leading: IconButton(
             icon: Icon(
               Icons.arrow_back,
@@ -149,6 +161,7 @@ class _SakePageState extends State<SakePage> with TickerProviderStateMixin {
           ),
           child: SakeInnerContent(
             sake: sake,
+            database: widget.database,
           ),
         ),
       ],

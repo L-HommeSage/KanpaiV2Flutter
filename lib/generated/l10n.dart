@@ -406,6 +406,26 @@ class S {
     );
   }
 
+  /// `Japan`
+  String get japan {
+    return Intl.message(
+      'Japan',
+      name: 'japan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `France`
+  String get france {
+    return Intl.message(
+      'France',
+      name: 'france',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sign in failed`
   String get sign_in_failed {
     return Intl.message(

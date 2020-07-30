@@ -36,6 +36,9 @@
   "register_title": "登録",
   "login_title": "Welcome back",
   "CounterText": "{counter, plural, zero{Vous n'avez jamais appuyé.} other{Vous avez appuyé {counter} fois.}}",
+  "japan": "Japan",
+  "france": "France",
+
 
   "sign_in_failed": "Sign in failed",
   "error_weak_password" :"The given password is to invalid. Password should be at least 6 characters."
