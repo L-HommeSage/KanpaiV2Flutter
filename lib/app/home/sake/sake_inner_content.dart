@@ -1,7 +1,9 @@
 import 'package:flag/flag.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:kanpai/app/home/models/sake.dart';
+import 'package:kanpai/app/home/sake/sake_characteristics_panel.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
 import 'package:kanpai/services/database.dart';
@@ -19,45 +21,34 @@ class SakeInnerContent extends StatelessWidget {
         SizedBox(
           height: 20,
         ),
-        Container(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text('${sake.name}, ${sake.family}',
-                    style: kHeadlinesTextStyle),
-                Text(sake.house, style: kCommonTextStyle),
-                SizedBox(height: 5),
-                _buildFlag(sake.country),
-              ],
-            ),
-          ),
-        ),
+        _buildHeaderInfo(),
         _buildStreamDescription(context),
         SizedBox(height: 8),
         _buildMainInfo(),
         SizedBox(height: 8),
         Divider(),
+        // SizedBox(height: 8),
+        // _buildStackedImageTitle(),
         SizedBox(height: 8),
-        _buildStackedImageTitle(),
-        SizedBox(height: 12),
+        CharacteristicsPanel(sake: sake),
       ],
     );
   }
 
-  Stack _buildStackedImageTitle() {
-    return Stack(
-      children: <Widget>[
-        Center(
-          child: Image.asset(
-            'images/wave1.png',
-            height: 100,
-          ),
+  Container _buildHeaderInfo() {
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('${sake.name}, ${sake.family}', style: kHeadlinesTextStyle),
+            Text(sake.house, style: kCommonTextStyle),
+            SizedBox(height: 5),
+            _buildFlag(sake.country),
+          ],
         ),
-        Transform.translate(
-            offset: Offset(0, 27), child: _buildCharacteristicsTitle()),
-      ],
+      ),
     );
   }
 
@@ -69,7 +60,7 @@ class SakeInnerContent extends StatelessWidget {
             color: Color(0xDEFFF7F1),
             border: Border.all(color: kDividerColor, width: 1),
             borderRadius: BorderRadius.circular(3)),
-        child: Text('  ${S.current.taste_characteristics}  ',
+        child: Text('  ${S.current.characteristics}  ',
             style: kHeadlinesTextStyle),
       ),
     );
@@ -139,12 +130,6 @@ class SakeInnerContent extends StatelessWidget {
           ],
         ),
       ],
-    );
-  }
-
-  Container _buildLoremIpsum() {
-    return Container(
-      child: Text(kLoremIpsum),
     );
   }
 
@@ -257,5 +242,26 @@ class SakeInnerContent extends StatelessWidget {
     } else {
       return database.sakeDescriptionStreamEn(sakeId);
     }
+  }
+
+  Stack _buildStackedImageTitle() {
+    return Stack(
+      children: <Widget>[
+        Center(
+          child: Image.asset(
+            'images/wave1.png',
+            height: 90,
+          ),
+        ),
+        Transform.translate(
+            offset: Offset(0, 26), child: _buildCharacteristicsTitle()),
+      ],
+    );
+  }
+
+  Container _buildLoremIpsum() {
+    return Container(
+      child: Text(kLoremIpsum),
+    );
   }
 }

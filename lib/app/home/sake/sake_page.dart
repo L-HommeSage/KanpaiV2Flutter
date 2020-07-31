@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kanpai/app/home/models/sake.dart';
 import 'package:kanpai/app/home/sake/detail_sliver_delegate_sake_header.dart';
@@ -105,6 +106,7 @@ class _SakePageState extends State<SakePage> with TickerProviderStateMixin {
               offset: _transTween.value,
               child: RichText(
                 textAlign: TextAlign.start,
+                overflow: TextOverflow.ellipsis,
                 text: TextSpan(
                     text: sake.name,
                     style: kHeadlinesTextStyle,

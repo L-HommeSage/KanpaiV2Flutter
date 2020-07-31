@@ -42,6 +42,16 @@
   "polished": "Polished",
   "volume": "Volume",
   "taste_characteristics": "Taste Characteristics",
+  "characteristics": "Characteristics",
+  "rice": "Rice",
+  "temperature": "Temperature",
+  "fresh": "Fresh",
+  "ambient": "Ambient",
+  "hot": "Hot",
+
+
+  "omachi_description": "Omachi rice is known as the oldest identified sake rice variety, it reigned supreme nearly 70 years since its discovery in the 1860s. Origined from Okayama he is recognized for it's layered, herbal and earthy flavors",
+
 
 
   "sign_in_failed": "Sign in failed",

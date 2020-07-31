@@ -466,6 +466,76 @@ class S {
     );
   }
 
+  /// `Characteristics`
+  String get characteristics {
+    return Intl.message(
+      'Characteristics',
+      name: 'characteristics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rice`
+  String get rice {
+    return Intl.message(
+      'Rice',
+      name: 'rice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Temperature`
+  String get temperature {
+    return Intl.message(
+      'Temperature',
+      name: 'temperature',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fresh`
+  String get fresh {
+    return Intl.message(
+      'Fresh',
+      name: 'fresh',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ambient`
+  String get ambient {
+    return Intl.message(
+      'Ambient',
+      name: 'ambient',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hot`
+  String get hot {
+    return Intl.message(
+      'Hot',
+      name: 'hot',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Omachi rice is known as the oldest identified sake rice variety, it reigned supreme nearly 70 years since its discovery in the 1860s. Origined from Okayama he is recognized for it's layered, herbal and earthy flavors`
+  String get omachi_description {
+    return Intl.message(
+      'Omachi rice is known as the oldest identified sake rice variety, it reigned supreme nearly 70 years since its discovery in the 1860s. Origined from Okayama he is recognized for it\'s layered, herbal and earthy flavors',
+      name: 'omachi_description',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sign in failed`
   String get sign_in_failed {
     return Intl.message(
