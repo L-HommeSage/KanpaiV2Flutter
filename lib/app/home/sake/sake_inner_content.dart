@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:kanpai/app/home/models/sake.dart';
+import 'package:kanpai/app/home/sake/pairings_panel.dart';
 import 'package:kanpai/app/home/sake/sake_characteristics_panel.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
@@ -26,25 +27,10 @@ class SakeInnerContent extends StatelessWidget {
         SizedBox(height: 8),
         _buildMainInfo(),
         SizedBox(height: 8),
-        Divider(),
-        // SizedBox(height: 8),
-        // _buildStackedImageTitle(),
-        SizedBox(height: 8),
         CharacteristicsPanel(sake: sake),
+        PairingsPanel(sake: sake),
         Divider(),
-        //TODO: create a new class List pairings
-        _buildTitle(context, S.of(context).food_parings),
       ],
-    );
-  }
-
-  Padding _buildTitle(BuildContext context, String title) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
-      child: Text(
-        title,
-        style: kHeadlinesTextStyle,
-      ),
     );
   }
 

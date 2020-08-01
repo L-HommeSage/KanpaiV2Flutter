@@ -1,6 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kanpai/app/home/models/flavor.dart';
 import 'package:kanpai/app/home/models/rice.dart';
 import 'package:kanpai/app/home/models/sake.dart';
 import 'package:kanpai/app/home/sake/flavor_page.dart';
@@ -20,6 +21,8 @@ class CharacteristicsPanel extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          Divider(),
+          SizedBox(height: 8),
           _buildTitle(context, S.of(context).characteristics),
           SizedBox(height: 5),
           _buildRiceTile(context),
@@ -50,6 +53,7 @@ class CharacteristicsPanel extends StatelessWidget {
             iconColor: kLightPrimaryColor,
           ),
           temperature: '${S.of(context).fresh}',
+          temperatureCode: sake.temperature,
         );
       case 2:
         return TemperatureTile(
@@ -59,6 +63,7 @@ class CharacteristicsPanel extends StatelessWidget {
             iconColor: kLightPrimaryColor,
           ),
           temperature: '${S.of(context).ambient}',
+          temperatureCode: sake.temperature,
         );
       case 3:
         return TemperatureTile(
@@ -68,6 +73,7 @@ class CharacteristicsPanel extends StatelessWidget {
             iconColor: kLightPrimaryColor,
           ),
           temperature: '${S.of(context).hot}',
+          temperatureCode: sake.temperature,
         );
       case 4:
         return _buildDoubleIconsLeading(
@@ -157,6 +163,7 @@ class CharacteristicsPanel extends StatelessWidget {
         ),
       ),
       temperature: description,
+      temperatureCode: sake.temperature,
     );
   }
 
@@ -205,6 +212,7 @@ class CharacteristicsPanel extends StatelessWidget {
         ),
       ),
       temperature: description,
+      temperatureCode: sake.temperature,
     );
   }
 
@@ -220,6 +228,7 @@ class CharacteristicsPanel extends StatelessWidget {
         },
         closedBuilder: (context, action) {
           return ListTile(
+            dense: true,
             leading: Hero(
               tag: "riceTag",
               child: IconImage(
@@ -279,7 +288,7 @@ class CharacteristicsPanel extends StatelessWidget {
                   style: kCommonTextStyle,
                   children: [
                     TextSpan(
-                      text: '${sake.characteristics.join(', ')}',
+                      text: _getCharacteristics(),
                       style: TextStyle(
                           fontFamily: kFontFamilyHeadlines,
                           fontSize: 18,
@@ -291,5 +300,16 @@ class CharacteristicsPanel extends StatelessWidget {
             );
           });
     }
+  }
+
+  String _getCharacteristics() {
+    String pairings = '';
+    for (int i = 0; i < sake.characteristics.length; i++) {
+      pairings += Flavor().getFlavorName(sake.characteristics[i]);
+      if (i != sake.characteristics.length - 1) {
+        pairings += ", ";
+      }
+    }
+    return pairings;
   }
 }

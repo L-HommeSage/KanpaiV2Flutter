@@ -546,6 +546,66 @@ class S {
     );
   }
 
+  /// `Meat`
+  String get meat {
+    return Intl.message(
+      'Meat',
+      name: 'meat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fish`
+  String get fish {
+    return Intl.message(
+      'Fish',
+      name: 'fish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sushi`
+  String get sushi {
+    return Intl.message(
+      'Sushi',
+      name: 'sushi',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fruity`
+  String get fruity {
+    return Intl.message(
+      'Fruity',
+      name: 'fruity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Acid`
+  String get acid {
+    return Intl.message(
+      'Acid',
+      name: 'acid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Soft`
+  String get soft {
+    return Intl.message(
+      'Soft',
+      name: 'soft',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Omachi rice is known as the oldest identified sake rice variety, it reigned supreme nearly 70 years since its discovery in the 1860s. Origined from Okayama he is recognized for it's layered, herbal and earthy flavors`
   String get omachi_description {
     return Intl.message(
