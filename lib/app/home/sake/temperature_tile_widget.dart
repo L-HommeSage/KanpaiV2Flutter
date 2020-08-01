@@ -13,24 +13,25 @@ class TemperatureTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return OpenContainer(
       closedColor: kPrimaryColor,
+      closedElevation: 0,
       openBuilder: (context, action) {
         return TemperaturePage();
       },
       closedBuilder: (context, action) {
         return ListTile(
           leading: leading,
-          dense: true,
           title: RichText(
             text: TextSpan(
               text: '${S.of(context).temperature}: ',
               style: kCommonTextStyle,
               children: [
                 TextSpan(
-                    text: temperature,
-                    style: TextStyle(
-                        fontFamily: kFontFamilyHeadlines,
-                        fontSize: 18,
-                        color: kPrimaryTextColor))
+                  text: temperature,
+                  style: TextStyle(
+                      fontFamily: kFontFamilyHeadlines,
+                      fontSize: 18,
+                      color: kPrimaryTextColor),
+                ),
               ],
             ),
           ),

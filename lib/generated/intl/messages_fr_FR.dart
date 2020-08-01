@@ -39,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "error_weak_password" : MessageLookupByLibrary.simpleMessage("Le mot de passe est invalide. Le mot de passe doit contenir au moins 6 caractères."),
     "explore" : MessageLookupByLibrary.simpleMessage("Explorer"),
     "facebook" : MessageLookupByLibrary.simpleMessage("Continuer avec Facebook"),
+    "flavor" : MessageLookupByLibrary.simpleMessage("Saveur"),
+    "food_parings" : MessageLookupByLibrary.simpleMessage("Accords mets"),
     "france" : MessageLookupByLibrary.simpleMessage("France"),
     "fresh" : MessageLookupByLibrary.simpleMessage("Frais"),
     "go_anonymously" : MessageLookupByLibrary.simpleMessage("Continuer anonymement"),

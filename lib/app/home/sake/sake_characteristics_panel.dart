@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kanpai/app/home/models/rice.dart';
 import 'package:kanpai/app/home/models/sake.dart';
+import 'package:kanpai/app/home/sake/flavor_page.dart';
 import 'package:kanpai/app/home/sake/rice_page.dart';
 import 'package:kanpai/app/home/sake/temperature_tile_widget.dart';
 import 'package:kanpai/common_widgets/image_icon_widget.dart';
@@ -19,17 +20,22 @@ class CharacteristicsPanel extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Text(
-              '${S.current.characteristics}',
-              style: kHeadlinesTextStyle,
-            ),
-          ),
+          _buildTitle(context, S.of(context).characteristics),
           SizedBox(height: 5),
           _buildRiceTile(context),
           _buildTemperature(context),
+          _buildFlavorTile(context),
         ],
+      ),
+    );
+  }
+
+  Padding _buildTitle(BuildContext context, String title) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: Text(
+        title,
+        style: kHeadlinesTextStyle,
       ),
     );
   }
@@ -208,6 +214,7 @@ class CharacteristicsPanel extends StatelessWidget {
     } else {
       return OpenContainer(
         closedColor: kPrimaryColor,
+        closedElevation: 0,
         openBuilder: (context, action) {
           return RicePage();
         },
@@ -237,12 +244,52 @@ class CharacteristicsPanel extends StatelessWidget {
             ),
             subtitle: Text(
               Rice().getDescription(sake.rice),
-              style: TextStyle(fontFamily: kFontFamilyCommonText),
+              style: TextStyle(
+                  fontFamily: kFontFamilyCommonText,
+                  color: kSecondaryTextColor),
               overflow: TextOverflow.ellipsis,
             ),
           );
         },
       );
+    }
+  }
+
+  Widget _buildFlavorTile(BuildContext context) {
+    if (sake.characteristics.isEmpty || sake.characteristics == null) {
+      return SizedBox();
+    } else {
+      return OpenContainer(
+          closedColor: kPrimaryColor,
+          openBuilder: (context, action) {
+            return FlavorPage();
+          },
+          closedElevation: 0,
+          closedBuilder: (context, action) {
+            return ListTile(
+              leading: IconImage(
+                imagePath: 'icons/flavour.png',
+                iconColor: kLightPrimaryColor,
+                backgroundColor: Colors.pink,
+              ),
+              title: RichText(
+                overflow: TextOverflow.ellipsis,
+                text: TextSpan(
+                  text: '${S.current.flavor}: ',
+                  style: kCommonTextStyle,
+                  children: [
+                    TextSpan(
+                      text: '${sake.characteristics.join(', ')}',
+                      style: TextStyle(
+                          fontFamily: kFontFamilyHeadlines,
+                          fontSize: 18,
+                          color: kPrimaryTextColor),
+                    )
+                  ],
+                ),
+              ),
+            );
+          });
     }
   }
 }

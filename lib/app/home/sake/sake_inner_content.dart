@@ -31,7 +31,20 @@ class SakeInnerContent extends StatelessWidget {
         // _buildStackedImageTitle(),
         SizedBox(height: 8),
         CharacteristicsPanel(sake: sake),
+        Divider(),
+        //TODO: create a new class List pairings
+        _buildTitle(context, S.of(context).food_parings),
       ],
+    );
+  }
+
+  Padding _buildTitle(BuildContext context, String title) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: Text(
+        title,
+        style: kHeadlinesTextStyle,
+      ),
     );
   }
 

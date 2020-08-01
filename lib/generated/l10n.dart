@@ -526,6 +526,26 @@ class S {
     );
   }
 
+  /// `Flavor`
+  String get flavor {
+    return Intl.message(
+      'Flavor',
+      name: 'flavor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Food pairings`
+  String get food_parings {
+    return Intl.message(
+      'Food pairings',
+      name: 'food_parings',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Omachi rice is known as the oldest identified sake rice variety, it reigned supreme nearly 70 years since its discovery in the 1860s. Origined from Okayama he is recognized for it's layered, herbal and earthy flavors`
   String get omachi_description {
     return Intl.message(

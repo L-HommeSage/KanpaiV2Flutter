@@ -34,6 +34,9 @@ class _HomePageTabsState extends State<HomePageTabs>
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: _myTabs.length);
+    _tabController.addListener(() {
+      _setTitle(_tabController.index);
+    });
     _scrollController = ScrollController();
     _tabController.index = 0;
     _setTitle(_tabController.index);
