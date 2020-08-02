@@ -81,6 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "sushi" : MessageLookupByLibrary.simpleMessage("Sushi"),
     "taste_characteristics" : MessageLookupByLibrary.simpleMessage("Caractéristiques gustatives"),
     "temperature" : MessageLookupByLibrary.simpleMessage("Température"),
+    "today_selection" : MessageLookupByLibrary.simpleMessage("Sélection du jour"),
     "visitor" : MessageLookupByLibrary.simpleMessage("Visiteur"),
     "volume" : MessageLookupByLibrary.simpleMessage("Volume")
   };

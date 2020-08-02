@@ -144,6 +144,7 @@ class SakeInnerContent extends StatelessWidget {
   }
 
   Row _buildFlag(String country) {
+    //TODO: Make a Country class and with a map do this same methode
     if (country == 'Japan') {
       return Row(
         children: <Widget>[

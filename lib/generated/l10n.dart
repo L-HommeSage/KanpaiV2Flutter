@@ -393,6 +393,16 @@ class S {
     );
   }
 
+  /// `Today selection`
+  String get today_selection {
+    return Intl.message(
+      'Today selection',
+      name: 'today_selection',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `{counter, plural, zero{You have never pushed the button.} one{You have pushed 1 time.} other{You have pushed the button {counter} times.}}`
   String CounterText(num counter) {
     return Intl.plural(

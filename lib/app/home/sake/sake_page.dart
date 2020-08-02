@@ -141,8 +141,12 @@ class _SakePageState extends State<SakePage> with TickerProviderStateMixin {
   }
 
   Widget _buildWaitingPage() {
+    //TODO: build waiting page like SliverHead to get smooth hero animation
+    // think to pass the sake's name the sake image and its rating in the constructor
     return Center(
-      child: CircularProgressIndicator(),
+      child: Container(
+        color: Colors.white,
+      ),
     );
   }
 

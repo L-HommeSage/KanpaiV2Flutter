@@ -35,6 +35,7 @@
   "landing_page_text_four": "Rejoins nous",
   "register_title": "登録",
   "login_title": "Welcome back",
+  "today_selection": "Today selection",
   "CounterText": "{counter, plural, zero{Vous n'avez jamais appuyé.} other{Vous avez appuyé {counter} fois.}}",
   "japan": "Japan",
   "france": "France",

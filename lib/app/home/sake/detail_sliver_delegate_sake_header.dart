@@ -106,9 +106,12 @@ class DetailSliverDelegate extends SliverPersistentHeaderDelegate {
               SizedBox(width: MediaQuery.of(context).size.width / 5),
               Transform.translate(
                 offset: Offset(0, -90),
-                child: Image.asset(
-                  "images/Amabuki_Kimoto.png",
-                  height: 300,
+                child: Hero(
+                  tag: sake.id,
+                  child: Image.asset(
+                    "images/Amabuki_Kimoto.png",
+                    height: 300,
+                  ),
                 ),
               )
             ],

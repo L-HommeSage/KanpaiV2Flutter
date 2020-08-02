@@ -35,6 +35,7 @@
   "landing_page_text_four": "Join Us",
   "register_title": "Create an account",
   "login_title": "Welcome back",
+  "today_selection": "Today selection",
   "CounterText": "{counter, plural, zero{You have never pushed the button.} one{You have pushed 1 time.} other{You have pushed the button {counter} times.}}",
   "japan": "Japan",
   "france": "France",
