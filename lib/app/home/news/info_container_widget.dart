@@ -1,68 +1,128 @@
 import 'package:flutter/material.dart';
 import 'package:kanpai/constants/style.dart';
+import 'package:kanpai/generated/l10n.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class InfoContainer extends StatelessWidget {
   const InfoContainer({
-    //@required this.backgroundImage,
-    // @required this.message,
+    @required this.backgroundImage,
+    @required this.message,
+    @required this.title,
+    this.eventUrl,
     @required this.colorGradient,
   });
-  //final String backgroundImage;
-  //final String message;
+  final String backgroundImage;
+  final String message;
+  final String title;
+  final String eventUrl;
   final List<Color> colorGradient;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 300,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8), color: kDarkPrimaryColor),
-      child: Column(
-        children: <Widget>[
-          ClipPath(
-            clipper: ClippingClass(),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                image: DecorationImage(
-                    image: AssetImage('images/salon.png'), fit: BoxFit.cover),
-              ),
-              height: 180,
+    return Material(
+      borderRadius: BorderRadius.circular(8),
+      elevation: 1,
+      color: kTextIconColor,
+      child: Container(
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            ClipPath(
+              clipper: ClippingClass(),
               child: Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: colorGradient)),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 30, left: 30),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Expanded(
-                        flex: 10,
-                        child: Container(
-                          child: Text(
-                            "hello",
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                                color: kLightPrimaryColor,
-                                fontSize: 25,
-                                fontFamily: kFontFamilyCommonText),
+                  borderRadius: BorderRadius.circular(8),
+                  image: DecorationImage(
+                      image: NetworkImage(backgroundImage), fit: BoxFit.cover),
+                ),
+                height: 180,
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: colorGradient)),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 30, left: 30),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Expanded(
+                          flex: 10,
+                          child: Container(
+                            child: Text(
+                              title,
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                  color: kLightPrimaryColor,
+                                  fontSize: 25,
+                                  fontFamily: kFontFamilyCommonText),
+                            ),
                           ),
                         ),
-                      ),
-                      Expanded(flex: 6, child: Container()),
-                    ],
+                        Expanded(flex: 6, child: Container()),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              child: Text(
+                message,
+                style: TextStyle(
+                    color: kLightPrimaryColor,
+                    fontSize: 18,
+                    fontFamily: kFontFamilyCommonText),
+                textAlign: TextAlign.start,
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            Row(children: <Widget>[
+              Expanded(
+                flex: 3,
+                child: Container(),
+              ),
+              Expanded(
+                  flex: 2,
+                  child: FlatButton(
+                    child: Row(
+                      children: <Widget>[
+                        Text(
+                          S.of(context).see_more,
+                          style: TextStyle(
+                              color: kLightPrimaryColor,
+                              fontFamily: kFontFamilyCommonText),
+                        ),
+                        SizedBox(width: 5),
+                        Icon(
+                          Icons.arrow_forward,
+                          color: kAccentColor,
+                        )
+                      ],
+                    ),
+                    onPressed: () => _launchUrlInApp(eventUrl),
+                  )),
+            ])
+          ],
+        ),
       ),
     );
+  }
+}
+
+Future<void> _launchUrlInApp(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url,
+        forceSafariVC: true,
+        forceWebView: true,
+        headers: <String, String>{'header_key': 'header_value'});
+  } else {
+    throw 'Could not launch $url';
   }
 }
 

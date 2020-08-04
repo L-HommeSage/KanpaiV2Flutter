@@ -5,12 +5,14 @@ class Pairing {
     "Meat": S.current.meat,
     "Fish": S.current.fish,
     "Sushi": S.current.sushi,
+    "Fried food": S.current.fried_food,
     "": "",
   };
   final Map<String, String> pairingImage = {
     "Meat": "images/viande.png",
     "Fish": "images/poisson.png",
     "Sushi": "images/sushi.png",
+    "Fried food": "images/friture.png",
     "": "icons/Iconvide.png",
   };
 

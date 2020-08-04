@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kanpai/app/home/models/event_news.dart';
 import 'package:kanpai/app/home/models/sake_news.dart';
+import 'package:kanpai/app/home/news/discover_sake_widget.dart';
 import 'package:kanpai/app/home/news/highlighted_sake_widget.dart';
 import 'package:kanpai/app/home/news/info_container_widget.dart';
 import 'package:kanpai/constants/style.dart';
@@ -11,20 +13,33 @@ class TabBarNews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final database = Provider.of<Database>(context, listen: false);
+    final List<Widget> listItems = [
+      _buildTodayTitle(context),
+      _buildHighlightedSake(
+          context: context,
+          database: database,
+          id: "2",
+          lang: "en",
+          backgroundImage: "images/backgroundImage7.PNG"),
+      _buildTodayEvent(
+          id: '1', lang: 'en', database: database, context: context),
+      _buildHighlightedSake(
+          context: context,
+          database: database,
+          id: "1",
+          lang: "en",
+          backgroundImage: "images/backgroundImage6.PNG"),
+      Discover(
+        backgroundImage: "images/backgroundImage7.PNG",
+        colorGradient: _getColorGradient(4),
+      ),
+      SizedBox(height: 90)
+    ];
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
-      child: ListView(
-        children: <Widget>[
-          _buildTodayTitle(context),
-          /*_buildHighlightedSake(
-              context: context,
-              database: database,
-              id: "1",
-              lang: "en",
-              backgroundImage: "images/backgroundImage6.PNG"),*/
-          _buildTodayInfo(),
-        ],
-      ),
+      child: ListView.builder(
+          itemCount: listItems.length,
+          itemBuilder: (context, index) => listItems[index]),
     );
   }
 
@@ -45,7 +60,7 @@ class TabBarNews extends StatelessWidget {
     );
   }
 
-  Widget _buildHighlightedSake(
+  StreamBuilder<SakeNews> _buildHighlightedSake(
       {BuildContext context,
       Database database,
       String id,
@@ -77,8 +92,38 @@ class TabBarNews extends StatelessWidget {
     );
   }
 
-  InfoContainer _buildTodayInfo() =>
-      InfoContainer(colorGradient: _getColorGradient(1));
+  StreamBuilder<EventNews> _buildTodayEvent({
+    BuildContext context,
+    Database database,
+    String id,
+    String lang,
+  }) {
+    return StreamBuilder<EventNews>(
+      stream: database.eventNewsStream(lang, id),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          final eventNews = snapshot.data;
+          return Column(
+            children: <Widget>[
+              InfoContainer(
+                  message: eventNews.message,
+                  title: eventNews.title,
+                  eventUrl: eventNews.eventUrl,
+                  backgroundImage: eventNews.photoUrl,
+                  colorGradient: _getColorGradient(eventNews.colorCode)),
+              SizedBox(height: 20)
+            ],
+          );
+        }
+        if (snapshot.hasError) {
+          print(snapshot.error);
+          return Center(child: Text('Some error occurred'));
+        } else {
+          return SizedBox();
+        }
+      },
+    );
+  }
 
   List<Color> _getColorGradient(int colorCode) {
     switch (colorCode) {

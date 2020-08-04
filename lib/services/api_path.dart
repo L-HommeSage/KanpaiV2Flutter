@@ -23,4 +23,7 @@ class APIPath {
   /// get News ///
   static String getSakeNews({String lang, String id}) =>
       '/news/$lang/highlighted/highlighted$id';
+
+  static String getEventNews({String lang, String id}) =>
+      '/news/$lang/events/event$id';
 }

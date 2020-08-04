@@ -51,20 +51,6 @@ class SakeInnerContent extends StatelessWidget {
     );
   }
 
-  Center _buildCharacteristicsTitle() {
-    return Center(
-      child: Container(
-        padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-        decoration: BoxDecoration(
-            color: Color(0xDEFFF7F1),
-            border: Border.all(color: kDividerColor, width: 1),
-            borderRadius: BorderRadius.circular(3)),
-        child: Text('  ${S.current.characteristics}  ',
-            style: kHeadlinesTextStyle),
-      ),
-    );
-  }
-
   Row _buildMainInfo() {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -198,7 +184,7 @@ class SakeInnerContent extends StatelessWidget {
 
   StreamBuilder<Sake> _buildStreamDescription(BuildContext context) {
     return StreamBuilder<Sake>(
-      stream: _getCurrentLanguageSelected('3256223100226', context),
+      stream: _getCurrentLanguageSelected(sake.id, context),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           print(snapshot.error);
@@ -242,26 +228,5 @@ class SakeInnerContent extends StatelessWidget {
     } else {
       return database.sakeDescriptionStreamEn(sakeId);
     }
-  }
-
-  Stack _buildStackedImageTitle() {
-    return Stack(
-      children: <Widget>[
-        Center(
-          child: Image.asset(
-            'images/wave1.png',
-            height: 90,
-          ),
-        ),
-        Transform.translate(
-            offset: Offset(0, 26), child: _buildCharacteristicsTitle()),
-      ],
-    );
-  }
-
-  Container _buildLoremIpsum() {
-    return Container(
-      child: Text(kLoremIpsum),
-    );
   }
 }

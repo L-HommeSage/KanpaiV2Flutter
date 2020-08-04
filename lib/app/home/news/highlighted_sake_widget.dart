@@ -45,7 +45,7 @@ class HighlightedSake extends StatelessWidget {
       children: <Widget>[
         Material(
           borderRadius: BorderRadius.circular(8),
-          elevation: 2,
+          elevation: 1,
           color: kDarkPrimaryColor,
           child: InkWell(
             highlightColor: Color(0xAF1d3557),

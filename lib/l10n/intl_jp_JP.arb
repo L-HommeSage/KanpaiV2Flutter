@@ -35,8 +35,12 @@
   "landing_page_text_four": "Rejoins nous",
   "register_title": "登録",
   "login_title": "Welcome back",
+  "discover": "Discover",
+  "see_more": "See more",
+  "learn_more_about_sake": "Learn more about Sake",
   "today_selection": "Today selection",
   "CounterText": "{counter, plural, zero{Vous n'avez jamais appuyé.} other{Vous avez appuyé {counter} fois.}}",
+  "sake_discover": "In Japanese, sake literally means alcohol: rice alcohol being the oldest form of alcohol present in Japan. Japanese sake differs from Chinese \"sake\",which is a very strong distilled alcohol (45 °) served as a digestif.",
   "japan": "Japan",
   "france": "France",
   "alcohol": "Alcohol",
@@ -57,7 +61,14 @@
   "fruity": "Fruity",
   "acid": "Acid",
   "soft": "Soft",
+  "floral": "Floral",
+  "fragrant": "Fragrant",
+  "fried_food": "Fried food",
+  "skill": "Skill",
+  "water":"Water",
+  "sake": "Sake",
 
+  "sake_description_discover1": "Sake is a traditional Japanese alcohol obtained from the fermentation of rice, titrating usually between 5 and 20 degrees.",
 
 
   "omachi_description": "Omachi rice is known as the oldest identified sake rice variety, it reigned supreme nearly 70 years since its discovery in the 1860s. Origined from Okayama he is recognized for it's layered, herbal and earthy flavors",

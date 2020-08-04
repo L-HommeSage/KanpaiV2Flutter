@@ -393,6 +393,36 @@ class S {
     );
   }
 
+  /// `Discover`
+  String get discover {
+    return Intl.message(
+      'Discover',
+      name: 'discover',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See more`
+  String get see_more {
+    return Intl.message(
+      'See more',
+      name: 'see_more',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Learn more about Sake`
+  String get learn_more_about_sake {
+    return Intl.message(
+      'Learn more about Sake',
+      name: 'learn_more_about_sake',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Today selection`
   String get today_selection {
     return Intl.message(
@@ -413,6 +443,16 @@ class S {
       name: 'CounterText',
       desc: '',
       args: [counter],
+    );
+  }
+
+  /// `In Japanese, sake literally means alcohol: rice alcohol being the oldest form of alcohol present in Japan. Japanese sake differs from Chinese "sake",which is a very strong distilled alcohol (45 °) served as a digestif.`
+  String get sake_discover {
+    return Intl.message(
+      'In Japanese, sake literally means alcohol: rice alcohol being the oldest form of alcohol present in Japan. Japanese sake differs from Chinese "sake",which is a very strong distilled alcohol (45 °) served as a digestif.',
+      name: 'sake_discover',
+      desc: '',
+      args: [],
     );
   }
 
@@ -611,6 +651,76 @@ class S {
     return Intl.message(
       'Soft',
       name: 'soft',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Floral`
+  String get floral {
+    return Intl.message(
+      'Floral',
+      name: 'floral',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fragrant`
+  String get fragrant {
+    return Intl.message(
+      'Fragrant',
+      name: 'fragrant',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fried food`
+  String get fried_food {
+    return Intl.message(
+      'Fried food',
+      name: 'fried_food',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Skill`
+  String get skill {
+    return Intl.message(
+      'Skill',
+      name: 'skill',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Water`
+  String get water {
+    return Intl.message(
+      'Water',
+      name: 'water',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sake`
+  String get sake {
+    return Intl.message(
+      'Sake',
+      name: 'sake',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sake is a traditional Japanese alcohol obtained from the fermentation of rice, titrating usually between 5 and 20 degrees.`
+  String get sake_description_discover1 {
+    return Intl.message(
+      'Sake is a traditional Japanese alcohol obtained from the fermentation of rice, titrating usually between 5 and 20 degrees.',
+      name: 'sake_description_discover1',
       desc: '',
       args: [],
     );
