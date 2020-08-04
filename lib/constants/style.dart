@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // Palette 1
-const kDarkPrimaryColor = Color(0xFFede4dd);
+const kDarkPrimaryColor = Color(0xFFeedbcb);
 const kLightPrimaryColor = Color(0xFFFFFFFF);
-const kPrimaryColor = Color(0xFFFFF7F1);
+const kPrimaryColor = Color(0xFFF8ECE1);
 const kTextIconColor = Color(0xFF202C39);
 const kAccentColor = Color(0xFFFF6D6D);
 const kPrimaryTextColor = Color(0xFF0D1F66);

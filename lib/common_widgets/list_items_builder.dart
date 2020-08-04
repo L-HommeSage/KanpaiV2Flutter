@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 typedef ItemWidgetBuilder<T> = Widget Function(BuildContext context, T item);
@@ -26,9 +27,12 @@ class ListItemsBuilder<T> extends StatelessWidget {
   }
 
   Widget _builtList(List<T> items) {
-    return ListView.builder(
+    return ListView.separated(
       itemCount: items.length,
       itemBuilder: (context, index) => itemBuilder(context, items[index]),
+      separatorBuilder: (context, index) => SizedBox(
+        height: 10,
+      ),
     );
   }
 }

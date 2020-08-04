@@ -19,4 +19,8 @@ class APIPath {
   static String sakeReviewComment(
           {String sakeId, String lang, String reviewId}) =>
       '/sakes/$sakeId/reviews/$lang/reviewsContent/$reviewId/comments';
+
+  /// get News ///
+  static String getSakeNews({String lang, String id}) =>
+      '/news/$lang/highlighted/highlighted$id';
 }

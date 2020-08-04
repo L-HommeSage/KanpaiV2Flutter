@@ -14,7 +14,7 @@ class HomePageTabs extends StatefulWidget {
 }
 
 class _HomePageTabsState extends State<HomePageTabs>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   double _xOffset = 0;
   double _yOffset = 0;
   double _scaleFactor = 1;
@@ -31,9 +31,14 @@ class _HomePageTabsState extends State<HomePageTabs>
   TabController _tabController;
   ScrollController _scrollController;
   @override
+  bool get wantKeepAlive => true;
+  @override
   void initState() {
     super.initState();
-    _tabController = TabController(vsync: this, length: _myTabs.length);
+    _tabController = TabController(
+      vsync: this,
+      length: _myTabs.length,
+    );
     _tabController.addListener(() {
       _setTitle(_tabController.index);
     });
@@ -51,6 +56,7 @@ class _HomePageTabsState extends State<HomePageTabs>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return AnimatedContainer(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),

@@ -144,7 +144,7 @@ class IntroPage extends StatelessWidget {
         titleWidget: _buildAnimatedText(
             context,
             S.of(context).landing_page_text_two,
-            MediaQuery.of(context).size.height / 1.4,
+            MediaQuery.of(context).size.height / 1.6,
             kLightPrimaryColor),
         body: "",
       ),

@@ -8,7 +8,8 @@ import 'package:kanpai/services/database.dart';
 import 'package:flutter/foundation.dart';
 
 class SakePage extends StatefulWidget {
-  const SakePage({@required this.database});
+  const SakePage({@required this.sake, @required this.database});
+  final Sake sake;
   final Database database;
 
   @override
@@ -44,7 +45,6 @@ class _SakePageState extends State<SakePage> with TickerProviderStateMixin {
   bool _scrollListener(ScrollNotification scrollInfo) {
     if (scrollInfo.metrics.axis == Axis.vertical) {
       _colorAnimationController.animateTo(scrollInfo.metrics.pixels / 250);
-
       _textAnimationController
           .animateTo((scrollInfo.metrics.pixels - 335) / 50);
       return true;
@@ -55,21 +55,7 @@ class _SakePageState extends State<SakePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<Sake>(
-      stream: widget.database.sakeStream('3256223100226'),
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          final sake = snapshot.data;
-          return _buildSakeContent(sake, context);
-        }
-        if (snapshot.hasError) {
-          print(snapshot.error);
-          return Center(child: Text('Some error occurred'));
-        } else {
-          return _buildWaitingPage();
-        }
-      },
-    );
+    return _buildSakeContent(widget.sake, context);
   }
 
   Widget _buildSakeContent(Sake sake, BuildContext context) {
@@ -137,16 +123,6 @@ class _SakePageState extends State<SakePage> with TickerProviderStateMixin {
     return SliverPersistentHeader(
       delegate: DetailSliverDelegate(expandedHeight,
           "images/backgroundImage5.PNG", roundedContainerHeight, sake),
-    );
-  }
-
-  Widget _buildWaitingPage() {
-    //TODO: build waiting page like SliverHead to get smooth hero animation
-    // think to pass the sake's name the sake image and its rating in the constructor
-    return Center(
-      child: Container(
-        color: Colors.white,
-      ),
     );
   }
 

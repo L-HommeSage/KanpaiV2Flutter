@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:kanpai/app/home/models/sake.dart';
 import 'package:kanpai/app/home/sake/sake_page.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
@@ -8,46 +9,57 @@ import 'package:kanpai/services/database.dart';
 import 'package:provider/provider.dart';
 
 class HighlightedSake extends StatelessWidget {
-  const HighlightedSake(
-      {@required this.backgroundImage,
-      @required this.message,
-      @required this.colorGradient,
-      this.tag});
+  const HighlightedSake({
+    @required this.backgroundImage,
+    @required this.message,
+    @required this.colorGradient,
+    @required this.sakeId,
+  });
   final String backgroundImage;
   final String message;
+  final String sakeId;
   final List<Color> colorGradient;
-  final String tag;
 
   @override
   Widget build(BuildContext context) {
     final Database database = Provider.of<Database>(context, listen: false);
-    return InkWell(
-      highlightColor: kTextIconColor,
-      borderRadius: BorderRadius.circular(8),
-      onTap: () => Navigator.of(context).push(
-        MaterialPageRoute<void>(
-          builder: (context) => SakePage(database: database),
-        ),
-      ),
-      child: Stack(
-        children: <Widget>[
-          ClipRRect(
+    return StreamBuilder<Sake>(
+      stream: database.sakeStream(sakeId),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          final sake = snapshot.data;
+          return _buildContent(sake, context, database);
+        }
+        if (snapshot.hasError) {
+          print(snapshot.error);
+          return Center(child: Text('Some error occurred'));
+        } else {
+          return SizedBox();
+        }
+      },
+    );
+  }
+
+  Stack _buildContent(Sake sake, BuildContext context, Database database) {
+    return Stack(
+      children: <Widget>[
+        Material(
+          borderRadius: BorderRadius.circular(8),
+          elevation: 2,
+          color: kDarkPrimaryColor,
+          child: InkWell(
+            highlightColor: Color(0xAF1d3557),
             borderRadius: BorderRadius.circular(8),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (context) => SakePage(database: database, sake: sake),
+              ),
+            ),
             child: Container(
               height: 300,
               decoration: BoxDecoration(
-                color: kDarkPrimaryColor,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    blurRadius: 7.0, // soften the shadow
-                    spreadRadius: 5.0, //extend the shadow
-                    offset: Offset(
-                      0.0, // Move to right 10  horizontally
-                      5.0, // Move to bottom 10 Vertically
-                    ),
-                  ),
-                ],
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(8),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -56,7 +68,7 @@ class HighlightedSake extends StatelessWidget {
                     clipper: ClippingClass(),
                     child: Container(
                       decoration: BoxDecoration(
-                        //color: kPrimaryTextColor,
+                        borderRadius: BorderRadius.circular(8),
                         image: DecorationImage(
                             image: AssetImage(backgroundImage),
                             fit: BoxFit.cover),
@@ -64,6 +76,7 @@ class HighlightedSake extends StatelessWidget {
                       height: 160,
                       child: Container(
                         decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
                             gradient: LinearGradient(
                                 begin: Alignment.topRight,
                                 end: Alignment.bottomLeft,
@@ -104,7 +117,7 @@ class HighlightedSake extends StatelessWidget {
                               width: 40,
                             ),
                             Text(
-                              '3.8',
+                              sake.rating.toString(),
                               style: TextStyle(
                                   fontSize: 40,
                                   fontFamily: kFontFamilyHeadlines,
@@ -118,7 +131,7 @@ class HighlightedSake extends StatelessWidget {
                                   height: 10,
                                 ),
                                 Text(
-                                  '206 ${S.of(context).ratings}',
+                                  '${sake.nbRatings.toString()} ${S.of(context).ratings}',
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontFamily: kFontFamilyCommonText,
@@ -130,7 +143,7 @@ class HighlightedSake extends StatelessWidget {
                                     color: kPrimaryTextColor,
                                   ),
                                   itemSize: 20,
-                                  rating: 3.8,
+                                  rating: sake.rating,
                                   itemCount: 5,
                                   unratedColor: kPrimaryColor,
                                   direction: Axis.horizontal,
@@ -139,6 +152,16 @@ class HighlightedSake extends StatelessWidget {
                             ),
                           ],
                         ),
+                        SizedBox(height: 5),
+                        Text(
+                          '${sake.name}, ${sake.family}',
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              fontFamily: kFontFamilyHeadlines,
+                              fontSize: 17,
+                              color: kPrimaryTextColor),
+                        ),
                       ],
                     ),
                   )
@@ -146,18 +169,18 @@ class HighlightedSake extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Hero(
-              tag: tag,
-              child: Image.asset(
-                "images/Amabuki_Kimoto.png",
-                height: 300,
-              ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Hero(
+            tag: sake.id,
+            child: Image.network(
+              sake.photoUrl,
+              height: 300,
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

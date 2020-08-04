@@ -108,8 +108,8 @@ class DetailSliverDelegate extends SliverPersistentHeaderDelegate {
                 offset: Offset(0, -90),
                 child: Hero(
                   tag: sake.id,
-                  child: Image.asset(
-                    "images/Amabuki_Kimoto.png",
+                  child: Image.network(
+                    sake.photoUrl,
                     height: 300,
                   ),
                 ),

@@ -2,10 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:kanpai/app/home/models/comment.dart';
 import 'package:kanpai/app/home/models/review.dart';
 import 'package:kanpai/app/home/models/sake.dart';
+import 'package:kanpai/app/home/models/sake_news.dart';
 import 'package:kanpai/services/api_path.dart';
 import 'package:kanpai/services/firestore_service.dart';
 
 abstract class Database {
+  Stream<SakeNews> sakeNewsStream(String lang, String id);
   Future<void> setReviewEn(
       {Review review,
       String sakeId}); // can be used for update or create a review in english
@@ -29,7 +31,13 @@ class FireStoreDatabase implements Database {
   final String uid;
   final _service = FirestoreService.instance;
 
-  /// Read Sake ///
+  /// Read SakeNews ///
+  Stream<SakeNews> sakeNewsStream(String lang, String id) =>
+      _service.documentStream(
+          path: APIPath.getSakeNews(lang: lang, id: id),
+          builder: (data, id) => SakeNews.fromMap(data, id));
+
+  /// Read Sake Stream methods///
   Stream<Sake> sakeStream(String sakeId) => _service.documentStream(
         path: APIPath.getSake(sakeId: sakeId),
         builder: (data, sakeId) => Sake.fromMap(data, sakeId),

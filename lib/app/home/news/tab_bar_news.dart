@@ -1,59 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:kanpai/app/home/news/highlitghted_sake_widget.dart';
+import 'package:kanpai/app/home/models/sake_news.dart';
+import 'package:kanpai/app/home/news/highlighted_sake_widget.dart';
+import 'package:kanpai/app/home/news/info_container_widget.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
+import 'package:kanpai/services/database.dart';
+import 'package:provider/provider.dart';
 
 class TabBarNews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: EdgeInsets.symmetric(horizontal: 8),
-      children: <Widget>[
-        _buildTodayTitle(context),
-        HighlightedSake(
-          message: 'New Arrival',
-          tag: '3256223100222',
-          backgroundImage: "images/backgroundImage6.PNG",
-          colorGradient: [
-            kPrimaryTextColor,
-            Color(0xAF0D1F66),
-            Color(0x0F0D1F66),
-            Color(0x00FFFFFF)
-          ],
-        ),
-        SizedBox(height: 10),
-        HighlightedSake(
-          message: 'Hot this week',
-          tag: '3256223100224',
-          backgroundImage: "images/backgroundImage2.PNG",
-          colorGradient: [
-            kAccentColor,
-            Color(0xAFFF6D6D),
-            Color(0x0FFF6D6D),
-            Color(0x00FFFFFF)
-          ],
-        ),
-        SizedBox(height: 10),
-        HighlightedSake(
-          message: 'Recommended by our team',
-          tag: '3256223100226',
-          backgroundImage: "images/backgroundImage3.PNG",
-          colorGradient: [
-            Color(0xFFFABC3C),
-            Color(0xAFFABC3C),
-            Color(0x0FFACC6B),
-            Color(0x00FFFFFF)
-          ],
-        ),
-        SizedBox(height: 50),
-      ],
+    final database = Provider.of<Database>(context, listen: false);
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: ListView(
+        children: <Widget>[
+          _buildTodayTitle(context),
+          /*_buildHighlightedSake(
+              context: context,
+              database: database,
+              id: "1",
+              lang: "en",
+              backgroundImage: "images/backgroundImage6.PNG"),*/
+          _buildTodayInfo(),
+        ],
+      ),
     );
   }
 
   Container _buildTodayTitle(BuildContext context) {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16),
+        padding: const EdgeInsets.symmetric(vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -65,5 +43,87 @@ class TabBarNews extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _buildHighlightedSake(
+      {BuildContext context,
+      Database database,
+      String id,
+      String lang,
+      String backgroundImage}) {
+    return StreamBuilder<SakeNews>(
+      stream: database.sakeNewsStream(lang, id),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          final sakeNews = snapshot.data;
+          return Column(
+            children: <Widget>[
+              HighlightedSake(
+                  message: sakeNews.message,
+                  sakeId: sakeNews.sakeId,
+                  backgroundImage: backgroundImage,
+                  colorGradient: _getColorGradient(sakeNews.colorCode)),
+              SizedBox(height: 20)
+            ],
+          );
+        }
+        if (snapshot.hasError) {
+          print(snapshot.error);
+          return Center(child: Text('Some error occurred'));
+        } else {
+          return SizedBox();
+        }
+      },
+    );
+  }
+
+  InfoContainer _buildTodayInfo() =>
+      InfoContainer(colorGradient: _getColorGradient(1));
+
+  List<Color> _getColorGradient(int colorCode) {
+    switch (colorCode) {
+      case 1:
+        return [
+          kAccentColor,
+          Color(0xAFFF6D6D),
+          Color(0x0FFF6D6D),
+          Color(0x00FFFFFF)
+        ];
+      case 2:
+        return [
+          kPrimaryTextColor,
+          Color(0xAF0D1F66),
+          Color(0x0F0D1F66),
+          Color(0x00FFFFFF)
+        ];
+      case 3:
+        return [
+          Color(0xFFfca311),
+          Color(0xAFfca311),
+          Color(0x0Ffca311),
+          Color(0x00FFFFFF)
+        ];
+      case 4:
+        return [
+          Color(0xFF606c38),
+          Color(0xAF606c38),
+          Color(0x0F606c38),
+          Color(0x00FFFFFF)
+        ];
+      case 5:
+        return [
+          Color(0xFF5f0f40),
+          Color(0xAF5f0f40),
+          Color(0x0F5f0f40),
+          Color(0x00FFFFFF)
+        ];
+      default:
+        return [
+          kAccentColor,
+          Color(0xAFFF6D6D),
+          Color(0x0FFF6D6D),
+          Color(0x00FFFFFF)
+        ];
+    }
   }
 }

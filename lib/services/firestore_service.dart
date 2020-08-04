@@ -20,6 +20,7 @@ class FirestoreService {
     final DocumentReference reference = Firestore.instance.document(path);
     final Stream<DocumentSnapshot> snapshots = reference.snapshots();
     snapshots.listen((event) {
+      print('----- ok -----');
       print(event.data);
     });
     return snapshots
