@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kanpai/app/home/news/discover/koji_panel_widget.dart';
 import 'package:kanpai/app/home/news/discover/rice_timeliner_widget.dart';
 import 'package:kanpai/app/home/news/discover/row_kanji_widget.dart';
 import 'package:kanpai/app/home/news/discover/row_water_quality_widget.dart';
@@ -129,7 +130,16 @@ class _DiscoverPageState extends State<DiscoverPage>
         Divider(),
         _buildTitle(title: S.of(context).rice_title),
         Divider(),
-        RiceTimeLiner(context: context)
+        RiceTimeLiner(context: context),
+        Divider(),
+        _buildTitle(title: S.of(context).koji),
+        Divider(),
+        _buildCommonParagraph(text: S.of(context).koji_description),
+        Divider(),
+        KojiDescriptionPanel(context: context),
+        Divider(),
+        _buildTitle(title: S.of(context).fermentation_title),
+        Divider(),
       ],
     );
   }

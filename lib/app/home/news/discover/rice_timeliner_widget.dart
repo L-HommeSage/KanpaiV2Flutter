@@ -19,22 +19,21 @@ class RiceTimeLiner extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           TimelineTile(
-            alignment: TimelineAlign.manual,
-            lineX: 0.1,
-            isFirst: true,
-            indicatorStyle: const IndicatorStyle(
-              width: 15,
-              color: kAccentColor,
-            ),
-            topLineStyle: const LineStyle(
-              color: kAccentColor,
-              width: 4,
-            ),
-            rightChild: _buildRightChild(
-                image: "images/riceback.png",
-                title: S.of(context).water,
-                info: "okokok"),
-          ),
+              alignment: TimelineAlign.manual,
+              lineX: 0.1,
+              isFirst: true,
+              indicatorStyle: const IndicatorStyle(
+                width: 15,
+                color: kAccentColor,
+              ),
+              topLineStyle: const LineStyle(
+                color: kAccentColor,
+                width: 4,
+              ),
+              rightChild: _buildRightChild(
+                  image: "images/riceback.png",
+                  title: S.of(context).harvest,
+                  info: S.of(context).harvest_description)),
           const TimelineDivider(
             begin: 0.1,
             end: 0.9,
@@ -57,7 +56,9 @@ class RiceTimeLiner extends StatelessWidget {
               color: kAccentColor,
             ),
             leftChild: _buildLeftChild(
-                title: "okok", info: "pro", image: "images/polishedrice.png"),
+                title: S.of(context).polishing,
+                info: S.of(context).polishing_description,
+                image: "images/polishedrice.png"),
           ),
           const TimelineDivider(
             begin: 0.1,
@@ -82,8 +83,8 @@ class RiceTimeLiner extends StatelessWidget {
             ),
             rightChild: _buildRightChild(
                 image: "images/lavage.png",
-                title: S.of(context).water,
-                info: "okokok"),
+                title: S.of(context).washing,
+                info: S.of(context).washing_description),
           ),
           const TimelineDivider(
             begin: 0.1,
@@ -106,6 +107,10 @@ class RiceTimeLiner extends StatelessWidget {
               width: 15,
               color: kAccentColor,
             ),
+            leftChild: _buildLeftChild(
+                image: 'images/trempage.png',
+                title: S.of(context).soaking,
+                info: S.of(context).soaking_description),
           ),
           const TimelineDivider(
             begin: 0.1,
@@ -125,6 +130,10 @@ class RiceTimeLiner extends StatelessWidget {
               width: 15,
               color: kAccentColor,
             ),
+            rightChild: _buildRightChild(
+                image: 'images/steaming.png',
+                title: S.of(context).steam_cooking,
+                info: S.of(context).soaking_description),
           ),
         ],
       ),
@@ -154,8 +163,8 @@ class RiceTimeLiner extends StatelessWidget {
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    kDarkPrimaryColor,
-                    Color(0xAFF8ECE1),
+                    kTextIconColor,
+                    Color(0x5F0D1F66),
                     Colors.transparent
                   ]),
             ),
@@ -166,10 +175,16 @@ class RiceTimeLiner extends StatelessWidget {
                 children: <Widget>[
                   Text(title,
                       style: TextStyle(
-                          color: kPrimaryTextColor,
+                          color: kLightPrimaryColor,
                           fontSize: 20,
                           fontFamily: kFontFamilyHeadlines)),
-                  Text(info)
+                  Text(
+                    info,
+                    style: TextStyle(
+                        color: kLightPrimaryColor,
+                        fontSize: 15,
+                        fontFamily: kFontFamilyCommonText),
+                  )
                 ],
               ),
             ),
@@ -202,8 +217,8 @@ class RiceTimeLiner extends StatelessWidget {
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,
                   colors: [
-                    kDarkPrimaryColor,
-                    Color(0xAFF8ECE1),
+                    kTextIconColor,
+                    Color(0x5F0D1F66),
                     Colors.transparent
                   ]),
             ),
@@ -214,10 +229,16 @@ class RiceTimeLiner extends StatelessWidget {
                 children: <Widget>[
                   Text(title,
                       style: TextStyle(
-                          color: kPrimaryTextColor,
+                          color: kLightPrimaryColor,
                           fontSize: 20,
                           fontFamily: kFontFamilyHeadlines)),
-                  Text(info)
+                  Text(
+                    info,
+                    style: TextStyle(
+                        color: kLightPrimaryColor,
+                        fontSize: 15,
+                        fontFamily: kFontFamilyCommonText),
+                  )
                 ],
               ),
             ),

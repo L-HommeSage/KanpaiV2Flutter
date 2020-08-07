@@ -896,6 +896,196 @@ class S {
     );
   }
 
+  /// `Harvest`
+  String get harvest {
+    return Intl.message(
+      'Harvest',
+      name: 'harvest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rice is harvested usually in September`
+  String get harvest_description {
+    return Intl.message(
+      'Rice is harvested usually in September',
+      name: 'harvest_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Polishing`
+  String get polishing {
+    return Intl.message(
+      'Polishing',
+      name: 'polishing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `50 hours to polish a grain at 50%`
+  String get polishing_description {
+    return Intl.message(
+      '50 hours to polish a grain at 50%',
+      name: 'polishing_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Washing`
+  String get washing {
+    return Intl.message(
+      'Washing',
+      name: 'washing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The rice grain is rinsed to remove its impurities`
+  String get washing_description {
+    return Intl.message(
+      'The rice grain is rinsed to remove its impurities',
+      name: 'washing_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Soaking`
+  String get soaking {
+    return Intl.message(
+      'Soaking',
+      name: 'soaking',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The rice is soaked between 1 minute and several hours`
+  String get soaking_description {
+    return Intl.message(
+      'The rice is soaked between 1 minute and several hours',
+      name: 'soaking_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Steam cooking`
+  String get steam_cooking {
+    return Intl.message(
+      'Steam cooking',
+      name: 'steam_cooking',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The rice is cooked for 45 to 60 minutes`
+  String get steam_cooking_description {
+    return Intl.message(
+      'The rice is cooked for 45 to 60 minutes',
+      name: 'steam_cooking_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The Koji`
+  String get koji {
+    return Intl.message(
+      'The Koji',
+      name: 'koji',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The koji (lit. flower of mold) is a fungus that causes sacchariﬁcation rice starch. It directly inﬂuences the taste of sake.\n\nIt is also used in a large number of food products (miso, soy sauce...).\nThe kome-koji is produced in a room heated to 35 ° C and the process takes around 48 hours. 20% of steamed rice is intended to be seeded with koji.`
+  String get koji_description {
+    return Intl.message(
+      'The koji (lit. flower of mold) is a fungus that causes sacchariﬁcation rice starch. It directly inﬂuences the taste of sake.\n\nIt is also used in a large number of food products (miso, soy sauce...).\nThe kome-koji is produced in a room heated to 35 ° C and the process takes around 48 hours. 20% of steamed rice is intended to be seeded with koji.',
+      name: 'koji_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Koji-kin`
+  String get koji_kin {
+    return Intl.message(
+      'Koji-kin',
+      name: 'koji_kin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Koji spores:\nmicroorganism`
+  String get koji_kin_description {
+    return Intl.message(
+      'Koji spores:\nmicroorganism',
+      name: 'koji_kin_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Koji-mai`
+  String get koji_mai {
+    return Intl.message(
+      'Koji-mai',
+      name: 'koji_mai',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Steamed rice, intended to be flavored with koji-kin`
+  String get koji_mai_description {
+    return Intl.message(
+      'Steamed rice, intended to be flavored with koji-kin',
+      name: 'koji_mai_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kome-koji`
+  String get kome_koji {
+    return Intl.message(
+      'Kome-koji',
+      name: 'kome_koji',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rice on which koji-kin has been grown`
+  String get kome_koji_description {
+    return Intl.message(
+      'Rice on which koji-kin has been grown',
+      name: 'kome_koji_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The essential step:\nFermentation`
+  String get fermentation_title {
+    return Intl.message(
+      'The essential step:\nFermentation',
+      name: 'fermentation_title',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Omachi rice is known as the oldest identified sake rice variety, it reigned supreme nearly 70 years since its discovery in the 1860s. Origined from Okayama he is recognized for it's layered, herbal and earthy flavors`
   String get omachi_description {
     return Intl.message(
