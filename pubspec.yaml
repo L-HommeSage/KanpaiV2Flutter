@@ -32,6 +32,7 @@ dependencies:
   flutter_rating_bar: ^3.0.1+1
   flag: ^3.0.1
   url_launcher: ^5.5.0
+  timeline_tile: ^0.1.2
 
 
 

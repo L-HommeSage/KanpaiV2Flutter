@@ -17,6 +17,15 @@ class DetailSliverDelegate extends SliverPersistentHeaderDelegate {
           height: expandedHeight,
           fit: BoxFit.cover,
         ),
+        Positioned.fill(
+          child: Align(
+            alignment: Alignment.center,
+            child: Image.asset(
+              'images/kanjiSake.png',
+              height: 200,
+            ),
+          ),
+        ),
         Positioned(
           top: expandedHeight - roundedContainerHeight - shrinkOffset,
           left: 0,
@@ -30,14 +39,6 @@ class DetailSliverDelegate extends SliverPersistentHeaderDelegate {
                     topRight: Radius.circular(25))),
           ),
         ),
-        Positioned.fill(
-            child: Align(
-          alignment: Alignment.center,
-          child: Image.asset(
-            'images/kanjiSake.png',
-            height: 200,
-          ),
-        ))
       ],
     );
   }

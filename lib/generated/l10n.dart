@@ -726,6 +726,176 @@ class S {
     );
   }
 
+  /// `Sake is about 80% water. 30 to 40 liters of water are needed to produce 1 liter of sake.`
+  String get sake_description_discover2 {
+    return Intl.message(
+      'Sake is about 80% water. 30 to 40 liters of water are needed to produce 1 liter of sake.',
+      name: 'sake_description_discover2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A good water is`
+  String get good_water {
+    return Intl.message(
+      'A good water is',
+      name: 'good_water',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rich in`
+  String get rich_in {
+    return Intl.message(
+      'Rich in',
+      name: 'rich_in',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Low in`
+  String get low_in {
+    return Intl.message(
+      'Low in',
+      name: 'low_in',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Iron`
+  String get iron {
+    return Intl.message(
+      'Iron',
+      name: 'iron',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manganese`
+  String get manganese {
+    return Intl.message(
+      'Manganese',
+      name: 'manganese',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Potassium`
+  String get potassium {
+    return Intl.message(
+      'Potassium',
+      name: 'potassium',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Magnesium`
+  String get magnesium {
+    return Intl.message(
+      'Magnesium',
+      name: 'magnesium',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phosphoric acid`
+  String get phosphoric_acid {
+    return Intl.message(
+      'Phosphoric acid',
+      name: 'phosphoric_acid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hard water`
+  String get hard_water {
+    return Intl.message(
+      'Hard water',
+      name: 'hard_water',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pure water`
+  String get pure_water {
+    return Intl.message(
+      'Pure water',
+      name: 'pure_water',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rich in mineral salts\nThickness and angular feel in the mouth.`
+  String get hard_water_description {
+    return Intl.message(
+      'Rich in mineral salts\nThickness and angular feel in the mouth.',
+      name: 'hard_water_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Refreshing, almost sweet.`
+  String get pure_water_description {
+    return Intl.message(
+      'Refreshing, almost sweet.',
+      name: 'pure_water_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sakes possessing textures and chews with rich and dense flavors.`
+  String get hard_water_result {
+    return Intl.message(
+      'Sakes possessing textures and chews with rich and dense flavors.',
+      name: 'hard_water_result',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fine and refreshing sakes, sweet and aromatic`
+  String get pure_water_result {
+    return Intl.message(
+      'Fine and refreshing sakes, sweet and aromatic',
+      name: 'pure_water_result',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rice`
+  String get rice_title {
+    return Intl.message(
+      'Rice',
+      name: 'rice_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Water`
+  String get water_title {
+    return Intl.message(
+      'Water',
+      name: 'water_title',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Omachi rice is known as the oldest identified sake rice variety, it reigned supreme nearly 70 years since its discovery in the 1860s. Origined from Okayama he is recognized for it's layered, herbal and earthy flavors`
   String get omachi_description {
     return Intl.message(

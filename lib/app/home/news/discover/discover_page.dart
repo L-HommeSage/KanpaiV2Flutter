@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kanpai/app/home/news/discover/rice_timeliner_widget.dart';
 import 'package:kanpai/app/home/news/discover/row_kanji_widget.dart';
+import 'package:kanpai/app/home/news/discover/row_water_quality_widget.dart';
+import 'package:kanpai/app/home/news/discover/row_water_spe.dart';
 import 'package:kanpai/app/home/news/discover/sliver_persistent_header.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
@@ -12,7 +15,7 @@ class DiscoverPage extends StatefulWidget {
 class _DiscoverPageState extends State<DiscoverPage>
     with TickerProviderStateMixin {
   final double expandedHeight = 400;
-  final double roundedContainerHeight = 50;
+  final double roundedContainerHeight = 30;
 
   AnimationController _colorAnimationController;
   AnimationController _textAnimationController;
@@ -77,7 +80,11 @@ class _DiscoverPageState extends State<DiscoverPage>
 
   Widget _buildDetails() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
+        Transform.translate(
+            offset: Offset(0, -20),
+            child: _buildTitle(title: S.of(context).sake)),
         Container(
           height: 2,
           color: kPrimaryTextColor,
@@ -87,8 +94,6 @@ class _DiscoverPageState extends State<DiscoverPage>
           height: 2,
           color: kPrimaryTextColor,
         ),
-        _buildTitle(title: S.of(context).sake),
-        Divider(),
         _buildCommonParagraph(
           text: S.of(context).sake_description_discover1,
         ),
@@ -97,7 +102,34 @@ class _DiscoverPageState extends State<DiscoverPage>
           text: S.of(context).sake_discover,
         ),
         Divider(),
-        _buildTitle(title: S.of(context).water),
+        _buildTitle(title: S.of(context).water_title),
+        Divider(),
+        _buildCommonParagraph(
+          text: S.of(context).sake_description_discover2,
+        ),
+        Divider(),
+        Padding(
+          padding: const EdgeInsets.only(left: 16, bottom: 10),
+          child:
+              Text("${S.of(context).good_water}:", style: kHeadlinesTextStyle),
+        ),
+        Container(
+          height: 2,
+          color: kPrimaryTextColor,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          child: RowWaterQuality(context: context),
+        ),
+        Container(
+          height: 2,
+          color: kPrimaryTextColor,
+        ),
+        RowWaterSpe(context: context),
+        Divider(),
+        _buildTitle(title: S.of(context).rice_title),
+        Divider(),
+        RiceTimeLiner(context: context)
       ],
     );
   }
@@ -110,8 +142,8 @@ class _DiscoverPageState extends State<DiscoverPage>
         textAlign: TextAlign.justify,
         style: TextStyle(
             fontSize: 20,
-            color: kSecondaryTextColor,
-            fontFamily: kFontFamilyCommonText),
+            color: kPrimaryTextColor,
+            fontFamily: kFontFamilyHeadlines),
       ),
     );
   }

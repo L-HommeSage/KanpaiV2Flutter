@@ -40,7 +40,7 @@ class RowKanji extends StatelessWidget {
         Container(
           width: 2,
           height: 50,
-          color: kPrimaryTextColor,
+          color: kAccentColor,
         ),
         Expanded(
           flex: 1,
@@ -67,7 +67,7 @@ class RowKanji extends StatelessWidget {
         Container(
           width: 2,
           height: 50,
-          color: kPrimaryTextColor,
+          color: kAccentColor,
         ),
         Expanded(
           flex: 1,

@@ -69,7 +69,23 @@
   "sake": "Sake",
 
   "sake_description_discover1": "Sake is a traditional Japanese alcohol obtained from the fermentation of rice, titrating usually between 5 and 20 degrees.",
-
+  "sake_description_discover2": "Sake is about 80% water. 30 to 40 liters of water are needed to produce 1 liter of sake." ,
+  "good_water": "A good water is",
+  "rich_in":"Rich in" ,
+  "low_in":"Low in" ,
+  "iron": "Iron",
+  "manganese": "Manganese",
+  "potassium": "Potassium",
+  "magnesium": "Magnesium",
+  "phosphoric_acid": "Phosphoric acid",
+  "hard_water": "Hard water",
+  "pure_water": "Pure water",
+  "hard_water_description": "Rich in mineral salts\nThickness and angular feel in the mouth.",
+  "pure_water_description": "Refreshing, almost sweet.",
+  "hard_water_result": "Sakes possessing textures and chews with rich and dense flavors.",
+  "pure_water_result": "Fine and refreshing sakes, sweet and aromatic",
+  "rice_title": "Rice",
+  "water_title": "Water",
 
   "omachi_description": "Omachi rice is known as the oldest identified sake rice variety, it reigned supreme nearly 70 years since its discovery in the 1860s. Origined from Okayama he is recognized for it's layered, herbal and earthy flavors",
 
