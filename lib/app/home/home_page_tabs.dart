@@ -43,7 +43,7 @@ class _HomePageTabsState extends State<HomePageTabs>
       _setTitle(_tabController.index);
     });
     _scrollController = ScrollController();
-    _tabController.index = 0;
+    _tabController.index = 1;
     _setTitle(_tabController.index);
   }
 
@@ -90,7 +90,7 @@ class _HomePageTabsState extends State<HomePageTabs>
               pinned: true,
               forceElevated: boxIsScrolled,
               title: Text(_currentTitle, style: kHeadlinesTextStyle),
-              floating: true,
+              floating: (_tabController.index == 1) ? false : true,
               actions: <Widget>[
                 _buildIconDrawerButton(),
               ],

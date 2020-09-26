@@ -546,6 +546,36 @@ class S {
     );
   }
 
+  /// `Brows Sakes`
+  String get browse_sake {
+    return Intl.message(
+      'Brows Sakes',
+      name: 'browse_sake',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search sake`
+  String get search_sake {
+    return Intl.message(
+      'Search sake',
+      name: 'search_sake',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `More filters`
+  String get more_filters {
+    return Intl.message(
+      'More filters',
+      name: 'more_filters',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Fresh`
   String get fresh {
     return Intl.message(
