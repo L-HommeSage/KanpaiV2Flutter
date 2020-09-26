@@ -576,6 +576,46 @@ class S {
     );
   }
 
+  /// `Vegetarian`
+  String get vegetarian {
+    return Intl.message(
+      'Vegetarian',
+      name: 'vegetarian',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pasta`
+  String get pasta {
+    return Intl.message(
+      'Pasta',
+      name: 'pasta',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dessert`
+  String get dessert {
+    return Intl.message(
+      'Dessert',
+      name: 'dessert',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cheese`
+  String get cheese {
+    return Intl.message(
+      'Cheese',
+      name: 'cheese',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Fresh`
   String get fresh {
     return Intl.message(
@@ -706,6 +746,36 @@ class S {
     );
   }
 
+  /// `Round`
+  String get round {
+    return Intl.message(
+      'Round',
+      name: 'round',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Earthy`
+  String get earthy {
+    return Intl.message(
+      'Earthy',
+      name: 'earthy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Matured`
+  String get matured {
+    return Intl.message(
+      'Matured',
+      name: 'matured',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Fried food`
   String get fried_food {
     return Intl.message(
@@ -741,6 +811,86 @@ class S {
     return Intl.message(
       'Sake',
       name: 'sake',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `JUNMAI`
+  String get junmai {
+    return Intl.message(
+      'JUNMAI',
+      name: 'junmai',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `JUNMAI GINJO`
+  String get junmai_ginjo {
+    return Intl.message(
+      'JUNMAI GINJO',
+      name: 'junmai_ginjo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `JUNMAI DAIGINJO`
+  String get junmai_daiginjo {
+    return Intl.message(
+      'JUNMAI DAIGINJO',
+      name: 'junmai_daiginjo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `GINJO`
+  String get ginjo {
+    return Intl.message(
+      'GINJO',
+      name: 'ginjo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `DAIGINJO`
+  String get daiginjo {
+    return Intl.message(
+      'DAIGINJO',
+      name: 'daiginjo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `JOSEN`
+  String get josen {
+    return Intl.message(
+      'JOSEN',
+      name: 'josen',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `NIGORI`
+  String get nigori {
+    return Intl.message(
+      'NIGORI',
+      name: 'nigori',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sparkling`
+  String get sparkling {
+    return Intl.message(
+      'Sparkling',
+      name: 'sparkling',
       desc: '',
       args: [],
     );

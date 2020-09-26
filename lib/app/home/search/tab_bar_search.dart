@@ -1,6 +1,8 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:kanpai/app/home/sake/rice_page.dart';
+import 'package:kanpai/app/home/search/grid_pairings_widget.dart';
+import 'package:kanpai/app/home/search/grid_styles_widget.dart';
 import 'package:kanpai/app/home/search/grid_types_widget.dart';
 import 'package:kanpai/app/home/search/search_bar_widget.dart';
 import 'package:kanpai/constants/style.dart';
@@ -39,8 +41,8 @@ class TabBarSearch extends StatelessWidget {
               physics: NeverScrollableScrollPhysics(),
               children: <Widget>[
                 GridTypes(),
-                GridTypes(),
-                GridTypes(),
+                GridPairings(),
+                GridStyles(),
               ],
             ),
           )

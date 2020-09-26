@@ -5,8 +5,8 @@ import 'package:kanpai/app/home/sake/rice_page.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
 
-class GridTypes extends StatelessWidget {
-  const GridTypes({
+class GridPairings extends StatelessWidget {
+  const GridPairings({
     Key key,
   }) : super(key: key);
 
@@ -19,48 +19,48 @@ class GridTypes extends StatelessWidget {
           children: <Widget>[
             _buildGridTile(
                 color: Colors.red,
-                image: 'images/backgroundImage.PNG',
-                text: S.of(context).junmai),
+                image: 'images/viande.png',
+                text: S.of(context).meat),
             _buildGridTile(
                 color: Colors.cyan,
-                image: 'images/backgroundImage1.PNG',
-                text: S.of(context).junmai_ginjo),
+                image: 'images/poisson.png',
+                text: S.of(context).fish),
           ],
         ),
         Row(
           children: <Widget>[
             _buildGridTile(
                 color: Colors.orange,
-                image: 'images/backgroundImage2.PNG',
-                text: S.of(context).junmai_daiginjo),
+                image: 'images/friture.png',
+                text: S.of(context).fried_food),
             _buildGridTile(
                 color: Colors.purple,
-                image: 'images/backgroundImage3.PNG',
-                text: S.of(context).ginjo),
+                image: 'images/sushi.png',
+                text: S.of(context).sushi),
           ],
         ),
         Row(
           children: <Widget>[
             _buildGridTile(
                 color: Colors.blueGrey,
-                image: 'images/backgroundImage4.PNG',
-                text: S.of(context).daiginjo),
+                image: 'images/vegetarian.png',
+                text: S.of(context).vegetarian),
             _buildGridTile(
                 color: Colors.indigo,
-                image: 'images/backgroundImage5.PNG',
-                text: S.of(context).josen),
+                image: 'images/pasta.png',
+                text: S.of(context).pasta),
           ],
         ),
         Row(
           children: <Widget>[
             _buildGridTile(
                 color: Colors.red,
-                image: 'images/backgroundImage6.PNG',
-                text: S.of(context).nigori),
+                image: 'images/dessert.png',
+                text: S.of(context).dessert),
             _buildGridTile(
                 color: Colors.cyan,
-                image: 'images/backgroundImage7.PNG',
-                text: S.of(context).sparkling),
+                image: 'images/cheese.png',
+                text: S.of(context).cheese),
           ],
         ),
         Container(
@@ -82,6 +82,8 @@ class GridTypes extends StatelessWidget {
   Expanded _buildGridTile({color, image, text}) {
     return Expanded(
       child: OpenContainer(
+        openColor: kPrimaryColor,
+        closedColor: kPrimaryColor,
         openBuilder: (context, closeWidget) {
           return RicePage();
         },

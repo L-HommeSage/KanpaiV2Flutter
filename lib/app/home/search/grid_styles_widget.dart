@@ -5,8 +5,8 @@ import 'package:kanpai/app/home/sake/rice_page.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
 
-class GridTypes extends StatelessWidget {
-  const GridTypes({
+class GridStyles extends StatelessWidget {
+  const GridStyles({
     Key key,
   }) : super(key: key);
 
@@ -19,48 +19,48 @@ class GridTypes extends StatelessWidget {
           children: <Widget>[
             _buildGridTile(
                 color: Colors.red,
-                image: 'images/backgroundImage.PNG',
-                text: S.of(context).junmai),
+                image: 'images/fruity.png',
+                text: S.of(context).fruity),
             _buildGridTile(
                 color: Colors.cyan,
-                image: 'images/backgroundImage1.PNG',
-                text: S.of(context).junmai_ginjo),
+                image: 'images/dessert.png',
+                text: S.of(context).soft),
           ],
         ),
         Row(
           children: <Widget>[
             _buildGridTile(
                 color: Colors.orange,
-                image: 'images/backgroundImage2.PNG',
-                text: S.of(context).junmai_daiginjo),
+                image: 'images/acid.png',
+                text: S.of(context).acid),
             _buildGridTile(
-                color: Colors.purple,
-                image: 'images/backgroundImage3.PNG',
-                text: S.of(context).ginjo),
+                color: Colors.blueGrey,
+                image: 'images/floral.jpg',
+                text: S.of(context).floral),
           ],
         ),
         Row(
           children: <Widget>[
             _buildGridTile(
-                color: Colors.blueGrey,
-                image: 'images/backgroundImage4.PNG',
-                text: S.of(context).daiginjo),
+                color: Colors.purple,
+                image: 'images/matured.jpg',
+                text: S.of(context).matured),
             _buildGridTile(
                 color: Colors.indigo,
-                image: 'images/backgroundImage5.PNG',
-                text: S.of(context).josen),
+                image: 'images/earthy.png',
+                text: S.of(context).earthy),
           ],
         ),
         Row(
           children: <Widget>[
             _buildGridTile(
                 color: Colors.red,
-                image: 'images/backgroundImage6.PNG',
-                text: S.of(context).nigori),
+                image: 'images/round.jpg',
+                text: S.of(context).round),
             _buildGridTile(
                 color: Colors.cyan,
-                image: 'images/backgroundImage7.PNG',
-                text: S.of(context).sparkling),
+                image: 'images/fragrant.jpg',
+                text: S.of(context).fragrant),
           ],
         ),
         Container(

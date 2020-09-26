@@ -7,6 +7,9 @@ class Flavor {
     "Soft": S.current.soft,
     "Floral": S.current.floral,
     "Fragrant": S.current.fragrant,
+    "Round": S.current.round,
+    "Earthy": S.current.earthy,
+    "Matured": S.current.matured,
     "": "",
   };
 
