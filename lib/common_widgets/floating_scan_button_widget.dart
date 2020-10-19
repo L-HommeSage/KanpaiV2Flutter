@@ -1,11 +1,23 @@
 import 'package:flutter/material.dart';
-//import 'package:kanpai/app/home/sake/sake_page.dart';
 import 'package:kanpai/constants/style.dart';
-//import 'package:kanpai/services/database.dart';
+import 'package:kanpai/generated/l10n.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-//import 'package:provider/provider.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
-class FloatingScanButton extends StatelessWidget {
+class FloatingScanButton extends StatefulWidget {
+  @override
+  _FloatingScanButtonState createState() => _FloatingScanButtonState();
+}
+
+class _FloatingScanButtonState extends State<FloatingScanButton> {
+  Future<void> _scan() async {
+    String code = '';
+    code = await FlutterBarcodeScanner.scanBarcode(
+            "#FF6D6D", S.of(context).cancel, false, ScanMode.BARCODE)
+        .then((value) => value);
+    print("=====>" + code + "<=======");
+  }
+
   @override
   Widget build(BuildContext context) {
     //final Database database = Provider.of<Database>(context, listen: false);
@@ -17,12 +29,7 @@ class FloatingScanButton extends StatelessWidget {
         size: 30,
         color: kLightPrimaryColor,
       ),
-      onPressed: () {},
-      /*onPressed: () => Navigator.of(context).push(
-        MaterialPageRoute<void>(
-          builder: (context) => SakePage(database: database),
-        ),
-      ),*/
+      onPressed: () => _scan(),
       elevation: 3,
     );
   }

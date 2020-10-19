@@ -1,7 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kanpai/app/home/sake/rice_page.dart';
+import 'package:kanpai/app/home/search/search_list_page.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
 
@@ -85,7 +85,9 @@ class GridPairings extends StatelessWidget {
         openColor: kPrimaryColor,
         closedColor: kPrimaryColor,
         openBuilder: (context, closeWidget) {
-          return RicePage();
+          return SearchListPage(
+            title: text,
+          );
         },
         closedBuilder: (context, openWidget) {
           return Padding(
