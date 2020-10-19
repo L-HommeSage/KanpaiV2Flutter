@@ -15,3 +15,11 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 # KanpaiV2Flutter
+
+Etape 1: Installer android studio
+
+Etape 2: Choisir l'option ==> Check out project from Version Controle et choisir git 
+
+Etape 3: Coller l'URL de ce REPO
+
+Etape 4: Clicker sur get dépendencies en haut.
