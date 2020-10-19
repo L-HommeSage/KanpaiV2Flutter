@@ -100,6 +100,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "news" : MessageLookupByLibrary.simpleMessage("News"),
     "next" : MessageLookupByLibrary.simpleMessage("Next"),
     "nigori" : MessageLookupByLibrary.simpleMessage("NIGORI"),
+    "not_found" : MessageLookupByLibrary.simpleMessage("No sake was found"),
     "omachi_description" : MessageLookupByLibrary.simpleMessage("Omachi rice is known as the oldest identified sake rice variety, it reigned supreme nearly 70 years since its discovery in the 1860s. Origined from Okayama he is recognized for it\'s layered, herbal and earthy flavors"),
     "or" : MessageLookupByLibrary.simpleMessage("or"),
     "pageTitle" : MessageLookupByLibrary.simpleMessage("Home page"),

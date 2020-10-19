@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:kanpai/app/home/search/search_list_page.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
+import 'package:kanpai/services/database.dart';
 
 class GridPairings extends StatelessWidget {
   const GridPairings({
     Key key,
+    this.database,
   }) : super(key: key);
-
+  final Database database;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,11 +22,13 @@ class GridPairings extends StatelessWidget {
             _buildGridTile(
                 color: Colors.red,
                 image: 'images/viande.png',
-                text: S.of(context).meat),
+                text: S.of(context).meat,
+                query: "Meat"),
             _buildGridTile(
                 color: Colors.cyan,
                 image: 'images/poisson.png',
-                text: S.of(context).fish),
+                text: S.of(context).fish,
+                query: "Fish"),
           ],
         ),
         Row(
@@ -32,11 +36,13 @@ class GridPairings extends StatelessWidget {
             _buildGridTile(
                 color: Colors.orange,
                 image: 'images/friture.png',
-                text: S.of(context).fried_food),
+                text: S.of(context).fried_food,
+                query: "Fried food"),
             _buildGridTile(
                 color: Colors.purple,
                 image: 'images/sushi.png',
-                text: S.of(context).sushi),
+                text: S.of(context).sushi,
+                query: "Sushi"),
           ],
         ),
         Row(
@@ -44,11 +50,13 @@ class GridPairings extends StatelessWidget {
             _buildGridTile(
                 color: Colors.blueGrey,
                 image: 'images/vegetarian.png',
-                text: S.of(context).vegetarian),
+                text: S.of(context).vegetarian,
+                query: "Vegetarian"),
             _buildGridTile(
                 color: Colors.indigo,
                 image: 'images/pasta.png',
-                text: S.of(context).pasta),
+                text: S.of(context).pasta,
+                query: "Pasta"),
           ],
         ),
         Row(
@@ -56,11 +64,13 @@ class GridPairings extends StatelessWidget {
             _buildGridTile(
                 color: Colors.red,
                 image: 'images/dessert.png',
-                text: S.of(context).dessert),
+                text: S.of(context).dessert,
+                query: "Dessert"),
             _buildGridTile(
                 color: Colors.cyan,
                 image: 'images/cheese.png',
-                text: S.of(context).cheese),
+                text: S.of(context).cheese,
+                query: "Cheese"),
           ],
         ),
         Container(
@@ -79,7 +89,7 @@ class GridPairings extends StatelessWidget {
     );
   }
 
-  Expanded _buildGridTile({color, image, text}) {
+  Expanded _buildGridTile({color, image, text, query}) {
     return Expanded(
       child: OpenContainer(
         openColor: kPrimaryColor,
@@ -87,6 +97,9 @@ class GridPairings extends StatelessWidget {
         openBuilder: (context, closeWidget) {
           return SearchListPage(
             title: text,
+            query: query,
+            queryType: "pairings",
+            database: database,
           );
         },
         closedBuilder: (context, openWidget) {

@@ -2,6 +2,7 @@ import 'package:flag/flag.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:kanpai/app/home/models/country.dart';
 import 'package:kanpai/app/home/models/sake.dart';
 import 'package:kanpai/app/home/sake/pairings_panel.dart';
 import 'package:kanpai/app/home/sake/sake_characteristics_panel.dart';
@@ -130,56 +131,28 @@ class SakeInnerContent extends StatelessWidget {
   }
 
   Row _buildFlag(String country) {
-    //TODO: Make a Country class and with a map do this same methode
-    if (country == 'Japan') {
-      return Row(
-        children: <Widget>[
-          ClipOval(
-            child: Flag(
-              "jp",
-              height: 20,
-              width: 20,
-              fit: BoxFit.cover,
-            ),
+    return Row(
+      children: <Widget>[
+        ClipOval(
+          child: Flag(
+            Country().getCountryFlag(country),
+            height: 20,
+            width: 20,
+            fit: BoxFit.cover,
           ),
-          SizedBox(
-            width: 8,
-          ),
-          Text(
-            '${sake.region}, ${S.current.japan}',
-            style: TextStyle(
-                fontSize: 12,
-                fontFamily: kFontFamilyCommonText,
-                color: kSecondaryTextColor),
-          ),
-        ],
-      );
-    } else if (country == 'France') {
-      return Row(
-        children: <Widget>[
-          ClipOval(
-            child: Flag(
-              "fr",
-              height: 20,
-              width: 20,
-              fit: BoxFit.cover,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${sake.region}, ${S.current.france}',
-            style: TextStyle(
-                fontSize: 12,
-                fontFamily: kFontFamilyCommonText,
-                color: kDividerColor),
-          ),
-        ],
-      );
-    } else {
-      return Row();
-    }
+        ),
+        SizedBox(
+          width: 8,
+        ),
+        Text(
+          '${sake.region}, ${Country().getCountryName(country)}',
+          style: TextStyle(
+              fontSize: 12,
+              fontFamily: kFontFamilyCommonText,
+              color: kSecondaryTextColor),
+        ),
+      ],
+    );
   }
 
   StreamBuilder<Sake> _buildStreamDescription(BuildContext context) {

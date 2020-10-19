@@ -4,11 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:kanpai/app/home/search/search_list_page.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
+import 'package:kanpai/services/database.dart';
 
 class GridTypes extends StatelessWidget {
   const GridTypes({
     Key key,
+    this.database,
   }) : super(key: key);
+  final Database database;
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +23,13 @@ class GridTypes extends StatelessWidget {
             _buildGridTile(
                 color: Colors.red,
                 image: 'images/backgroundImage.PNG',
-                text: S.of(context).junmai),
+                text: S.of(context).junmai,
+                query: "Junmai"),
             _buildGridTile(
                 color: Colors.cyan,
                 image: 'images/backgroundImage1.PNG',
-                text: S.of(context).junmai_ginjo),
+                text: S.of(context).junmai_ginjo,
+                query: "Junmai Ginjo"),
           ],
         ),
         Row(
@@ -32,11 +37,13 @@ class GridTypes extends StatelessWidget {
             _buildGridTile(
                 color: Colors.orange,
                 image: 'images/backgroundImage2.PNG',
-                text: S.of(context).junmai_daiginjo),
+                text: S.of(context).junmai_daiginjo,
+                query: "Junmai Daiginjo"),
             _buildGridTile(
                 color: Colors.purple,
                 image: 'images/backgroundImage3.PNG',
-                text: S.of(context).ginjo),
+                text: S.of(context).ginjo,
+                query: "Ginjo"),
           ],
         ),
         Row(
@@ -44,11 +51,13 @@ class GridTypes extends StatelessWidget {
             _buildGridTile(
                 color: Colors.blueGrey,
                 image: 'images/backgroundImage4.PNG',
-                text: S.of(context).daiginjo),
+                text: S.of(context).daiginjo,
+                query: "Daiginjo"),
             _buildGridTile(
                 color: Colors.indigo,
                 image: 'images/backgroundImage5.PNG',
-                text: S.of(context).josen),
+                text: S.of(context).josen,
+                query: "Josen"),
           ],
         ),
         Row(
@@ -56,11 +65,13 @@ class GridTypes extends StatelessWidget {
             _buildGridTile(
                 color: Colors.red,
                 image: 'images/backgroundImage6.PNG',
-                text: S.of(context).nigori),
+                text: S.of(context).nigori,
+                query: "Nigori"),
             _buildGridTile(
                 color: Colors.cyan,
                 image: 'images/backgroundImage7.PNG',
-                text: S.of(context).sparkling),
+                text: S.of(context).sparkling,
+                query: "Sparkling"),
           ],
         ),
         Container(
@@ -79,12 +90,15 @@ class GridTypes extends StatelessWidget {
     );
   }
 
-  Expanded _buildGridTile({color, image, text}) {
+  Expanded _buildGridTile({color, image, text, query}) {
     return Expanded(
       child: OpenContainer(
         openBuilder: (context, closeWidget) {
           return SearchListPage(
             title: text,
+            query: query,
+            queryType: "family",
+            database: database,
           );
         },
         closedBuilder: (context, openWidget) {

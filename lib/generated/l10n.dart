@@ -776,6 +776,16 @@ class S {
     );
   }
 
+  /// `No sake was found`
+  String get not_found {
+    return Intl.message(
+      'No sake was found',
+      name: 'not_found',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Fried food`
   String get fried_food {
     return Intl.message(

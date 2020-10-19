@@ -7,20 +7,23 @@ import 'package:kanpai/app/home/search/grid_types_widget.dart';
 import 'package:kanpai/app/home/search/search_bar_widget.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
+import 'package:kanpai/services/database.dart';
+import 'package:provider/provider.dart';
 
 class TabBarSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final database = Provider.of<Database>(context, listen: false);
     return ListView(
       children: <Widget>[
         _buildSearchBar(),
         _buildBrowseTitle(context),
-        buildTabGrids(),
+        buildTabGrids(database),
       ],
     );
   }
 
-  DefaultTabController buildTabGrids() {
+  DefaultTabController buildTabGrids(Database database) {
     return DefaultTabController(
       length: 3,
       child: Column(
@@ -40,9 +43,9 @@ class TabBarSearch extends StatelessWidget {
             child: TabBarView(
               physics: NeverScrollableScrollPhysics(),
               children: <Widget>[
-                GridTypes(),
-                GridPairings(),
-                GridStyles(),
+                GridTypes(database: database),
+                GridPairings(database: database),
+                GridStyles(database: database),
               ],
             ),
           )

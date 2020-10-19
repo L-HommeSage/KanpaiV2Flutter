@@ -100,6 +100,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "news" : MessageLookupByLibrary.simpleMessage("Actualités"),
     "next" : MessageLookupByLibrary.simpleMessage("Suivant"),
     "nigori" : MessageLookupByLibrary.simpleMessage("NIGORI"),
+    "not_found" : MessageLookupByLibrary.simpleMessage("Aucun sake n\'a été trouvé"),
     "omachi_description" : MessageLookupByLibrary.simpleMessage("Le riz Omachi est connu comme la plus ancienne variété de riz à saké identifiée, il a régné en maître près de 70 ans depuis sa découverte dans les années 1860. Originaire d\'Okayama, il est reconnu pour ses saveurs étagées, herbacées et terreuses"),
     "or" : MessageLookupByLibrary.simpleMessage("ou"),
     "pageTitle" : MessageLookupByLibrary.simpleMessage("Accueil"),
