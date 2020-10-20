@@ -43,11 +43,15 @@ class _SearchListPageState extends State<SearchListPage> {
           print(sake.id);
           sakes.add(sake);
         });
-        loading = true;
-        querySuccess = true;
+        setState(() {
+          loading = true;
+          querySuccess = true;
+        });
       } else {
-        loading = true;
-        querySuccess = false;
+        setState(() {
+          loading = true;
+          querySuccess = false;
+        });
       }
     });
   }

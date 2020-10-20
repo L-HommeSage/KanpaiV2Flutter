@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kanpai/app/home/maps/tab_bar_map.dart';
+//import 'package:kanpai/app/home/maps/tab_bar_map.dart';
 import 'package:kanpai/app/home/news/tab_bar_news.dart';
 import 'package:kanpai/app/home/search/tab_bar_search.dart';
 import 'package:kanpai/common_widgets/floating_scan_button_widget.dart';
@@ -14,7 +14,7 @@ class HomePageTabs extends StatefulWidget {
 }
 
 class _HomePageTabsState extends State<HomePageTabs>
-    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
+    with SingleTickerProviderStateMixin {
   double _xOffset = 0;
   double _yOffset = 0;
   double _scaleFactor = 1;
@@ -26,12 +26,11 @@ class _HomePageTabsState extends State<HomePageTabs>
   final List<Tab> _myTabs = <Tab>[
     Tab(icon: Icon(MdiIcons.storefront)),
     Tab(icon: Icon(MdiIcons.foodVariant)),
-    Tab(icon: Icon(MdiIcons.earth)),
+    // Tab(icon: Icon(MdiIcons.earth)),
   ];
   TabController _tabController;
   ScrollController _scrollController;
-  @override
-  bool get wantKeepAlive => true;
+
   @override
   void initState() {
     super.initState();
@@ -56,7 +55,6 @@ class _HomePageTabsState extends State<HomePageTabs>
 
   @override
   Widget build(BuildContext context) {
-    super.build(context);
     return AnimatedContainer(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
@@ -113,7 +111,7 @@ class _HomePageTabsState extends State<HomePageTabs>
           children: <Widget>[
             TabBarNews(),
             TabBarSearch(),
-            TabBarMap(),
+            // TabBarMap(),
           ],
         ),
       ),
@@ -126,8 +124,8 @@ class _HomePageTabsState extends State<HomePageTabs>
       setState(() => _currentTitle = S.current.news);
     } else if (index == 1) {
       setState(() => _currentTitle = S.current.search);
-    } else if (index == 2) {
-      setState(() => _currentTitle = S.current.explore);
+      //} else if (index == 2) {
+      //   setState(() => _currentTitle = S.current.explore);
     } else {
       setState(() => _currentTitle = "");
     }

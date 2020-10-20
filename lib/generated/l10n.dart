@@ -786,6 +786,26 @@ class S {
     );
   }
 
+  /// `All`
+  String get all {
+    return Intl.message(
+      'All',
+      name: 'all',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My sakes`
+  String get my_sakes {
+    return Intl.message(
+      'My sakes',
+      name: 'my_sakes',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Fried food`
   String get fried_food {
     return Intl.message(
