@@ -9,7 +9,9 @@ class DataSearch extends SearchDelegate<String> {
     "Tokyo",
     "New York",
     "Buenos Aires",
-    "Beijing"
+    "Beijing",
+    "Brasilia",
+    "Brest"
   ];
   final previousSearch = [
     "Paris",
@@ -73,6 +75,9 @@ class DataSearch extends SearchDelegate<String> {
     return ListView.builder(
         itemCount: suggestionList.length,
         itemBuilder: (context, index) => ListTile(
+              leading: (query.isEmpty)
+                  ? Icon(Icons.restore, color: kSecondaryTextColor)
+                  : Icon(Icons.search, color: kSecondaryTextColor),
               onTap: () {},
               title: RichText(
                 text: TextSpan(

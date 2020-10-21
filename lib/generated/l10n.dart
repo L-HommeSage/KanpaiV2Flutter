@@ -786,6 +786,16 @@ class S {
     );
   }
 
+  /// `Commonly search`
+  String get commonly_search {
+    return Intl.message(
+      'Commonly search',
+      name: 'commonly_search',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `All`
   String get all {
     return Intl.message(

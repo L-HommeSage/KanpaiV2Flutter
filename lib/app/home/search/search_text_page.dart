@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:kanpai/app/home/search/data_search.dart';
+import 'package:kanpai/app/home/search/tab_view_all.dart';
+import 'package:kanpai/app/home/search/tab_view_my_sakes.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
+import 'package:kanpai/services/database.dart';
 
 class SearchTextPage extends StatefulWidget {
+  const SearchTextPage({this.database});
+  final Database database;
+
   @override
   _SearchTextPageState createState() => _SearchTextPageState();
 }
@@ -59,6 +65,15 @@ class _SearchTextPageState extends State<SearchTextPage>
           controller: _tabController,
           tabs: _myTabs,
         ),
+      ),
+      body: TabBarView(
+        controller: _tabController,
+        children: <Widget>[
+          TabViewAll(
+            database: widget.database,
+          ),
+          TabViewMySakes(),
+        ],
       ),
     );
   }

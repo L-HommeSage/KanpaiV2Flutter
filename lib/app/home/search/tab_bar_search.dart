@@ -16,7 +16,7 @@ class TabBarSearch extends StatelessWidget {
     final database = Provider.of<Database>(context, listen: false);
     return ListView(
       children: <Widget>[
-        _buildSearchBar(),
+        _buildSearchBar(database),
         _buildBrowseTitle(context),
         buildTabGrids(database),
       ],
@@ -54,7 +54,7 @@ class TabBarSearch extends StatelessWidget {
     );
   }
 
-  Padding _buildSearchBar() {
+  Padding _buildSearchBar(Database database) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: ClipRRect(
@@ -64,7 +64,7 @@ class TabBarSearch extends StatelessWidget {
             return SearchBar();
           },
           openBuilder: (context, closeWidget) {
-            return SearchTextPage();
+            return SearchTextPage(database: database);
           },
         ),
       ),

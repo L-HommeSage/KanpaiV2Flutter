@@ -33,6 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "cancel" : MessageLookupByLibrary.simpleMessage("Annuler"),
     "characteristics" : MessageLookupByLibrary.simpleMessage("Caractéristiques"),
     "cheese" : MessageLookupByLibrary.simpleMessage("Fromage"),
+    "commonly_search" : MessageLookupByLibrary.simpleMessage("Recherches fréquentes"),
     "conditions" : MessageLookupByLibrary.simpleMessage("Conditions"),
     "confirm" : MessageLookupByLibrary.simpleMessage("confirmer"),
     "connection" : MessageLookupByLibrary.simpleMessage("connexion"),
