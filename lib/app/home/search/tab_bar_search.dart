@@ -7,6 +7,7 @@ import 'package:kanpai/app/home/search/search_bar_widget.dart';
 import 'package:kanpai/app/home/search/search_text_page.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
+import 'package:kanpai/services/auth.dart';
 import 'package:kanpai/services/database.dart';
 import 'package:provider/provider.dart';
 
@@ -14,9 +15,10 @@ class TabBarSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final database = Provider.of<Database>(context, listen: false);
+    final user = Provider.of<User>(context, listen: false);
     return ListView(
       children: <Widget>[
-        _buildSearchBar(database),
+        _buildSearchBar(database, user),
         _buildBrowseTitle(context),
         buildTabGrids(database),
       ],
@@ -54,7 +56,7 @@ class TabBarSearch extends StatelessWidget {
     );
   }
 
-  Padding _buildSearchBar(Database database) {
+  Padding _buildSearchBar(Database database, User user) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: ClipRRect(
@@ -64,7 +66,7 @@ class TabBarSearch extends StatelessWidget {
             return SearchBar();
           },
           openBuilder: (context, closeWidget) {
-            return SearchTextPage(database: database);
+            return SearchTextPage(database: database, user: user);
           },
         ),
       ),

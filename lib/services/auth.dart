@@ -1,16 +1,23 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:kanpai/generated/l10n.dart';
 
 class User {
-  User(
-      {@required this.uid,
-      @required this.photoUrl,
-      @required this.displayName});
+  User({
+    @required this.uid,
+    @required this.photoUrl,
+    @required this.displayName,
+    @required this.previousSearch,
+    @required this.sakeList,
+  });
   final String uid;
   final String photoUrl;
   final String displayName;
+  List previousSearch;
+  List sakeList;
 }
 
 abstract class AuthBase {
@@ -21,15 +28,24 @@ abstract class AuthBase {
   Future<User> createUserWithEmail(String email, String pwd);
   Future<void> signOut();
   Stream<User> get onAuthStateChanged;
+  Future<void> createRecord(FirebaseUser user);
 }
 
 class Auth implements AuthBase {
   final _firebaseAuth = FirebaseAuth.instance;
+  final _databaseReference = Firestore.instance;
 
   User _userFromFirebase(FirebaseUser user) {
+    List sakeList = [];
+    List previousSearch = [];
     if (user == null) return null;
     return User(
-        uid: user.uid, photoUrl: user.photoUrl, displayName: user.displayName);
+      uid: user.uid,
+      photoUrl: user.photoUrl,
+      displayName: user.displayName,
+      previousSearch: previousSearch,
+      sakeList: sakeList,
+    );
   }
 
   @override
@@ -46,6 +62,7 @@ class Auth implements AuthBase {
   @override
   Future<User> signInAnonymously() async {
     final authResult = await _firebaseAuth.signInAnonymously();
+    createRecord(authResult.user);
     return _userFromFirebase(authResult.user);
   }
 
@@ -60,6 +77,7 @@ class Auth implements AuthBase {
   Future<User> createUserWithEmail(String email, String pwd) async {
     final authResult = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email, password: pwd);
+    createRecord(authResult.user);
     return _userFromFirebase(authResult.user);
   }
 
@@ -74,6 +92,7 @@ class Auth implements AuthBase {
           GoogleAuthProvider.getCredential(
               idToken: googleAuth.idToken, accessToken: googleAuth.accessToken),
         );
+        createRecord(authResult.user);
         return _userFromFirebase(authResult.user);
       } else {
         throw PlatformException(
@@ -94,5 +113,22 @@ class Auth implements AuthBase {
     final googleSignIn = GoogleSignIn();
     await googleSignIn.signOut();
     await _firebaseAuth.signOut();
+  }
+
+  @override
+  Future<void> createRecord(FirebaseUser user) async {
+    final docRef = _databaseReference.collection("users").document(user.uid);
+    await docRef.get().then((value) {
+      if (value.exists) {
+        print(value.data);
+      } else {
+        docRef.setData({
+          'previousSearch': [],
+          'sakeList': [],
+          'name':
+              (user.displayName == null) ? S.current.visitor : user.displayName,
+        });
+      }
+    });
   }
 }

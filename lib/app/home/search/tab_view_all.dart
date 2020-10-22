@@ -20,15 +20,18 @@ class TabViewAll extends StatelessWidget {
             style: kCommonTextStyle,
           ),
         ),
-        _buildCommonlySearchTile("Amabuki", database, context),
+        _buildCommonlySearchTile("Amabuki", "name", database, context),
         Container(height: 1, color: kPrimaryColor),
-        _buildCommonlySearchTile("Shirakabegura", database, context),
+        _buildCommonlySearchTile("Shirakabegura", "name", database, context),
+        Container(height: 1, color: kPrimaryColor),
+        _buildCommonlySearchTile("Japan", "country", database, context),
       ],
     );
   }
 
   Container _buildCommonlySearchTile(
     String text,
+    String queryType,
     Database database,
     BuildContext context,
   ) {
@@ -40,7 +43,7 @@ class TabViewAll extends StatelessWidget {
             builder: (context) => SearchListPage(
               title: text,
               query: text,
-              queryType: "name",
+              queryType: queryType,
               database: database,
             ),
           ),

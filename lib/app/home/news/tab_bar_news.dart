@@ -9,9 +9,16 @@ import 'package:kanpai/generated/l10n.dart';
 import 'package:kanpai/services/database.dart';
 import 'package:provider/provider.dart';
 
-class TabBarNews extends StatelessWidget {
+class TabBarNews extends StatefulWidget {
+  @override
+  _TabBarNewsState createState() => _TabBarNewsState();
+}
+
+class _TabBarNewsState extends State<TabBarNews>
+    with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     final database = Provider.of<Database>(context, listen: false);
     final List<Widget> listItems = [
       _buildTodayTitle(context),
@@ -171,4 +178,7 @@ class TabBarNews extends StatelessWidget {
         ];
     }
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

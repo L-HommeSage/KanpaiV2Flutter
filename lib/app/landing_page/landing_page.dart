@@ -20,6 +20,7 @@ class LandingPage extends StatelessWidget {
           if (user == null) {
             return IntroPage.create(context);
           }
+
           return Provider<User>.value(
             value: user,
             child: Provider<Database>(

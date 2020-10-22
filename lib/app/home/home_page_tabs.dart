@@ -88,7 +88,8 @@ class _HomePageTabsState extends State<HomePageTabs>
               pinned: true,
               forceElevated: boxIsScrolled,
               title: Text(_currentTitle, style: kHeadlinesTextStyle),
-              floating: (_tabController.index == 1) ? false : true,
+              //  floating: (_tabController.index == 1) ? false : true,
+              floating: false,
               actions: <Widget>[
                 _buildIconDrawerButton(),
               ],
