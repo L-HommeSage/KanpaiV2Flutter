@@ -16,7 +16,8 @@ class Sake {
       this.temperature,
       this.volume,
       this.pairings,
-      this.characteristics});
+      this.characteristics,
+      this.tagSearch});
 
   final String id;
   final String name;
@@ -36,6 +37,7 @@ class Sake {
   final List<int> volume;
   final List<String> pairings;
   final List<String> characteristics;
+  final List<String> tagSearch;
 
   Map<String, dynamic> toMap() {
     return {
@@ -54,6 +56,7 @@ class Sake {
       'volume': volume,
       'pairings': pairings,
       'characteristics': characteristics,
+      'tagSearch': tagSearch,
     };
   }
 
@@ -93,6 +96,7 @@ class Sake {
     final List<int> volume = List.from(data['volume']);
     final List<String> pairings = List.from(data['pairings']);
     final List<String> characteristics = List.from(data['characteristics']);
+    final List<String> tagSearch = List.from(data['tagSearch']);
 
     return Sake(
       id: documentId,
@@ -111,6 +115,7 @@ class Sake {
       volume: volume,
       pairings: pairings,
       characteristics: characteristics,
+      tagSearch: tagSearch,
     );
   }
 }
