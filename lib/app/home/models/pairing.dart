@@ -6,6 +6,10 @@ class Pairing {
     "Fish": S.current.fish,
     "Sushi": S.current.sushi,
     "Fried food": S.current.fried_food,
+    "Pasta": S.current.pasta,
+    "Vegetarian": S.current.vegetarian,
+    "Dessert": S.current.dessert,
+    "Cheese": S.current.cheese,
     "": "",
   };
   final Map<String, String> pairingImage = {
