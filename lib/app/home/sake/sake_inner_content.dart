@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:kanpai/app/home/models/country.dart';
 import 'package:kanpai/app/home/models/sake.dart';
 import 'package:kanpai/app/home/sake/pairings_panel.dart';
+import 'package:kanpai/app/home/sake/reviews_panel.dart';
 import 'package:kanpai/app/home/sake/sake_characteristics_panel.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
@@ -31,6 +32,7 @@ class SakeInnerContent extends StatelessWidget {
         CharacteristicsPanel(sake: sake),
         PairingsPanel(sake: sake),
         Divider(),
+        ReviewsPanel(sake: sake),
       ],
     );
   }
@@ -173,7 +175,7 @@ class SakeInnerContent extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                 child: Text(
                   sake.description,
-                  textAlign: TextAlign.justify,
+                  textAlign: TextAlign.left,
                   style: TextStyle(
                       fontFamily: kFontFamilyCommonText,
                       fontSize: 16,

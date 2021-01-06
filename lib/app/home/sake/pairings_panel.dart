@@ -74,18 +74,3 @@ class PairingsPanel extends StatelessWidget {
     );
   }
 }
-
-/*Container(
-decoration: BoxDecoration(
-gradient: LinearGradient(
-begin: Alignment.centerLeft,
-end: Alignment.centerRight,
-colors: [kTextIconColor, Color(0x00202C39)])),
-child: Text(
-" ${Pairing().getPairingName(sake.pairings[index])}",
-style: TextStyle(
-fontFamily: kFontFamilyHeadlines,
-fontSize: 20,
-color: kLightPrimaryColor),
-),
-),*/

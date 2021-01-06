@@ -1116,6 +1116,36 @@ class S {
     );
   }
 
+  /// `Reviews`
+  String get reviews {
+    return Intl.message(
+      'Reviews',
+      name: 'reviews',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add a review`
+  String get add_reviews {
+    return Intl.message(
+      'Add a review',
+      name: 'add_reviews',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Want to be the first ?`
+  String get be_first {
+    return Intl.message(
+      'Want to be the first ?',
+      name: 'be_first',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Harvest`
   String get harvest {
     return Intl.message(

@@ -6,6 +6,7 @@ import 'package:kanpai/app/home/models/country.dart';
 import 'package:kanpai/app/home/models/sake.dart';
 import 'package:kanpai/app/home/sake/sake_page.dart';
 import 'package:kanpai/constants/style.dart';
+import 'package:kanpai/generated/l10n.dart';
 import 'package:kanpai/services/auth.dart';
 import 'package:kanpai/services/database.dart';
 
@@ -21,9 +22,11 @@ class _TabViewMySakesState extends State<TabViewMySakes>
     with AutomaticKeepAliveClientMixin {
   List<Sake> sakes = [];
   bool loading = false;
+  bool sakeExist = false;
   @override
   void initState() {
     super.initState();
+
     for (int i = 0; i < widget.user.sakeList.length; i++) {
       Firestore.instance
           .collection("sakes")
@@ -35,7 +38,13 @@ class _TabViewMySakesState extends State<TabViewMySakes>
         sakes.add(sake);
         setState(() {
           loading = true;
+          sakeExist = false;
         });
+      });
+    }
+    if (sakes.length == 0) {
+      setState(() {
+        sakeExist = true;
       });
     }
   }
@@ -45,10 +54,15 @@ class _TabViewMySakesState extends State<TabViewMySakes>
     super.build(context);
     return (!loading)
         ? Center(
-            child: SpinKitFadingGrid(
-              color: kAccentColor,
-              size: 80,
-            ),
+            child: (!sakeExist)
+                ? SpinKitFadingGrid(
+                    color: kAccentColor,
+                    size: 80,
+                  )
+                : Text(
+                    S.of(context).not_found,
+                    style: kHeadlinesTextStyle,
+                  ),
           )
         : ListView.builder(
             itemCount: sakes.length,
