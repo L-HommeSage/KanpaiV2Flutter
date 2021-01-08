@@ -70,26 +70,29 @@ class FireStoreDatabase implements Database {
       );
 
   /// Read Reviews ///
-  Stream<List<Review>> reviewsEnStream(String sakeId) =>
-      _service.collectionStream(
-        path: APIPath.sakeReviewEn(sakeId: sakeId),
-        builder: (data, documentId) => Review.fromMap(data, documentId),
-      );
+  // Stream<List<Review>> reviewsEnStream(String sakeId) =>
+  //     _service.collectionStream(
+  //       path: APIPath.sakeReviewEn(sakeId: sakeId),
+  //       builder: (data, documentId) => Review.fromMap(data, documentId),
+  //     );
 
   /// Create Reviews ///
   Future<void> setReviewEn({Review review, String sakeId}) async =>
       await _service.setData(
-        path: APIPath.sakeReviewEn(sakeId: sakeId),
+        path: APIPath.sakeReviewEn(
+            sakeId: sakeId, reviewId: documentIdFromCurrentDate()),
         data: review.toMap(),
       );
   Future<void> setReviewFr({Review review, String sakeId}) async =>
       await _service.setData(
-        path: APIPath.sakeReviewFr(sakeId: sakeId),
+        path: APIPath.sakeReviewFr(
+            sakeId: sakeId, reviewId: documentIdFromCurrentDate()),
         data: review.toMap(),
       );
   Future<void> setReviewJp({Review review, String sakeId}) async =>
       await _service.setData(
-        path: APIPath.sakeReviewJp(sakeId: sakeId),
+        path: APIPath.sakeReviewJp(
+            sakeId: sakeId, reviewId: documentIdFromCurrentDate()),
         data: review.toMap(),
       );
 

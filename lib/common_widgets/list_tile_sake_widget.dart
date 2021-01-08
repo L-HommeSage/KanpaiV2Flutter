@@ -23,8 +23,11 @@ class ListTileSake extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.of(context).push(
         MaterialPageRoute<void>(
-          builder: (context) =>
-              SakePage(database: widget.database, sake: sakes[index]),
+          builder: (context) => SakePage(
+            database: widget.database,
+            sake: sakes[index],
+            user: widget.user,
+          ),
         ),
       ),
       child: Container(

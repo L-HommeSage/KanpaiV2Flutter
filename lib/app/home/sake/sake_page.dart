@@ -4,13 +4,16 @@ import 'package:kanpai/app/home/models/sake.dart';
 import 'package:kanpai/app/home/sake/detail_sliver_delegate_sake_header.dart';
 import 'package:kanpai/app/home/sake/sake_inner_content.dart';
 import 'package:kanpai/constants/style.dart';
+import 'package:kanpai/services/auth.dart';
 import 'package:kanpai/services/database.dart';
 import 'package:flutter/foundation.dart';
 
 class SakePage extends StatefulWidget {
-  const SakePage({@required this.sake, @required this.database});
+  const SakePage(
+      {@required this.sake, @required this.database, @required this.user});
   final Sake sake;
   final Database database;
+  final User user;
 
   @override
   _SakePageState createState() => _SakePageState();
@@ -144,6 +147,7 @@ class _SakePageState extends State<SakePage> with TickerProviderStateMixin {
           child: SakeInnerContent(
             sake: sake,
             database: widget.database,
+            user: widget.user,
           ),
         ),
       ],

@@ -20,12 +20,12 @@ class TabBarSearch extends StatelessWidget {
       children: <Widget>[
         _buildSearchBar(database, user),
         _buildBrowseTitle(context),
-        buildTabGrids(database),
+        buildTabGrids(database, user),
       ],
     );
   }
 
-  DefaultTabController buildTabGrids(Database database) {
+  DefaultTabController buildTabGrids(Database database, User user) {
     return DefaultTabController(
       length: 3,
       child: Column(
@@ -45,9 +45,18 @@ class TabBarSearch extends StatelessWidget {
             child: TabBarView(
               physics: NeverScrollableScrollPhysics(),
               children: <Widget>[
-                GridTypes(database: database),
-                GridPairings(database: database),
-                GridStyles(database: database),
+                GridTypes(
+                  database: database,
+                  user: user,
+                ),
+                GridPairings(
+                  database: database,
+                  user: user,
+                ),
+                GridStyles(
+                  database: database,
+                  user: user,
+                ),
               ],
             ),
           )

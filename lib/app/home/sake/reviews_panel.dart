@@ -8,11 +8,17 @@ import 'package:kanpai/app/home/sake/review_page.dart';
 import 'package:kanpai/app/home/sake/reviews_list_page.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
+import 'package:kanpai/services/database.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import 'add_reviews_sheet.dart';
+
 class ReviewsPanel extends StatefulWidget {
-  const ReviewsPanel({@required this.sake});
+  const ReviewsPanel(
+      {@required this.sake, @required this.database, @required this.username});
   final Sake sake;
+  final Database database;
+  final String username;
 
   @override
   _ReviewsPanelState createState() => _ReviewsPanelState();
@@ -26,10 +32,17 @@ class _ReviewsPanelState extends State<ReviewsPanel> {
     super.initState();
     loadReviews(widget.sake.id).then((var value) {
       reviews = value;
-      print(reviews[0].username);
       setState(() {
         nbReviews = value.length;
       });
+    });
+  }
+
+  void updateListReviews(Review newReview) {
+    print("Triguered <=========");
+    setState(() {
+      reviews.insert(0, newReview);
+      nbReviews = reviews.length;
     });
   }
 
@@ -251,7 +264,7 @@ class _ReviewsPanelState extends State<ReviewsPanel> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
                   child: Text(
-                    "more reviews",
+                    S.of(context).see_more,
                     style: TextStyle(
                         fontFamily: kFontFamilyCommonText, color: Colors.white),
                   ),
@@ -266,7 +279,7 @@ class _ReviewsPanelState extends State<ReviewsPanel> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 16, vertical: 8),
                       child: Text(
-                        "Read all reviews",
+                        S.of(context).read_all_reviews,
                         style: TextStyle(
                             color: Colors.white,
                             fontFamily: kFontFamilyHeadlines,
@@ -304,7 +317,11 @@ class _ReviewsPanelState extends State<ReviewsPanel> {
             ),
             IconButton(
               onPressed: () {
-                print("okok");
+                showModalBottomSheet(
+                  context: context,
+                  builder: buildReviewTextSheet,
+                  isScrollControlled: true,
+                );
               },
               icon: Icon(
                 Icons.create,
@@ -328,8 +345,23 @@ class _ReviewsPanelState extends State<ReviewsPanel> {
             style: kCommonTextStyle,
           ),
         ),
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: buildReviewTextSheet,
+            isScrollControlled: true,
+          );
+        },
       ),
+    );
+  }
+
+  Widget buildReviewTextSheet(BuildContext context) {
+    return AddReviewSheet(
+      database: widget.database,
+      username: widget.username,
+      sakeId: widget.sake.id,
+      updateListReviews: updateListReviews,
     );
   }
 

@@ -9,12 +9,15 @@ import 'package:kanpai/app/home/sake/reviews_panel.dart';
 import 'package:kanpai/app/home/sake/sake_characteristics_panel.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
+import 'package:kanpai/services/auth.dart';
 import 'package:kanpai/services/database.dart';
 
 class SakeInnerContent extends StatelessWidget {
-  const SakeInnerContent({@required this.sake, @required this.database});
+  const SakeInnerContent(
+      {@required this.sake, @required this.database, @required this.user});
   final Sake sake;
   final Database database;
+  final User user;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +35,11 @@ class SakeInnerContent extends StatelessWidget {
         CharacteristicsPanel(sake: sake),
         PairingsPanel(sake: sake),
         Divider(),
-        ReviewsPanel(sake: sake),
+        ReviewsPanel(
+          sake: sake,
+          database: database,
+          username: user.displayName,
+        ),
       ],
     );
   }

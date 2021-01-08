@@ -27,7 +27,7 @@ class Review {
       'profilePictureURL': profilePictureURL,
       'rating': rating,
       'date': date,
-      'likesIds': userLikes,
+      'userLikes': userLikes,
       'comments': comments,
     };
   }

@@ -84,6 +84,7 @@ class _SearchTextPageState extends State<SearchTextPage>
         children: <Widget>[
           TabViewAll(
             database: widget.database,
+            user: widget.user,
           ),
           TabViewMySakes(
             database: widget.database,

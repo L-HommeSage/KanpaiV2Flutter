@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:kanpai/app/home/search/search_list_page.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
+import 'package:kanpai/services/auth.dart';
 import 'package:kanpai/services/database.dart';
 
 class TabViewAll extends StatelessWidget {
-  const TabViewAll({this.database});
+  const TabViewAll({@required this.database, @required this.user});
   final Database database;
+  final User user;
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +22,12 @@ class TabViewAll extends StatelessWidget {
             style: kCommonTextStyle,
           ),
         ),
-        _buildCommonlySearchTile("Amabuki", "name", database, context),
+        _buildCommonlySearchTile("Amabuki", "name", database, user, context),
         Container(height: 1, color: kPrimaryColor),
-        _buildCommonlySearchTile("Shirakabegura", "name", database, context),
+        _buildCommonlySearchTile(
+            "Shirakabegura", "name", database, user, context),
         Container(height: 1, color: kPrimaryColor),
-        _buildCommonlySearchTile("Japan", "country", database, context),
+        _buildCommonlySearchTile("Japan", "country", database, user, context),
       ],
     );
   }
@@ -33,6 +36,7 @@ class TabViewAll extends StatelessWidget {
     String text,
     String queryType,
     Database database,
+    User user,
     BuildContext context,
   ) {
     return Container(
@@ -45,6 +49,7 @@ class TabViewAll extends StatelessWidget {
               query: text,
               queryType: queryType,
               database: database,
+              user: user,
             ),
           ),
         ),

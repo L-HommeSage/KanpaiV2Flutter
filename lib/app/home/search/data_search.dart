@@ -74,6 +74,7 @@ class DataSearch extends SearchDelegate<String> {
           query: query,
           queryType: "name",
           database: database,
+          user: user,
         ),
       ),
     );
@@ -110,6 +111,7 @@ class DataSearch extends SearchDelegate<String> {
                       query: suggestionList[index],
                       queryType: "name",
                       database: database,
+                      user: user,
                     ),
                   ),
                 );

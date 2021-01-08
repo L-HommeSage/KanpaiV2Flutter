@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 class APIPath {
   /// Get Sake ///
   static String getSake({String sakeId}) => '/sakes/$sakeId';
@@ -11,9 +13,15 @@ class APIPath {
       '/sakes/$sakeId/descriptions/jp';
 
   /// Sake Reviews ///
-  static String sakeReviewEn({String sakeId}) => '/sakes/$sakeId/reviews/en';
-  static String sakeReviewFr({String sakeId}) => '/sakes/$sakeId/reviews/fr';
-  static String sakeReviewJp({String sakeId}) => '/sakes/$sakeId/reviews/jp';
+  static String sakeReviewEn(
+          {@required String sakeId, @required String reviewId}) =>
+      '/sakes/$sakeId/reviews/en/reviews/$reviewId';
+  static String sakeReviewFr(
+          {@required String sakeId, @required String reviewId}) =>
+      '/sakes/$sakeId/reviews/fr/reviews/$reviewId';
+  static String sakeReviewJp(
+          {@required String sakeId, @required String reviewId}) =>
+      '/sakes/$sakeId/reviews/jp/reviews/$reviewId';
 
   /// Sake Reviews Comments///
   static String sakeReviewComment(

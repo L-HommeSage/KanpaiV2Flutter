@@ -6,6 +6,7 @@ import 'package:kanpai/app/home/models/sake.dart';
 import 'package:kanpai/common_widgets/list_tile_sake_widget.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
+import 'package:kanpai/services/auth.dart';
 import 'package:kanpai/services/database.dart';
 import 'package:kanpai/services/queries.dart';
 
@@ -14,11 +15,13 @@ class SearchListPage extends StatefulWidget {
       {@required this.title,
       @required this.query,
       @required this.queryType,
-      this.database});
+      @required this.database,
+      @required this.user});
   final String title;
   final String query;
   final String queryType;
   final Database database;
+  final User user;
 
   @override
   _SearchListPageState createState() => _SearchListPageState();

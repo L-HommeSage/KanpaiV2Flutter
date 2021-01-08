@@ -5,6 +5,7 @@ import 'package:kanpai/app/home/models/sake.dart';
 import 'package:kanpai/app/home/sake/sake_page.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
+import 'package:kanpai/services/auth.dart';
 import 'package:kanpai/services/database.dart';
 import 'package:provider/provider.dart';
 
@@ -23,12 +24,13 @@ class HighlightedSake extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Database database = Provider.of<Database>(context, listen: false);
+    final User user = Provider.of<User>(context, listen: false);
     return StreamBuilder<Sake>(
       stream: database.sakeStream(sakeId),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           final sake = snapshot.data;
-          return _buildContent(sake, context, database);
+          return _buildContent(sake, context, database, user);
         }
         if (snapshot.hasError) {
           print(snapshot.error);
@@ -40,7 +42,8 @@ class HighlightedSake extends StatelessWidget {
     );
   }
 
-  Stack _buildContent(Sake sake, BuildContext context, Database database) {
+  Stack _buildContent(
+      Sake sake, BuildContext context, Database database, User user) {
     return Stack(
       children: <Widget>[
         Material(
@@ -52,7 +55,11 @@ class HighlightedSake extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute<void>(
-                builder: (context) => SakePage(database: database, sake: sake),
+                builder: (context) => SakePage(
+                  database: database,
+                  sake: sake,
+                  user: user,
+                ),
               ),
             ),
             child: Container(

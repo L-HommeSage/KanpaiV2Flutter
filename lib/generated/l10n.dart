@@ -1126,6 +1126,36 @@ class S {
     );
   }
 
+  /// `Read all reviews`
+  String get read_all_reviews {
+    return Intl.message(
+      'Read all reviews',
+      name: 'read_all_reviews',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Feel free to review ?`
+  String get free_review {
+    return Intl.message(
+      'Feel free to review ?',
+      name: 'free_review',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please join a grade to your review`
+  String get please_grade {
+    return Intl.message(
+      'Please join a grade to your review',
+      name: 'please_grade',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Add a review`
   String get add_reviews {
     return Intl.message(

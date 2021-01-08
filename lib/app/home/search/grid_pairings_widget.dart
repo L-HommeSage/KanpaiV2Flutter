@@ -4,14 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:kanpai/app/home/search/search_list_page.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
+import 'package:kanpai/services/auth.dart';
 import 'package:kanpai/services/database.dart';
 
 class GridPairings extends StatelessWidget {
   const GridPairings({
     Key key,
-    this.database,
+    @required this.database,
+    @required this.user,
   }) : super(key: key);
   final Database database;
+  final User user;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -100,6 +103,7 @@ class GridPairings extends StatelessWidget {
             query: query,
             queryType: "pairings",
             database: database,
+            user: user,
           );
         },
         closedBuilder: (context, openWidget) {
