@@ -170,12 +170,13 @@ class _AddReviewSheetState extends State<AddReviewSheet> {
         await widget.database
             .setReviewEn(review: newReview, sakeId: widget.sakeId);
         widget.updateListReviews(newReview);
-        Navigator.of(context).pop();
       } on PlatformException catch (e) {
         PlatformExceptionAlertDialog(
           title: S.of(context).errorPage,
           exception: e,
         ).show(context);
+      } finally {
+        Navigator.of(context).pop();
       }
     } else {
       setState(() {

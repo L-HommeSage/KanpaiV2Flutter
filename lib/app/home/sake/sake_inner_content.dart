@@ -34,6 +34,7 @@ class SakeInnerContent extends StatelessWidget {
         SizedBox(height: 8),
         CharacteristicsPanel(sake: sake),
         PairingsPanel(sake: sake),
+        SizedBox(height: 8),
         Divider(),
         ReviewsPanel(
           sake: sake,

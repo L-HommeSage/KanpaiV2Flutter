@@ -1126,6 +1126,16 @@ class S {
     );
   }
 
+  /// `We don't have this reference, would you like to fill it in order to improve our services ?`
+  String get no_reference {
+    return Intl.message(
+      'We don\'t have this reference, would you like to fill it in order to improve our services ?',
+      name: 'no_reference',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Read all reviews`
   String get read_all_reviews {
     return Intl.message(
@@ -1171,6 +1181,76 @@ class S {
     return Intl.message(
       'Want to be the first ?',
       name: 'be_first',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New reference`
+  String get new_ref {
+    return Intl.message(
+      'New reference',
+      name: 'new_ref',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gallery`
+  String get gallery {
+    return Intl.message(
+      'Gallery',
+      name: 'gallery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thank you`
+  String get thank_you {
+    return Intl.message(
+      'Thank you',
+      name: 'thank_you',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Camera`
+  String get camera {
+    return Intl.message(
+      'Camera',
+      name: 'camera',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Make your choice`
+  String get make_choice {
+    return Intl.message(
+      'Make your choice',
+      name: 'make_choice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `More information you want to add`
+  String get more_info {
+    return Intl.message(
+      'More information you want to add',
+      name: 'more_info',
       desc: '',
       args: [],
     );

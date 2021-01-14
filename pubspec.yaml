@@ -32,6 +32,7 @@ dependencies:
   flutter_rating_bar: ^3.0.1+1
   flag: ^3.0.1
   url_launcher: ^5.5.0
+  image_picker: ^0.6.7+21
   timeline_tile: ^0.1.2
   flutter_barcode_scanner: ^1.0.1
   intl: ^0.16.1

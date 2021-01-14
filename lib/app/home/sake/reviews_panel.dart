@@ -39,7 +39,6 @@ class _ReviewsPanelState extends State<ReviewsPanel> {
   }
 
   void updateListReviews(Review newReview) {
-    print("Triguered <=========");
     setState(() {
       reviews.insert(0, newReview);
       nbReviews = reviews.length;
@@ -51,12 +50,11 @@ class _ReviewsPanelState extends State<ReviewsPanel> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Divider(),
         SizedBox(height: 8),
         _buildTitle(context, S.of(context).reviews),
         SizedBox(height: 8),
         SizedBox(
-            height: (nbReviews != 0) ? 220 : 80,
+            height: (nbReviews != 0) ? 225 : 80,
             child: (nbReviews != 0)
                 ? _buildReviewsList(context)
                 : _buildNoReviews(context)),
@@ -150,7 +148,7 @@ class _ReviewsPanelState extends State<ReviewsPanel> {
                       ),
                       Divider(),
                       Container(
-                        height: 98,
+                        height: 103,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8),
                           child: Text(
@@ -249,28 +247,32 @@ class _ReviewsPanelState extends State<ReviewsPanel> {
                     ])),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 16, top: 8),
-                  child: Text(
-                    nbShow.toString(),
-                    style: TextStyle(
-                        fontSize: 45,
-                        color: kLightPrimaryColor,
-                        fontFamily: kFontFamilyHeadlines),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
-                  child: Text(
-                    S.of(context).see_more,
-                    style: TextStyle(
-                        fontFamily: kFontFamilyCommonText, color: Colors.white),
-                  ),
-                ),
-                SizedBox(
-                  height: 80,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16, top: 8),
+                      child: Text(
+                        nbShow.toString(),
+                        style: TextStyle(
+                            fontSize: 45,
+                            color: kLightPrimaryColor,
+                            fontFamily: kFontFamilyHeadlines),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 5),
+                      child: Text(
+                        S.of(context).see_more,
+                        style: TextStyle(
+                            fontFamily: kFontFamilyCommonText,
+                            color: Colors.white),
+                      ),
+                    ),
+                  ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -376,7 +378,7 @@ class _ReviewsPanelState extends State<ReviewsPanel> {
   }
 }
 
-Future<dynamic> loadReviews(String sakeId) async {
+Future<List<Review>> loadReviews(String sakeId) async {
   List<Review> reviews = [];
   QuerySnapshot querySnapshot = await Firestore.instance
       .collection("/sakes/" + sakeId + "/reviews/en/reviews")
