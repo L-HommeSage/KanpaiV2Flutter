@@ -17,6 +17,10 @@ class Pairing {
     "Fish": "images/poisson.png",
     "Sushi": "images/sushi.png",
     "Fried food": "images/friture.png",
+    "Pasta": "images/pasta.png",
+    "Vegetarian": "images/vegetarian.png",
+    "Dessert": "images/dessert.png",
+    "Cheese": "images/cheese.png",
     "": "icons/Iconvide.png",
   };
 

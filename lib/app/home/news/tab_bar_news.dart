@@ -22,6 +22,11 @@ class _TabBarNewsState extends State<TabBarNews>
     final database = Provider.of<Database>(context, listen: false);
     final List<Widget> listItems = [
       _buildTodayTitle(context),
+      Discover(
+        backgroundImage: "images/backgroundImage7.PNG",
+        colorGradient: _getColorGradient(4),
+      ),
+      SizedBox(height: 20),
       _buildHighlightedSake(
           context: context,
           database: database,
@@ -36,10 +41,6 @@ class _TabBarNewsState extends State<TabBarNews>
           id: "1",
           lang: "en",
           backgroundImage: "images/backgroundImage6.PNG"),
-      Discover(
-        backgroundImage: "images/backgroundImage7.PNG",
-        colorGradient: _getColorGradient(4),
-      ),
       SizedBox(height: 90)
     ];
     return Padding(

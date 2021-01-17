@@ -546,10 +546,10 @@ class S {
     );
   }
 
-  /// `Brows Sakes`
+  /// `Browse Sakes`
   String get browse_sake {
     return Intl.message(
-      'Brows Sakes',
+      'Browse Sakes',
       name: 'browse_sake',
       desc: '',
       args: [],
@@ -706,76 +706,6 @@ class S {
     );
   }
 
-  /// `Acid`
-  String get acid {
-    return Intl.message(
-      'Acid',
-      name: 'acid',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Soft`
-  String get soft {
-    return Intl.message(
-      'Soft',
-      name: 'soft',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Floral`
-  String get floral {
-    return Intl.message(
-      'Floral',
-      name: 'floral',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Fragrant`
-  String get fragrant {
-    return Intl.message(
-      'Fragrant',
-      name: 'fragrant',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Round`
-  String get round {
-    return Intl.message(
-      'Round',
-      name: 'round',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Earthy`
-  String get earthy {
-    return Intl.message(
-      'Earthy',
-      name: 'earthy',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Matured`
-  String get matured {
-    return Intl.message(
-      'Matured',
-      name: 'matured',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `No sake was found`
   String get not_found {
     return Intl.message(
@@ -851,86 +781,6 @@ class S {
     return Intl.message(
       'Sake',
       name: 'sake',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `JUNMAI`
-  String get junmai {
-    return Intl.message(
-      'JUNMAI',
-      name: 'junmai',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `JUNMAI GINJO`
-  String get junmai_ginjo {
-    return Intl.message(
-      'JUNMAI GINJO',
-      name: 'junmai_ginjo',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `JUNMAI DAIGINJO`
-  String get junmai_daiginjo {
-    return Intl.message(
-      'JUNMAI DAIGINJO',
-      name: 'junmai_daiginjo',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `GINJO`
-  String get ginjo {
-    return Intl.message(
-      'GINJO',
-      name: 'ginjo',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `DAIGINJO`
-  String get daiginjo {
-    return Intl.message(
-      'DAIGINJO',
-      name: 'daiginjo',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `JOSEN`
-  String get josen {
-    return Intl.message(
-      'JOSEN',
-      name: 'josen',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `NIGORI`
-  String get nigori {
-    return Intl.message(
-      'NIGORI',
-      name: 'nigori',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Sparkling`
-  String get sparkling {
-    return Intl.message(
-      'Sparkling',
-      name: 'sparkling',
       desc: '',
       args: [],
     );
@@ -1446,11 +1296,1821 @@ class S {
     );
   }
 
+  /// `JUNMAI`
+  String get junmai {
+    return Intl.message(
+      'JUNMAI',
+      name: 'junmai',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `JUNMAI GINJO`
+  String get junmai_ginjo {
+    return Intl.message(
+      'JUNMAI GINJO',
+      name: 'junmai_ginjo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `JUNMAI DAIGINJO`
+  String get junmai_daiginjo {
+    return Intl.message(
+      'JUNMAI DAIGINJO',
+      name: 'junmai_daiginjo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `GINJO`
+  String get ginjo {
+    return Intl.message(
+      'GINJO',
+      name: 'ginjo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `DAIGINJO`
+  String get daiginjo {
+    return Intl.message(
+      'DAIGINJO',
+      name: 'daiginjo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `JOSEN`
+  String get josen {
+    return Intl.message(
+      'JOSEN',
+      name: 'josen',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `NIGORI`
+  String get nigori {
+    return Intl.message(
+      'NIGORI',
+      name: 'nigori',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sparkling`
+  String get sparkling {
+    return Intl.message(
+      'Sparkling',
+      name: 'sparkling',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Omachi rice is known as the oldest identified sake rice variety, it reigned supreme nearly 70 years since its discovery in the 1860s. Origined from Okayama he is recognized for it's layered, herbal and earthy flavors`
   String get omachi_description {
     return Intl.message(
       'Omachi rice is known as the oldest identified sake rice variety, it reigned supreme nearly 70 years since its discovery in the 1860s. Origined from Okayama he is recognized for it\'s layered, herbal and earthy flavors',
       name: 'omachi_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get yamada_nishiki_description {
+    return Intl.message(
+      '',
+      name: 'yamada_nishiki_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get gohyakumangoku_description {
+    return Intl.message(
+      '',
+      name: 'gohyakumangoku_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get miyama_nishiki_description {
+    return Intl.message(
+      '',
+      name: 'miyama_nishiki_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get dewasansan_description {
+    return Intl.message(
+      '',
+      name: 'dewasansan_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get kame_no_o_description {
+    return Intl.message(
+      '',
+      name: 'kame_no_o_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get ginpu_description {
+    return Intl.message(
+      '',
+      name: 'ginpu_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get akita_sake_komachi_description {
+    return Intl.message(
+      '',
+      name: 'akita_sake_komachi_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get ginginga_description {
+    return Intl.message(
+      '',
+      name: 'ginginga_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get watari_bune_description {
+    return Intl.message(
+      '',
+      name: 'watari_bune_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get tamazakae_description {
+    return Intl.message(
+      '',
+      name: 'tamazakae_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get hattan_nishiki_description {
+    return Intl.message(
+      '',
+      name: 'hattan_nishiki_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get oseto_description {
+    return Intl.message(
+      '',
+      name: 'oseto_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get aiyama_description {
+    return Intl.message(
+      '',
+      name: 'aiyama_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get dewa_no_sato_description {
+    return Intl.message(
+      '',
+      name: 'dewa_no_sato_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get ginfubuki_description {
+    return Intl.message(
+      '',
+      name: 'ginfubuki_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get ginnosato_description {
+    return Intl.message(
+      '',
+      name: 'ginnosato_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get ginnosei_description {
+    return Intl.message(
+      '',
+      name: 'ginnosei_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get ginotome_description {
+    return Intl.message(
+      '',
+      name: 'ginotome_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get goriki_description {
+    return Intl.message(
+      '',
+      name: 'goriki_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get hanafubuki_description {
+    return Intl.message(
+      '',
+      name: 'hanafubuki_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get hakutsuru_nishiki_description {
+    return Intl.message(
+      '',
+      name: 'hakutsuru_nishiki_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get hattan_description {
+    return Intl.message(
+      '',
+      name: 'hattan_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get hattanso_description {
+    return Intl.message(
+      '',
+      name: 'hattanso_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get hidahomare_description {
+    return Intl.message(
+      '',
+      name: 'hidahomare_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get hitogokochi_description {
+    return Intl.message(
+      '',
+      name: 'hitogokochi_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get hyogo_kita_nishiki_description {
+    return Intl.message(
+      '',
+      name: 'hyogo_kita_nishiki_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get hyogo_yume_nishiki_description {
+    return Intl.message(
+      '',
+      name: 'hyogo_yume_nishiki_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get hoshi_akari_description {
+    return Intl.message(
+      '',
+      name: 'hoshi_akari_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get iwai_description {
+    return Intl.message(
+      '',
+      name: 'iwai_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get kan_no_mai_description {
+    return Intl.message(
+      '',
+      name: 'kan_no_mai_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get koshihikari_description {
+    return Intl.message(
+      '',
+      name: 'koshihikari_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get koshi_tanrei_description {
+    return Intl.message(
+      '',
+      name: 'koshi_tanrei_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get kura_no_hana_description {
+    return Intl.message(
+      '',
+      name: 'kura_no_hana_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get saka_nishiki_description {
+    return Intl.message(
+      '',
+      name: 'saka_nishiki_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get senbon_nishiki_description {
+    return Intl.message(
+      '',
+      name: 'senbon_nishiki_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get shinriki_description {
+    return Intl.message(
+      '',
+      name: 'shinriki_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get yamadaho_description {
+    return Intl.message(
+      '',
+      name: 'yamadaho_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get yume_no_kaori_description {
+    return Intl.message(
+      '',
+      name: 'yume_no_kaori_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Acid`
+  String get acid {
+    return Intl.message(
+      'Acid',
+      name: 'acid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Soft`
+  String get soft {
+    return Intl.message(
+      'Soft',
+      name: 'soft',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Floral`
+  String get floral {
+    return Intl.message(
+      'Floral',
+      name: 'floral',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fragrant`
+  String get fragrant {
+    return Intl.message(
+      'Fragrant',
+      name: 'fragrant',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Round`
+  String get round {
+    return Intl.message(
+      'Round',
+      name: 'round',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Earthy`
+  String get earthy {
+    return Intl.message(
+      'Earthy',
+      name: 'earthy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Matured`
+  String get matured {
+    return Intl.message(
+      'Matured',
+      name: 'matured',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Aged`
+  String get aged {
+    return Intl.message(
+      'Aged',
+      name: 'aged',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dry`
+  String get dry {
+    return Intl.message(
+      'Dry',
+      name: 'dry',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Light`
+  String get light {
+    return Intl.message(
+      'Light',
+      name: 'light',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mellow`
+  String get mellow {
+    return Intl.message(
+      'Mellow',
+      name: 'mellow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rich`
+  String get rich {
+    return Intl.message(
+      'Rich',
+      name: 'rich',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Refined`
+  String get refined {
+    return Intl.message(
+      'Refined',
+      name: 'refined',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sweet`
+  String get sweet {
+    return Intl.message(
+      'Sweet',
+      name: 'sweet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Peach`
+  String get peach {
+    return Intl.message(
+      'Peach',
+      name: 'peach',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Aromatic`
+  String get aromatic {
+    return Intl.message(
+      'Aromatic',
+      name: 'aromatic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Grilled rice`
+  String get grilled_rice {
+    return Intl.message(
+      'Grilled rice',
+      name: 'grilled_rice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Clear`
+  String get clear {
+    return Intl.message(
+      'Clear',
+      name: 'clear',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Balanced`
+  String get balanced {
+    return Intl.message(
+      'Balanced',
+      name: 'balanced',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mineral`
+  String get mineral {
+    return Intl.message(
+      'Mineral',
+      name: 'mineral',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Long`
+  String get long {
+    return Intl.message(
+      'Long',
+      name: 'long',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Melon`
+  String get melon {
+    return Intl.message(
+      'Melon',
+      name: 'melon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delicate`
+  String get delicate {
+    return Intl.message(
+      'Delicate',
+      name: 'delicate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Caramelized`
+  String get caramelized {
+    return Intl.message(
+      'Caramelized',
+      name: 'caramelized',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ripe fruit`
+  String get ripe_fruit {
+    return Intl.message(
+      'Ripe fruit',
+      name: 'ripe_fruit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Banana`
+  String get banana {
+    return Intl.message(
+      'Banana',
+      name: 'banana',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Powerful`
+  String get powerful {
+    return Intl.message(
+      'Powerful',
+      name: 'powerful',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Woody`
+  String get woody {
+    return Intl.message(
+      'Woody',
+      name: 'woody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Silky`
+  String get silky {
+    return Intl.message(
+      'Silky',
+      name: 'silky',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bitterness`
+  String get bitterness {
+    return Intl.message(
+      'Bitterness',
+      name: 'bitterness',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Elegant`
+  String get elegant {
+    return Intl.message(
+      'Elegant',
+      name: 'elegant',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pepper`
+  String get pepper {
+    return Intl.message(
+      'Pepper',
+      name: 'pepper',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tasty`
+  String get tasty {
+    return Intl.message(
+      'Tasty',
+      name: 'tasty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Complex`
+  String get complex {
+    return Intl.message(
+      'Complex',
+      name: 'complex',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Off-dry`
+  String get off_dry {
+    return Intl.message(
+      'Off-dry',
+      name: 'off_dry',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pear`
+  String get pear {
+    return Intl.message(
+      'Pear',
+      name: 'pear',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Grape`
+  String get grape {
+    return Intl.message(
+      'Grape',
+      name: 'grape',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Traditional`
+  String get traditional {
+    return Intl.message(
+      'Traditional',
+      name: 'traditional',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rice flavor`
+  String get rice_flavor {
+    return Intl.message(
+      'Rice flavor',
+      name: 'rice_flavor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Racy`
+  String get racy {
+    return Intl.message(
+      'Racy',
+      name: 'racy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Aniseed`
+  String get aniseed {
+    return Intl.message(
+      'Aniseed',
+      name: 'aniseed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Premium`
+  String get premium {
+    return Intl.message(
+      'Premium',
+      name: 'premium',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pure`
+  String get pure {
+    return Intl.message(
+      'Pure',
+      name: 'pure',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dense`
+  String get dense {
+    return Intl.message(
+      'Dense',
+      name: 'dense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Umami`
+  String get umami {
+    return Intl.message(
+      'Umami',
+      name: 'umami',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Natural`
+  String get natural {
+    return Intl.message(
+      'Natural',
+      name: 'natural',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Creamy`
+  String get creamy {
+    return Intl.message(
+      'Creamy',
+      name: 'creamy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Acidulous`
+  String get acidulous {
+    return Intl.message(
+      'Acidulous',
+      name: 'acidulous',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Black rice`
+  String get black_rice {
+    return Intl.message(
+      'Black rice',
+      name: 'black_rice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expressive`
+  String get expressive {
+    return Intl.message(
+      'Expressive',
+      name: 'expressive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Licorice`
+  String get licorice {
+    return Intl.message(
+      'Licorice',
+      name: 'licorice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pineapple`
+  String get pineapple {
+    return Intl.message(
+      'Pineapple',
+      name: 'pineapple',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Apple`
+  String get apple {
+    return Intl.message(
+      'Apple',
+      name: 'apple',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fresh nuts`
+  String get fresh_nuts {
+    return Intl.message(
+      'Fresh nuts',
+      name: 'fresh_nuts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Clove`
+  String get clove {
+    return Intl.message(
+      'Clove',
+      name: 'clove',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Subtle`
+  String get subtle {
+    return Intl.message(
+      'Subtle',
+      name: 'subtle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shaded`
+  String get shaded {
+    return Intl.message(
+      'Shaded',
+      name: 'shaded',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lemon`
+  String get lemon {
+    return Intl.message(
+      'Lemon',
+      name: 'lemon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Citrus`
+  String get citrus {
+    return Intl.message(
+      'Citrus',
+      name: 'citrus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Refreshing`
+  String get refreshing {
+    return Intl.message(
+      'Refreshing',
+      name: 'refreshing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Restrained`
+  String get restrained {
+    return Intl.message(
+      'Restrained',
+      name: 'restrained',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Clean`
+  String get clean {
+    return Intl.message(
+      'Clean',
+      name: 'clean',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fresh milk`
+  String get fresh_milk {
+    return Intl.message(
+      'Fresh milk',
+      name: 'fresh_milk',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Herbs`
+  String get herbs {
+    return Intl.message(
+      'Herbs',
+      name: 'herbs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `White flowers`
+  String get white_flowers {
+    return Intl.message(
+      'White flowers',
+      name: 'white_flowers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bubblegum`
+  String get bubblegum {
+    return Intl.message(
+      'Bubblegum',
+      name: 'bubblegum',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lychee`
+  String get lychee {
+    return Intl.message(
+      'Lychee',
+      name: 'lychee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ripe banana`
+  String get ripe_banana {
+    return Intl.message(
+      'Ripe banana',
+      name: 'ripe_banana',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Salty`
+  String get salty {
+    return Intl.message(
+      'Salty',
+      name: 'salty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fatty`
+  String get fatty {
+    return Intl.message(
+      'Fatty',
+      name: 'fatty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rancid`
+  String get rancid {
+    return Intl.message(
+      'Rancid',
+      name: 'rancid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rubber`
+  String get rubber {
+    return Intl.message(
+      'Rubber',
+      name: 'rubber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Plastic`
+  String get plastic {
+    return Intl.message(
+      'Plastic',
+      name: 'plastic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Solvent`
+  String get solvent {
+    return Intl.message(
+      'Solvent',
+      name: 'solvent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Papery`
+  String get papery {
+    return Intl.message(
+      'Papery',
+      name: 'papery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dusty`
+  String get dusty {
+    return Intl.message(
+      'Dusty',
+      name: 'dusty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Musty`
+  String get musty {
+    return Intl.message(
+      'Musty',
+      name: 'musty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fungal`
+  String get fungal {
+    return Intl.message(
+      'Fungal',
+      name: 'fungal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Burnt`
+  String get burnt {
+    return Intl.message(
+      'Burnt',
+      name: 'burnt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Smoky`
+  String get smoky {
+    return Intl.message(
+      'Smoky',
+      name: 'smoky',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Meaty`
+  String get meaty {
+    return Intl.message(
+      'Meaty',
+      name: 'meaty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Roasted`
+  String get roasted {
+    return Intl.message(
+      'Roasted',
+      name: 'roasted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark`
+  String get dark {
+    return Intl.message(
+      'Dark',
+      name: 'dark',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rice bran`
+  String get rice_bran {
+    return Intl.message(
+      'Rice bran',
+      name: 'rice_bran',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Steamed rice`
+  String get steamed_rice {
+    return Intl.message(
+      'Steamed rice',
+      name: 'steamed_rice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Malt`
+  String get malt {
+    return Intl.message(
+      'Malt',
+      name: 'malt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vanilla`
+  String get vanilla {
+    return Intl.message(
+      'Vanilla',
+      name: 'vanilla',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resinous`
+  String get resinous {
+    return Intl.message(
+      'Resinous',
+      name: 'resinous',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Savoury`
+  String get savoury {
+    return Intl.message(
+      'Savoury',
+      name: 'savoury',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dried`
+  String get dried {
+    return Intl.message(
+      'Dried',
+      name: 'dried',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cinnamon`
+  String get cinnamon {
+    return Intl.message(
+      'Cinnamon',
+      name: 'cinnamon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bitter`
+  String get bitter {
+    return Intl.message(
+      'Bitter',
+      name: 'bitter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mint`
+  String get mint {
+    return Intl.message(
+      'Mint',
+      name: 'mint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Basil`
+  String get basil {
+    return Intl.message(
+      'Basil',
+      name: 'basil',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Black tea`
+  String get black_tea {
+    return Intl.message(
+      'Black tea',
+      name: 'black_tea',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tobacco`
+  String get tobacco {
+    return Intl.message(
+      'Tobacco',
+      name: 'tobacco',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bay leaf`
+  String get bay_leaf {
+    return Intl.message(
+      'Bay leaf',
+      name: 'bay_leaf',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lemongrass`
+  String get lemongrass {
+    return Intl.message(
+      'Lemongrass',
+      name: 'lemongrass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hay`
+  String get hay {
+    return Intl.message(
+      'Hay',
+      name: 'hay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Green leaves`
+  String get green_leaves {
+    return Intl.message(
+      'Green leaves',
+      name: 'green_leaves',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Green tea`
+  String get green_tea {
+    return Intl.message(
+      'Green tea',
+      name: 'green_tea',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lily`
+  String get lily {
+    return Intl.message(
+      'Lily',
+      name: 'lily',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rose`
+  String get rose {
+    return Intl.message(
+      'Rose',
+      name: 'rose',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lilac`
+  String get lilac {
+    return Intl.message(
+      'Lilac',
+      name: 'lilac',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Acacia`
+  String get acacia {
+    return Intl.message(
+      'Acacia',
+      name: 'acacia',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Linden`
+  String get linden {
+    return Intl.message(
+      'Linden',
+      name: 'linden',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Geranium`
+  String get geranium {
+    return Intl.message(
+      'Geranium',
+      name: 'geranium',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Beeswax`
+  String get beeswax {
+    return Intl.message(
+      'Beeswax',
+      name: 'beeswax',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Green apple`
+  String get green_apple {
+    return Intl.message(
+      'Green apple',
+      name: 'green_apple',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Strawberry`
+  String get strawberry {
+    return Intl.message(
+      'Strawberry',
+      name: 'strawberry',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fig`
+  String get fig {
+    return Intl.message(
+      'Fig',
+      name: 'fig',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Orange`
+  String get orange {
+    return Intl.message(
+      'Orange',
+      name: 'orange',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Grapefruit`
+  String get grapefruit {
+    return Intl.message(
+      'Grapefruit',
+      name: 'grapefruit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yuzu`
+  String get yuzu {
+    return Intl.message(
+      'Yuzu',
+      name: 'yuzu',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Apricot`
+  String get apricot {
+    return Intl.message(
+      'Apricot',
+      name: 'apricot',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cherry`
+  String get cherry {
+    return Intl.message(
+      'Cherry',
+      name: 'cherry',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Plum`
+  String get plum {
+    return Intl.message(
+      'Plum',
+      name: 'plum',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Baked banana`
+  String get baked_banana {
+    return Intl.message(
+      'Baked banana',
+      name: 'baked_banana',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full`
+  String get full {
+    return Intl.message(
+      'Full',
+      name: 'full',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Medium`
+  String get medium {
+    return Intl.message(
+      'Medium',
+      name: 'medium',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Desert`
+  String get desert {
+    return Intl.message(
+      'Desert',
+      name: 'desert',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Metallic`
+  String get metallic {
+    return Intl.message(
+      'Metallic',
+      name: 'metallic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Foaming`
+  String get foaming {
+    return Intl.message(
+      'Foaming',
+      name: 'foaming',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tingling`
+  String get tingling {
+    return Intl.message(
+      'Tingling',
+      name: 'tingling',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Aftertaste`
+  String get aftertaste {
+    return Intl.message(
+      'Aftertaste',
+      name: 'aftertaste',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mouth coating`
+  String get mouth_coating {
+    return Intl.message(
+      'Mouth coating',
+      name: 'mouth_coating',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Smooth`
+  String get smooth {
+    return Intl.message(
+      'Smooth',
+      name: 'smooth',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Velvety`
+  String get velvety {
+    return Intl.message(
+      'Velvety',
+      name: 'velvety',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Homogeneous`
+  String get homogeneous {
+    return Intl.message(
+      'Homogeneous',
+      name: 'homogeneous',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lumpy`
+  String get lumpy {
+    return Intl.message(
+      'Lumpy',
+      name: 'lumpy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Grainy`
+  String get grainy {
+    return Intl.message(
+      'Grainy',
+      name: 'grainy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sharp`
+  String get sharp {
+    return Intl.message(
+      'Sharp',
+      name: 'sharp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Alcoholic`
+  String get alcoholic {
+    return Intl.message(
+      'Alcoholic',
+      name: 'alcoholic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yogurt`
+  String get yogurt {
+    return Intl.message(
+      'Yogurt',
+      name: 'yogurt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mozzarella`
+  String get mozzarella {
+    return Intl.message(
+      'Mozzarella',
+      name: 'mozzarella',
       desc: '',
       args: [],
     );
