@@ -50,6 +50,9 @@
   "register_title": "Créer un compte",
   "login_title": "Bienvenue",
   "discover": "Découvrir",
+  "type": "Type",
+  "pairing": "Accords",
+  "style": "Style",
   "see_more": "En savoir plus",
   "learn_more_about_sake": "En savoir plus sur le Saké",
   "today_selection": "Sélection du jour",
@@ -130,9 +133,9 @@
   "temperature_desc_1": "Entre 5°C et 15°C",
   "temperature_desc_2": "Entre 16°C et 20°C",
   "temperature_desc_3": "Entre 21°C et 50°C",
-  "temperature_desc_4": "Selon la saison, froid en été ambiant en hiver",
-  "temperature_desc_5": "Selon la saison, ambiant en été chaud en hiver",
-  "temperature_desc_6": "Selon la saison, froid en été chaud en hiver",
+  "temperature_desc_4": "Selon la saison, frais en été ambiant en hiver",
+  "temperature_desc_5": "Selon la saison, frais en été chaud en hiver",
+  "temperature_desc_6": "Selon la saison, ambiant en été chaud en hiver",
   "temperature_desc_7": "Faites vous plaisir",
 
   "japan": "Japon",
@@ -344,6 +347,6 @@
 
 
   "sign_in_failed": "Echec de le connéxion",
-  "error_weak_password" :"Le mot de passe est invalide. Le mot de passe doit contenir au moins 6 caractères."
-
+  "error_weak_password" :"Le mot de passe est invalide. Le mot de passe doit contenir au moins 6 caractères.",
+  "error_barre_code_too_short": "Le code barre est trop court, assurez-vous d'avoir le code barre complet devant la caméra"
 }

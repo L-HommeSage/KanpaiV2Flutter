@@ -20,7 +20,9 @@ class SearchTextPage extends StatefulWidget {
 class _SearchTextPageState extends State<SearchTextPage>
     with SingleTickerProviderStateMixin {
   final List<Tab> _myTabs = <Tab>[
-    Tab(text: S.current.all),
+    Tab(
+      text: S.current.all,
+    ),
     Tab(text: S.current.my_sakes),
   ];
   TabController _tabController;
@@ -75,6 +77,7 @@ class _SearchTextPageState extends State<SearchTextPage>
           labelColor: kPrimaryTextColor,
           indicatorColor: kPrimaryTextColor,
           indicatorWeight: 2,
+          labelStyle: TextStyle(fontFamily: kFontFamilyCommonText),
           controller: _tabController,
           tabs: _myTabs,
         ),

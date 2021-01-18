@@ -95,6 +95,7 @@ class GridPairings extends StatelessWidget {
   Expanded _buildGridTile({color, image, text, query}) {
     return Expanded(
       child: OpenContainer(
+        closedElevation: 0,
         openColor: kPrimaryColor,
         closedColor: kPrimaryColor,
         openBuilder: (context, closeWidget) {

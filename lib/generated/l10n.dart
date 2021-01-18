@@ -403,6 +403,36 @@ class S {
     );
   }
 
+  /// `Type`
+  String get type {
+    return Intl.message(
+      'Type',
+      name: 'type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pairing`
+  String get pairing {
+    return Intl.message(
+      'Pairing',
+      name: 'pairing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Style`
+  String get style {
+    return Intl.message(
+      'Style',
+      name: 'style',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `See more`
   String get see_more {
     return Intl.message(
@@ -1306,30 +1336,30 @@ class S {
     );
   }
 
-  /// `Depending on the season, cold in summer ambient in winter`
+  /// `Depending on the season, cold in summer warm in winter`
   String get temperature_desc_4 {
     return Intl.message(
-      'Depending on the season, cold in summer ambient in winter',
+      'Depending on the season, cold in summer warm in winter',
       name: 'temperature_desc_4',
       desc: '',
       args: [],
     );
   }
 
-  /// `Depending on the season, ambient in summer warm in winter`
+  /// `Depending on the season, cold in summer hot in winter`
   String get temperature_desc_5 {
     return Intl.message(
-      'Depending on the season, ambient in summer warm in winter',
+      'Depending on the season, cold in summer hot in winter',
       name: 'temperature_desc_5',
       desc: '',
       args: [],
     );
   }
 
-  /// `Depending on the season, cold in summer hot in winter`
+  /// `Depending on the season, warm in summer hot in winter`
   String get temperature_desc_6 {
     return Intl.message(
-      'Depending on the season, cold in summer hot in winter',
+      'Depending on the season, warm in summer hot in winter',
       name: 'temperature_desc_6',
       desc: '',
       args: [],
@@ -3351,6 +3381,16 @@ class S {
     return Intl.message(
       'The given password is invalid. Password should be at least 6 characters.',
       name: 'error_weak_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The barre code is too short make sure to have the full barre code in front of the camera`
+  String get error_barre_code_too_short {
+    return Intl.message(
+      'The barre code is too short make sure to have the full barre code in front of the camera',
+      name: 'error_barre_code_too_short',
       desc: '',
       args: [],
     );

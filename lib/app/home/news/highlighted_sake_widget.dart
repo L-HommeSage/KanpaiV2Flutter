@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -160,14 +161,17 @@ class HighlightedSake extends StatelessWidget {
                           ],
                         ),
                         SizedBox(height: 5),
-                        Text(
-                          '${sake.name}, ${sake.family}',
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              fontFamily: kFontFamilyHeadlines,
-                              fontSize: 17,
-                              color: kPrimaryTextColor),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 8),
+                          child: Text(
+                            '${sake.name}, ${sake.family}',
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                fontFamily: kFontFamilyHeadlines,
+                                fontSize: 17,
+                                color: kPrimaryTextColor),
+                          ),
                         ),
                       ],
                     ),
@@ -181,9 +185,17 @@ class HighlightedSake extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Hero(
             tag: sake.id,
-            child: Image.network(
-              sake.photoUrl,
+            child: CachedNetworkImage(
+              imageUrl: sake.photoUrl,
+              width: 80,
               height: 300,
+              placeholder: (context, url) => CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.redAccent),
+              ),
+              errorWidget: (context, url, error) => Icon(
+                Icons.error,
+                color: kAccentColor,
+              ),
             ),
           ),
         ),

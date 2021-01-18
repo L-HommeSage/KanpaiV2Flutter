@@ -34,10 +34,11 @@ class TabBarSearch extends StatelessWidget {
             labelColor: kTextIconColor,
             indicatorColor: kAccentColor,
             indicatorSize: TabBarIndicatorSize.label,
+            labelStyle: TextStyle(fontFamily: kFontFamilyCommonText),
             tabs: <Widget>[
-              Tab(text: 'Type'),
-              Tab(text: 'Pairing'),
-              Tab(text: 'Style'),
+              Tab(text: S.current.type),
+              Tab(text: S.current.pairing),
+              Tab(text: S.current.style),
             ],
           ),
           SizedBox(

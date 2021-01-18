@@ -96,6 +96,8 @@ class GridStyles extends StatelessWidget {
   Expanded _buildGridTile({color, image, text, query}) {
     return Expanded(
       child: OpenContainer(
+        closedColor: kPrimaryColor,
+        closedElevation: 0,
         openBuilder: (context, closeWidget) {
           return SearchListPage(
             title: text,

@@ -24,7 +24,9 @@ class _FloatingScanButtonState extends State<FloatingScanButton> {
             "#FF6D6D", S.of(context).cancel, false, ScanMode.BARCODE)
         .then((value) => value);
     print("=====>" + code + "<=======");
-    if (code != "-1") {
+    if (code.length < 13) {
+      _gotoErrorBottomSheet(code);
+    } else if (code != "-1") {
       _gotoSake(database, user, code);
     }
   }
@@ -147,6 +149,45 @@ class _FloatingScanButtonState extends State<FloatingScanButton> {
       ),
       onPressed: () => _scan(database, user),
       elevation: 3,
+    );
+  }
+
+  void _gotoErrorBottomSheet(String code) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return SingleChildScrollView(
+          child: Container(
+            color: kPrimaryColor,
+            child: Column(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(top: 16, bottom: 8),
+                  child: Text(
+                    code,
+                    style: TextStyle(
+                        fontFamily: kFontFamilyCommonText,
+                        fontSize: 20,
+                        color: kAccentColor),
+                  ),
+                ),
+                Divider(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    S.of(context).error_barre_code_too_short,
+                    style: TextStyle(
+                        color: kAccentColor,
+                        fontFamily: kFontFamilyCommonText,
+                        fontSize: 18),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+      isScrollControlled: true,
     );
   }
 }

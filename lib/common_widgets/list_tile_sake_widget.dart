@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flag/flag.dart';
 import 'package:flutter/material.dart';
 import 'package:kanpai/app/home/models/country.dart';
@@ -10,12 +11,12 @@ class ListTileSake extends StatelessWidget {
   const ListTileSake({
     Key key,
     @required this.widget,
-    @required this.sakes,
+    @required this.sake,
     @required this.index,
   }) : super(key: key);
 
   final SearchListPage widget;
-  final List<Sake> sakes;
+  final Sake sake;
   final int index;
 
   @override
@@ -25,7 +26,7 @@ class ListTileSake extends StatelessWidget {
         MaterialPageRoute<void>(
           builder: (context) => SakePage(
             database: widget.database,
-            sake: sakes[index],
+            sake: sake,
             user: widget.user,
           ),
         ),
@@ -42,10 +43,19 @@ class ListTileSake extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     left: 20, top: 8, bottom: 8, right: 20),
                 child: Hero(
-                  tag: sakes[index].id,
-                  child: Image.network(
-                    sakes[index].photoUrl,
+                  tag: sake.id,
+                  child: CachedNetworkImage(
+                    imageUrl: sake.photoUrl,
+                    width: 60,
                     height: 150,
+                    placeholder: (context, url) => CircularProgressIndicator(
+                      valueColor:
+                          AlwaysStoppedAnimation<Color>(Colors.redAccent),
+                    ),
+                    errorWidget: (context, url, error) => Icon(
+                      Icons.error,
+                      color: kAccentColor,
+                    ),
                   ),
                 ),
               ),
@@ -55,12 +65,12 @@ class ListTileSake extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      sakes[index].name,
+                      sake.name,
                       style: kHeadlinesTextStyle,
                       textAlign: TextAlign.start,
                     ),
                     Text(
-                      sakes[index].family,
+                      sake.family,
                       style: kCommonTextStyle,
                       textAlign: TextAlign.start,
                     ),
@@ -76,7 +86,7 @@ class ListTileSake extends StatelessWidget {
                           width: 8,
                         ),
                         Text(
-                          sakes[index].rating.toString(),
+                          sake.rating.toString(),
                           style: kCommonTextStyle,
                         ),
                       ],
@@ -86,7 +96,7 @@ class ListTileSake extends StatelessWidget {
                       children: <Widget>[
                         ClipOval(
                           child: Flag(
-                            Country().getCountryFlag(sakes[index].country),
+                            Country().getCountryFlag(sake.country),
                             height: 20,
                             width: 20,
                             fit: BoxFit.cover,
@@ -96,7 +106,7 @@ class ListTileSake extends StatelessWidget {
                           width: 8,
                         ),
                         Text(
-                          '${sakes[index].region}, ${Country().getCountryName(sakes[index].country)}',
+                          '${sake.region}, ${Country().getCountryName(sake.country)}',
                           style: TextStyle(
                               fontSize: 12,
                               fontFamily: kFontFamilyCommonText,

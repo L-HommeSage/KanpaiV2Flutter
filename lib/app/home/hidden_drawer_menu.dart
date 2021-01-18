@@ -43,10 +43,11 @@ class HiddenDrawerMenu extends StatelessWidget {
       ),
       child: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             _buildHeader(user, context),
-            _buildContent(),
+            _buildContent(context),
             _buildFooter(context)
           ],
         ),
@@ -54,7 +55,7 @@ class HiddenDrawerMenu extends StatelessWidget {
     );
   }
 
-  Column _buildContent() {
+  Column _buildContent(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
@@ -64,9 +65,14 @@ class HiddenDrawerMenu extends StatelessWidget {
         _buildDrawerDivider(),
         _buildDrawerFlatButton(Icons.bookmark, () {}, "Marque page"),
         _buildDrawerDivider(),
-        _buildDrawerFlatButton(Icons.people, () {}, "Amis"),
+        _buildDrawerFlatButton(Icons.settings, () {}, S.of(context).settings),
         _buildDrawerDivider(),
-        _buildDrawerFlatButton(Icons.shopping_cart, () {}, "Commandes"),
+        _buildDrawerFlatButton(Icons.exit_to_app,
+            () => _confirmSignOut(context), S.of(context).logout),
+        //   _buildDrawerDivider(),
+        //   _buildDrawerFlatButton(Icons.people, () {}, "Amis"),
+        //   _buildDrawerDivider(),
+        //   _buildDrawerFlatButton(Icons.shopping_cart, () {}, "Commandes"),
       ],
     );
   }
@@ -99,52 +105,37 @@ class HiddenDrawerMenu extends StatelessWidget {
     );
   }
 
-  FlatButton _buildFooterFlatButton(
-      IconData icon, Function onPressed, String text) {
-    return FlatButton(
-      child: Row(
-        children: <Widget>[
-          Icon(
-            icon,
-            color: kSecondaryTextColor,
-          ),
-          SizedBox(width: 6),
-          Text(
-            text,
-            style: kCommonTextStyle,
-          ),
-        ],
-      ),
-      onPressed: onPressed,
-    );
-  }
+  // FlatButton _buildFooterFlatButton(
+  //     IconData icon, Function onPressed, String text) {
+  //   return FlatButton(
+  //    child: Row(
+  //      children: <Widget>[
+  //        Icon(
+  //          icon,
+  //          color: kSecondaryTextColor,
+  //        ),
+  //       SizedBox(width: 6),
+  //       Text(
+  //          text,
+  //          style: kCommonTextStyle,
+  //        ),
+  //     ],
+  //   ),
+  //   onPressed: onPressed,
+  //  );
+  // }
 
   Padding _buildHeader(User user, BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.only(top: 16.0, right: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              Text(
-                (user.displayName == null || user.displayName == '')
-                    ? S.of(context).visitor
-                    : user.displayName,
-                style: kDarkHeadlinesTextStyle,
-              ),
-              Row(children: <Widget>[
-                Icon(
-                  Icons.location_on,
-                  color: kSecondaryTextColor,
-                ),
-                Text(
-                  "France, Paris",
-                  style: kCommonTextStyle,
-                ),
-              ])
-            ],
+          Text(
+            (user.displayName == null || user.displayName == '')
+                ? S.of(context).visitor
+                : user.displayName,
+            style: kDarkHeadlinesTextStyle,
           ),
           SizedBox(width: 10),
           Avatar(
@@ -156,20 +147,28 @@ class HiddenDrawerMenu extends StatelessWidget {
     );
   }
 
-  Row _buildFooter(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: <Widget>[
-        SizedBox(width: 6),
-        _buildFooterFlatButton(Icons.exit_to_app,
-            () => _confirmSignOut(context), S.of(context).logout),
-        Container(
-          width: 2,
-          height: 20,
-          color: kSecondaryTextColor,
-        ),
-        _buildFooterFlatButton(Icons.settings, () {}, S.of(context).settings),
-      ],
+  Padding _buildFooter(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Text(
+        "Made in France",
+        style: kCommonTextStyle,
+        textAlign: TextAlign.right,
+      ),
     );
+    //  Row(
+    //   mainAxisAlignment: MainAxisAlignment.end,
+    //   children: <Widget>[
+    //     SizedBox(width: 6),
+    //       _buildFooterFlatButton(Icons.exit_to_app,
+    //          () => _confirmSignOut(context), S.of(context).logout),
+    //     Container(
+    //       width: 2,
+    //        height: 20,
+    //        color: kSecondaryTextColor,
+    //       ),
+    //     _buildFooterFlatButton(Icons.settings, () {}, S.of(context).settings),
+    // ],
+    // );
   }
 }

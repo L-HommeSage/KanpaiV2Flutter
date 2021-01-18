@@ -96,6 +96,7 @@ class _HomePageTabsState extends State<HomePageTabs>
               bottom: TabBar(
                 unselectedLabelColor: kTextIconColor,
                 labelColor: kPrimaryTextColor,
+                labelStyle: TextStyle(fontFamily: kFontFamilyCommonText),
                 indicatorColor: kPrimaryTextColor,
                 indicatorWeight: 2,
                 controller: _tabController,

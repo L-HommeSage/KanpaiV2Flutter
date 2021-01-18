@@ -35,7 +35,6 @@ class SakeInnerContent extends StatelessWidget {
         CharacteristicsPanel(sake: sake),
         PairingsPanel(sake: sake),
         SizedBox(height: 8),
-        Divider(),
         ReviewsPanel(
           sake: sake,
           database: database,
@@ -62,67 +61,74 @@ class SakeInnerContent extends StatelessWidget {
     );
   }
 
-  Row _buildMainInfo() {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  Column _buildMainInfo() {
+    return Column(
       children: <Widget>[
-        Column(
+        Divider(),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Text(S.current.volume, style: kCommonTextStyle),
-            Row(
+            Column(
               children: <Widget>[
-                Text('${_getVolume()}', style: kHeadlinesTextStyle),
-                SizedBox(width: 4),
-                Text((sake.volume[0] >= 1000) ? 'L' : 'cL',
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontFamily: kFontFamilyHeadlines,
-                        color: kPrimaryTextColor)),
+                Text(S.current.volume, style: kCommonTextStyle),
+                Row(
+                  children: <Widget>[
+                    Text('${_getVolume()}', style: kHeadlinesTextStyle),
+                    SizedBox(width: 4),
+                    Text((sake.volume[0] >= 1000) ? 'L' : 'cL',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontFamily: kFontFamilyHeadlines,
+                            color: kPrimaryTextColor)),
+                  ],
+                )
               ],
-            )
-          ],
-        ),
-        Container(
-          height: 35,
-          width: 1,
-          color: kSecondaryTextColor,
-        ),
-        Column(
-          children: <Widget>[
-            Text(S.current.polished, style: kCommonTextStyle),
-            Row(
+            ),
+            Container(
+              height: 35,
+              width: 1,
+              color: kSecondaryTextColor,
+            ),
+            Column(
               children: <Widget>[
-                Text('${sake.polished.toString()}', style: kHeadlinesTextStyle),
-                SizedBox(width: 4),
-                Text('%',
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontFamily: kFontFamilyHeadlines,
-                        color: kPrimaryTextColor)),
+                Text(S.current.polished, style: kCommonTextStyle),
+                Row(
+                  children: <Widget>[
+                    Text('${sake.polished.toString()}',
+                        style: kHeadlinesTextStyle),
+                    SizedBox(width: 4),
+                    Text('%',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontFamily: kFontFamilyHeadlines,
+                            color: kPrimaryTextColor)),
+                  ],
+                )
               ],
-            )
-          ],
-        ),
-        Container(
-          height: 35,
-          width: 1,
-          color: kSecondaryTextColor,
-        ),
-        Column(
-          children: <Widget>[
-            Text(S.current.alcohol, style: kCommonTextStyle),
-            Row(
+            ),
+            Container(
+              height: 35,
+              width: 1,
+              color: kSecondaryTextColor,
+            ),
+            Column(
               children: <Widget>[
-                Text('${sake.alcohol.toString()}', style: kHeadlinesTextStyle),
-                SizedBox(width: 4),
-                Text('%',
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontFamily: kFontFamilyHeadlines,
-                        color: kPrimaryTextColor)),
+                Text(S.current.alcohol, style: kCommonTextStyle),
+                Row(
+                  children: <Widget>[
+                    Text('${sake.alcohol.toString()}',
+                        style: kHeadlinesTextStyle),
+                    SizedBox(width: 4),
+                    Text('%',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontFamily: kFontFamilyHeadlines,
+                            color: kPrimaryTextColor)),
+                  ],
+                )
               ],
-            )
+            ),
           ],
         ),
       ],
@@ -190,7 +196,6 @@ class SakeInnerContent extends StatelessWidget {
                       color: kTextIconColor),
                 ),
               ),
-              Divider(),
             ],
           );
         } else {

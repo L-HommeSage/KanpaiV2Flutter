@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flag/flag.dart';
 import 'package:flutter/material.dart';
@@ -66,17 +67,18 @@ class _TabViewMySakesState extends State<TabViewMySakes>
           )
         : ListView.builder(
             itemCount: sakes.length,
-            itemBuilder: (context, index) => _buildSakeTile(context, index),
+            itemBuilder: (context, index) =>
+                _buildSakeTile(context, index, sakes[index]),
           );
   }
 
-  GestureDetector _buildSakeTile(BuildContext context, int index) {
+  GestureDetector _buildSakeTile(BuildContext context, int index, Sake sake) {
     return GestureDetector(
       onTap: () => Navigator.of(context).push(
         MaterialPageRoute<void>(
           builder: (context) => SakePage(
             database: widget.database,
-            sake: sakes[index],
+            sake: sake,
             user: widget.user,
           ),
         ),
@@ -93,10 +95,19 @@ class _TabViewMySakesState extends State<TabViewMySakes>
                 padding: const EdgeInsets.only(
                     left: 20, top: 8, bottom: 8, right: 20),
                 child: Hero(
-                  tag: sakes[index].id,
-                  child: Image.network(
-                    sakes[index].photoUrl,
+                  tag: sake.id,
+                  child: CachedNetworkImage(
+                    imageUrl: sake.photoUrl,
+                    width: 60,
                     height: 150,
+                    placeholder: (context, url) => CircularProgressIndicator(
+                      valueColor:
+                          AlwaysStoppedAnimation<Color>(Colors.redAccent),
+                    ),
+                    errorWidget: (context, url, error) => Icon(
+                      Icons.error,
+                      color: kAccentColor,
+                    ),
                   ),
                 ),
               ),
@@ -106,12 +117,12 @@ class _TabViewMySakesState extends State<TabViewMySakes>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      sakes[index].name,
+                      sake.name,
                       style: kHeadlinesTextStyle,
                       textAlign: TextAlign.start,
                     ),
                     Text(
-                      sakes[index].family,
+                      sake.family,
                       style: kCommonTextStyle,
                       textAlign: TextAlign.start,
                     ),
@@ -127,7 +138,7 @@ class _TabViewMySakesState extends State<TabViewMySakes>
                           width: 8,
                         ),
                         Text(
-                          sakes[index].rating.toString(),
+                          sake.rating.toString(),
                           style: kCommonTextStyle,
                         ),
                       ],
@@ -137,7 +148,7 @@ class _TabViewMySakesState extends State<TabViewMySakes>
                       children: <Widget>[
                         ClipOval(
                           child: Flag(
-                            Country().getCountryFlag(sakes[index].country),
+                            Country().getCountryFlag(sake.country),
                             height: 20,
                             width: 20,
                             fit: BoxFit.cover,
@@ -147,7 +158,7 @@ class _TabViewMySakesState extends State<TabViewMySakes>
                           width: 8,
                         ),
                         Text(
-                          '${sakes[index].region}, ${Country().getCountryName(sakes[index].country)}',
+                          '${sake.region}, ${Country().getCountryName(sake.country)}',
                           style: TextStyle(
                               fontSize: 12,
                               fontFamily: kFontFamilyCommonText,

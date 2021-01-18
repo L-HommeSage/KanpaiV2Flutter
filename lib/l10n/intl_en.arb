@@ -36,6 +36,9 @@
   "register_title": "Create an account",
   "login_title": "Welcome back",
   "discover": "Discover",
+  "type": "Type",
+  "pairing": "Pairing",
+  "style": "Style",
   "see_more": "See more",
   "learn_more_about_sake": "Learn more about Sake",
   "today_selection": "Today selection",
@@ -128,9 +131,9 @@
   "temperature_desc_1": "Between 5°C and 15°C",
   "temperature_desc_2": "Between 16°C and 20°C",
   "temperature_desc_3": "Between 21°C and 50°C",
-  "temperature_desc_4": "Depending on the season, cold in summer ambient in winter",
-  "temperature_desc_5": "Depending on the season, ambient in summer warm in winter",
-  "temperature_desc_6": "Depending on the season, cold in summer hot in winter",
+  "temperature_desc_4": "Depending on the season, cold in summer warm in winter",
+  "temperature_desc_5": "Depending on the season, cold in summer hot in winter",
+  "temperature_desc_6": "Depending on the season, warm in summer hot in winter",
   "temperature_desc_7": "Have fun",
 
 
@@ -338,7 +341,8 @@
   "mozzarella": "Mozzarella",
 
   "sign_in_failed": "Sign in failed",
-  "error_weak_password" :"The given password is invalid. Password should be at least 6 characters."
+  "error_weak_password" :"The given password is invalid. Password should be at least 6 characters.",
+  "error_barre_code_too_short": "The barre code is too short make sure to have the full barre code in front of the camera"
 
 
 }

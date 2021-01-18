@@ -50,6 +50,7 @@ class _ReviewsPanelState extends State<ReviewsPanel> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
+        Divider(),
         SizedBox(height: 8),
         _buildTitle(context, S.of(context).reviews),
         SizedBox(height: 8),
@@ -327,7 +328,7 @@ class _ReviewsPanelState extends State<ReviewsPanel> {
               },
               icon: Icon(
                 Icons.create,
-                color: kPrimaryTextColor,
+                color: kAccentColor,
                 size: 30,
               ),
             )

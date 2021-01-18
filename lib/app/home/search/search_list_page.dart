@@ -90,7 +90,7 @@ class _SearchListPageState extends State<SearchListPage> {
       itemCount: sakes.length,
       itemBuilder: (context, index) => ListTileSake(
         widget: widget,
-        sakes: sakes,
+        sake: sakes[index],
         index: index,
       ),
     );
