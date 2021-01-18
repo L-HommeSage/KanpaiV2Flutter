@@ -52,22 +52,21 @@ class TemperatureTile extends StatelessWidget {
   }
 
   String _getSubtitle() {
-    //TODO : faire les traductions avec intl
     switch (temperatureCode) {
       case 1:
-        return 'Entre 5°C et 15°C';
+        return S.current.temperature_desc_1;
       case 2:
-        return 'Entre 15°C et 20°C';
+        return S.current.temperature_desc_2;
       case 3:
-        return 'Entre 20°C et 50°C';
+        return S.current.temperature_desc_3;
       case 4:
-        return 'Selon la saison froid en été ambiant en hiver ';
+        return S.current.temperature_desc_4;
       case 5:
-        return 'Selon la saison ambiant en été chaud en hiver';
+        return S.current.temperature_desc_5;
       case 6:
-        return 'Selon la saison froid en été chaud en hiver';
+        return S.current.temperature_desc_6;
       case 7:
-        return 'Faites vous plaisir';
+        return S.current.temperature_desc_7;
       default:
         return '';
     }

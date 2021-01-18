@@ -456,26 +456,6 @@ class S {
     );
   }
 
-  /// `Japan`
-  String get japan {
-    return Intl.message(
-      'Japan',
-      name: 'japan',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `France`
-  String get france {
-    return Intl.message(
-      'France',
-      name: 'france',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Alcohol`
   String get alcohol {
     return Intl.message(
@@ -1291,6 +1271,246 @@ class S {
     return Intl.message(
       'The essential step:\nFermentation',
       name: 'fermentation_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Between 5°C and 15°C`
+  String get temperature_desc_1 {
+    return Intl.message(
+      'Between 5°C and 15°C',
+      name: 'temperature_desc_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Between 16°C and 20°C`
+  String get temperature_desc_2 {
+    return Intl.message(
+      'Between 16°C and 20°C',
+      name: 'temperature_desc_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Between 21°C and 50°C`
+  String get temperature_desc_3 {
+    return Intl.message(
+      'Between 21°C and 50°C',
+      name: 'temperature_desc_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Depending on the season, cold in summer ambient in winter`
+  String get temperature_desc_4 {
+    return Intl.message(
+      'Depending on the season, cold in summer ambient in winter',
+      name: 'temperature_desc_4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Depending on the season, ambient in summer warm in winter`
+  String get temperature_desc_5 {
+    return Intl.message(
+      'Depending on the season, ambient in summer warm in winter',
+      name: 'temperature_desc_5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Depending on the season, cold in summer hot in winter`
+  String get temperature_desc_6 {
+    return Intl.message(
+      'Depending on the season, cold in summer hot in winter',
+      name: 'temperature_desc_6',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Have fun`
+  String get temperature_desc_7 {
+    return Intl.message(
+      'Have fun',
+      name: 'temperature_desc_7',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Japan`
+  String get japan {
+    return Intl.message(
+      'Japan',
+      name: 'japan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `France`
+  String get france {
+    return Intl.message(
+      'France',
+      name: 'france',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Norway`
+  String get norway {
+    return Intl.message(
+      'Norway',
+      name: 'norway',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `China`
+  String get china {
+    return Intl.message(
+      'China',
+      name: 'china',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `South Korea`
+  String get south_korea {
+    return Intl.message(
+      'South Korea',
+      name: 'south_korea',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Canada`
+  String get canada {
+    return Intl.message(
+      'Canada',
+      name: 'canada',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Brazil`
+  String get brazil {
+    return Intl.message(
+      'Brazil',
+      name: 'brazil',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Australia`
+  String get australia {
+    return Intl.message(
+      'Australia',
+      name: 'australia',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vietnam`
+  String get vietnam {
+    return Intl.message(
+      'Vietnam',
+      name: 'vietnam',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thailand`
+  String get thailand {
+    return Intl.message(
+      'Thailand',
+      name: 'thailand',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Singapore`
+  String get singapore {
+    return Intl.message(
+      'Singapore',
+      name: 'singapore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Germany`
+  String get germany {
+    return Intl.message(
+      'Germany',
+      name: 'germany',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `United Kingdom`
+  String get united_kingdom {
+    return Intl.message(
+      'United Kingdom',
+      name: 'united_kingdom',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Romania`
+  String get romania {
+    return Intl.message(
+      'Romania',
+      name: 'romania',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Spain`
+  String get spain {
+    return Intl.message(
+      'Spain',
+      name: 'spain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Italy`
+  String get italy {
+    return Intl.message(
+      'Italy',
+      name: 'italy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `United States`
+  String get united_states {
+    return Intl.message(
+      'United States',
+      name: 'united_states',
       desc: '',
       args: [],
     );

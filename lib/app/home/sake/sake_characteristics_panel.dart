@@ -199,11 +199,14 @@ class CharacteristicsPanel extends StatelessWidget {
                   SizedBox(
                     width: 15,
                   ),
-                  IconImage(
-                    backgroundColor: colorIcon2,
-                    imagePath: pathImage2,
-                    iconColor: kLightPrimaryColor,
-                    size: 25,
+                  Transform.translate(
+                    offset: Offset(0, -13),
+                    child: IconImage(
+                      backgroundColor: colorIcon2,
+                      imagePath: pathImage2,
+                      iconColor: kLightPrimaryColor,
+                      size: 25,
+                    ),
                   ),
                 ],
               ),

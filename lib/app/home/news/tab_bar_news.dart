@@ -14,11 +14,9 @@ class TabBarNews extends StatefulWidget {
   _TabBarNewsState createState() => _TabBarNewsState();
 }
 
-class _TabBarNewsState extends State<TabBarNews>
-    with AutomaticKeepAliveClientMixin {
+class _TabBarNewsState extends State<TabBarNews> {
   @override
   Widget build(BuildContext context) {
-    super.build(context);
     final database = Provider.of<Database>(context, listen: false);
     final List<Widget> listItems = [
       _buildTodayTitle(context),
@@ -32,7 +30,7 @@ class _TabBarNewsState extends State<TabBarNews>
           database: database,
           id: "2",
           lang: "en",
-          backgroundImage: "images/backgroundImage7.PNG"),
+          backgroundImage: "images/backgroundImage4.PNG"),
       _buildTodayEvent(
           id: '1', lang: 'en', database: database, context: context),
       _buildHighlightedSake(
@@ -41,7 +39,8 @@ class _TabBarNewsState extends State<TabBarNews>
           id: "1",
           lang: "en",
           backgroundImage: "images/backgroundImage6.PNG"),
-      SizedBox(height: 90)
+      SizedBox(height: 45),
+      SizedBox(height: 45),
     ];
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -54,7 +53,7 @@ class _TabBarNewsState extends State<TabBarNews>
   Container _buildTodayTitle(BuildContext context) {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.only(bottom: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -179,7 +178,4 @@ class _TabBarNewsState extends State<TabBarNews>
         ];
     }
   }
-
-  @override
-  bool get wantKeepAlive => true;
 }
