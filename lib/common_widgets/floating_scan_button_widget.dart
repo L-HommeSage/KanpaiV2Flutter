@@ -75,6 +75,15 @@ class _FloatingScanButtonState extends State<FloatingScanButton> {
               ),
             ),
             Divider(),
+            (user.registered == false)
+                ? Text(
+                    S.of(context).need_register,
+                    style: TextStyle(
+                      fontFamily: kFontFamilyCommonText,
+                      color: kAccentColor,
+                    ),
+                  )
+                : SizedBox(),
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Text(
@@ -103,23 +112,31 @@ class _FloatingScanButtonState extends State<FloatingScanButton> {
                   Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(200),
-                        border: Border.all(color: kAccentColor, width: 3)),
+                        border: Border.all(
+                            color: (user.registered)
+                                ? kAccentColor
+                                : Color(0x4FFF6D6D),
+                            width: 3)),
                     child: IconButton(
                       iconSize: 35,
                       icon: Icon(
                         Icons.check,
-                        color: kAccentColor,
+                        color: (user.registered)
+                            ? kAccentColor
+                            : Color(0x4FFF6D6D),
                       ),
                       onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute<void>(
-                            builder: (context) => NewRefPage(
-                              database: database,
-                              code: code,
-                              user: user,
+                        if (user.registered == true) {
+                          Navigator.of(context).push(
+                            MaterialPageRoute<void>(
+                              builder: (context) => NewRefPage(
+                                database: database,
+                                code: code,
+                                user: user,
+                              ),
                             ),
-                          ),
-                        );
+                          );
+                        }
                       },
                     ),
                   ),

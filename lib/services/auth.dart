@@ -10,6 +10,7 @@ class User {
     @required this.uid,
     @required this.photoUrl,
     @required this.displayName,
+    @required this.registered,
     @required this.previousSearch,
     @required this.sakeList,
     @required this.bookmarks,
@@ -19,6 +20,7 @@ class User {
   final String uid;
   final String photoUrl;
   final String displayName;
+  bool registered;
   List previousSearch;
   List sakeList;
   List bookmarks;
@@ -47,11 +49,13 @@ class Auth implements AuthBase {
     List bookmarks = [];
     List myReviews = [];
     List recommendedSearch = [];
+    bool registered = false;
     if (user == null) return null;
     return User(
       uid: user.uid,
       photoUrl: user.photoUrl,
       displayName: user.displayName,
+      registered: registered,
       previousSearch: previousSearch,
       sakeList: sakeList,
       bookmarks: bookmarks,
@@ -140,6 +144,7 @@ class Auth implements AuthBase {
           'bookmarks': [],
           'myReviews': [],
           'recommendedSearch': [],
+          'registered': (user.displayName == null) ? false : true,
           'name':
               (user.displayName == null) ? S.current.visitor : user.displayName,
         });

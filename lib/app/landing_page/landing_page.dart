@@ -27,6 +27,7 @@ class LandingPage extends StatelessWidget {
                 .get()
                 .then((value) {
               user.previousSearch = value.data["previousSearch"];
+              user.registered = value.data["registered"];
               user.sakeList = value.data["sakeList"];
               user.bookmarks = value.data["bookmarks"];
               user.myReviews = value.data["myReviews"];

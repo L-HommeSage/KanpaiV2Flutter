@@ -986,6 +986,36 @@ class S {
     );
   }
 
+  /// `Bookmarks`
+  String get bookmarks {
+    return Intl.message(
+      'Bookmarks',
+      name: 'bookmarks',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My rates`
+  String get my_rates {
+    return Intl.message(
+      'My rates',
+      name: 'my_rates',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You must be registered to use this feature`
+  String get need_register {
+    return Intl.message(
+      'You must be registered to use this feature',
+      name: 'need_register',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `We don't have this reference, would you like to fill it in order to improve our services ?`
   String get no_reference {
     return Intl.message(
