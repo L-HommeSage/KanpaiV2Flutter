@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kanpai/common_widgets/avatar_picture.dart';
+import 'package:kanpai/common_widgets/my_sakes_page.dart';
 import 'package:kanpai/common_widgets/platform_alert_dialog_widget.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
 import 'package:kanpai/services/auth.dart';
+import 'package:kanpai/services/database.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -59,7 +61,8 @@ class HiddenDrawerMenu extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
-        _buildDrawerFlatButton(MdiIcons.bottleWine, () {}, "Mes sakés"),
+        _buildDrawerFlatButton(MdiIcons.bottleWine,
+            () => _gotoMySakePage(context), S.of(context).my_sakes),
         _buildDrawerDivider(),
         _buildDrawerFlatButton(MdiIcons.star, () {}, "Mes notes"),
         _buildDrawerDivider(),
@@ -170,5 +173,18 @@ class HiddenDrawerMenu extends StatelessWidget {
     //     _buildFooterFlatButton(Icons.settings, () {}, S.of(context).settings),
     // ],
     // );
+  }
+
+  _gotoMySakePage(BuildContext context) {
+    final database = Provider.of<Database>(context, listen: false);
+    final user = Provider.of<User>(context, listen: false);
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (context) => MySakesPage(
+          user: user,
+          database: database,
+        ),
+      ),
+    );
   }
 }

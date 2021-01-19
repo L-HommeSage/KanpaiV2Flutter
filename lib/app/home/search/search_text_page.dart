@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kanpai/app/home/search/data_search.dart';
 import 'package:kanpai/app/home/search/tab_view_all.dart';
@@ -34,14 +33,6 @@ class _SearchTextPageState extends State<SearchTextPage>
       length: _myTabs.length,
     );
     _tabController.index = 0;
-    Firestore.instance
-        .collection("users")
-        .document(widget.user.uid)
-        .get()
-        .then((value) {
-      widget.user.previousSearch = value.data["previousSearch"];
-      widget.user.sakeList = value.data["sakeList"];
-    });
   }
 
   @override

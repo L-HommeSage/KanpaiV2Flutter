@@ -6,7 +6,7 @@ import 'package:kanpai/services/auth.dart';
 import 'package:kanpai/services/database.dart';
 
 class DataSearch extends SearchDelegate<String> {
-  DataSearch({this.database, this.user});
+  DataSearch({@required this.database, @required this.user});
   final User user;
   final Database database;
   final sakesSearch = [
@@ -32,9 +32,7 @@ class DataSearch extends SearchDelegate<String> {
       primaryIconTheme:
           theme.primaryIconTheme.copyWith(color: kPrimaryTextColor),
       primaryColorBrightness: Brightness.dark,
-      textTheme: theme.textTheme.copyWith(
-        headline6: kCommonTextStyle,
-      ),
+      textTheme: theme.textTheme.copyWith(headline6: kCommonTextStyle),
       inputDecorationTheme:
           theme.inputDecorationTheme.copyWith(border: UnderlineInputBorder()),
     );
@@ -70,9 +68,9 @@ class DataSearch extends SearchDelegate<String> {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (context) => SearchListPage(
-          title: query,
-          query: query,
-          queryType: "name",
+          title: _capitalize(query),
+          query: _capitalize(query),
+          queryType: "tagSearch",
           database: database,
           user: user,
         ),
@@ -89,7 +87,10 @@ class DataSearch extends SearchDelegate<String> {
   Widget buildSuggestions(BuildContext context) {
     final suggestionList = query.isEmpty
         ? user.previousSearch
-        : sakesSearch.where((element) => element.startsWith(query)).toList();
+        : sakesSearch
+            .where((element) =>
+                element.toLowerCase().startsWith(query.toLowerCase()))
+            .toList();
     return ListView.builder(
         itemCount: suggestionList.length,
         itemBuilder: (context, index) => ListTile(
@@ -130,5 +131,17 @@ class DataSearch extends SearchDelegate<String> {
                     ]),
               ),
             ));
+  }
+
+  String _capitalize(String string) {
+    if (string == null) {
+      throw ArgumentError.notNull('string');
+    }
+
+    if (string.isEmpty) {
+      return string;
+    }
+
+    return string[0].toUpperCase() + string.substring(1);
   }
 }

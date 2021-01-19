@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:kanpai/app/home/home_page.dart';
@@ -19,6 +20,18 @@ class LandingPage extends StatelessWidget {
           User user = snapshot.data;
           if (user == null) {
             return IntroPage.create(context);
+          } else {
+            Firestore.instance
+                .collection("users")
+                .document(user.uid)
+                .get()
+                .then((value) {
+              user.previousSearch = value.data["previousSearch"];
+              user.sakeList = value.data["sakeList"];
+              user.bookmarks = value.data["bookmarks"];
+              user.myReviews = value.data["myReviews"];
+              user.recommendedSearch = value.data["recommendedSearch"];
+            });
           }
 
           return Provider<User>.value(

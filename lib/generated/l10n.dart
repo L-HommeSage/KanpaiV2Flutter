@@ -93,10 +93,10 @@ class S {
     );
   }
 
-  /// `confirm`
+  /// `Confirm`
   String get confirm {
     return Intl.message(
-      'confirm',
+      'Confirm',
       name: 'confirm',
       desc: '',
       args: [],

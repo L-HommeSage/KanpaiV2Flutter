@@ -30,7 +30,7 @@ class _ReviewsPanelState extends State<ReviewsPanel> {
   @override
   initState() {
     super.initState();
-    loadReviews(widget.sake.id).then((var value) {
+    _loadReviews(widget.sake.id).then((var value) {
       reviews = value;
       setState(() {
         nbReviews = value.length;
@@ -379,7 +379,7 @@ class _ReviewsPanelState extends State<ReviewsPanel> {
   }
 }
 
-Future<List<Review>> loadReviews(String sakeId) async {
+Future<List<Review>> _loadReviews(String sakeId) async {
   List<Review> reviews = [];
   QuerySnapshot querySnapshot = await Firestore.instance
       .collection("/sakes/" + sakeId + "/reviews/en/reviews")

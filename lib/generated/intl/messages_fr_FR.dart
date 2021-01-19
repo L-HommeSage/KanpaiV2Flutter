@@ -73,7 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "commonly_search" : MessageLookupByLibrary.simpleMessage("Recherches fréquentes"),
     "complex" : MessageLookupByLibrary.simpleMessage("Complexe"),
     "conditions" : MessageLookupByLibrary.simpleMessage("Conditions"),
-    "confirm" : MessageLookupByLibrary.simpleMessage("confirmer"),
+    "confirm" : MessageLookupByLibrary.simpleMessage("Confirmer"),
     "connection" : MessageLookupByLibrary.simpleMessage("connexion"),
     "creamy" : MessageLookupByLibrary.simpleMessage("Crémeux"),
     "daiginjo" : MessageLookupByLibrary.simpleMessage("DAIGINJO"),

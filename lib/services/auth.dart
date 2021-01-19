@@ -12,12 +12,18 @@ class User {
     @required this.displayName,
     @required this.previousSearch,
     @required this.sakeList,
+    @required this.bookmarks,
+    @required this.myReviews,
+    @required this.recommendedSearch,
   });
   final String uid;
   final String photoUrl;
   final String displayName;
   List previousSearch;
   List sakeList;
+  List bookmarks;
+  List myReviews;
+  List recommendedSearch;
 }
 
 abstract class AuthBase {
@@ -38,6 +44,9 @@ class Auth implements AuthBase {
   User _userFromFirebase(FirebaseUser user) {
     List sakeList = [];
     List previousSearch = [];
+    List bookmarks = [];
+    List myReviews = [];
+    List recommendedSearch = [];
     if (user == null) return null;
     return User(
       uid: user.uid,
@@ -45,6 +54,9 @@ class Auth implements AuthBase {
       displayName: user.displayName,
       previousSearch: previousSearch,
       sakeList: sakeList,
+      bookmarks: bookmarks,
+      myReviews: myReviews,
+      recommendedSearch: recommendedSearch,
     );
   }
 
@@ -125,6 +137,9 @@ class Auth implements AuthBase {
         docRef.setData({
           'previousSearch': [],
           'sakeList': [],
+          'bookmarks': [],
+          'myReviews': [],
+          'recommendedSearch': [],
           'name':
               (user.displayName == null) ? S.current.visitor : user.displayName,
         });
