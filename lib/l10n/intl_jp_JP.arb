@@ -13,6 +13,8 @@
   "skip": "Skip",
   "reviews": "Reviews",
   "bookmarks": "Bookmarks",
+  "added_bookmarks": "Added to your bookmarks",
+  "removed_bookmarks": "Removed from your bookmarks",
   "my_rates": "My rates",
   "need_register": "You must be registered to use this feature",
   "new_ref": "New reference",

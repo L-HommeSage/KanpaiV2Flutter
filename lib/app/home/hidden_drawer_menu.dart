@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kanpai/common_widgets/avatar_picture.dart';
 import 'package:kanpai/common_widgets/my_sakes_page.dart';
+import 'package:kanpai/common_widgets/my_bookmarks_page.dart';
 import 'package:kanpai/common_widgets/platform_alert_dialog_widget.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
@@ -66,7 +67,8 @@ class HiddenDrawerMenu extends StatelessWidget {
         _buildDrawerDivider(),
         _buildDrawerFlatButton(MdiIcons.star, () {}, S.of(context).my_rates),
         _buildDrawerDivider(),
-        _buildDrawerFlatButton(Icons.bookmark, () {}, S.of(context).bookmarks),
+        _buildDrawerFlatButton(Icons.bookmark,
+            () => _gotoBookmarksPage(context), S.of(context).bookmarks),
         _buildDrawerDivider(),
         _buildDrawerFlatButton(Icons.settings, () {}, S.of(context).settings),
         _buildDrawerDivider(),
@@ -173,6 +175,19 @@ class HiddenDrawerMenu extends StatelessWidget {
     //     _buildFooterFlatButton(Icons.settings, () {}, S.of(context).settings),
     // ],
     // );
+  }
+
+  _gotoBookmarksPage(BuildContext context) {
+    final database = Provider.of<Database>(context, listen: false);
+    final user = Provider.of<User>(context, listen: false);
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (context) => BookmarksPage(
+          user: user,
+          database: database,
+        ),
+      ),
+    );
   }
 
   _gotoMySakePage(BuildContext context) {

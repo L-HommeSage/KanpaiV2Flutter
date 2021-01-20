@@ -996,6 +996,26 @@ class S {
     );
   }
 
+  /// `Added to your bookmarks`
+  String get added_bookmarks {
+    return Intl.message(
+      'Added to your bookmarks',
+      name: 'added_bookmarks',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Removed from your bookmarks`
+  String get removed_bookmarks {
+    return Intl.message(
+      'Removed from your bookmarks',
+      name: 'removed_bookmarks',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `My rates`
   String get my_rates {
     return Intl.message(

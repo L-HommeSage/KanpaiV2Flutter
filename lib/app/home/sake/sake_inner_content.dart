@@ -6,6 +6,7 @@ import 'package:kanpai/app/home/models/country.dart';
 import 'package:kanpai/app/home/models/sake.dart';
 import 'package:kanpai/app/home/sake/pairings_panel.dart';
 import 'package:kanpai/app/home/sake/reviews_panel.dart';
+import 'package:kanpai/app/home/sake/bookmark_button_widget.dart';
 import 'package:kanpai/app/home/sake/sake_characteristics_panel.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
@@ -52,9 +53,24 @@ class SakeInnerContent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text('${sake.name}, ${sake.family}', style: kHeadlinesTextStyle),
-            Text(sake.house, style: kCommonTextStyle),
-            SizedBox(height: 5),
-            _buildFlag(sake.country),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(sake.house, style: kCommonTextStyle),
+                    SizedBox(height: 5),
+                    _buildFlag(sake.country),
+                  ],
+                ),
+                BookmarkButton(
+                  database: database,
+                  user: user,
+                  sakeId: sake.id,
+                )
+              ],
+            )
           ],
         ),
       ),

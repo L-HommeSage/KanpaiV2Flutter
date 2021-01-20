@@ -27,7 +27,19 @@ class _FloatingScanButtonState extends State<FloatingScanButton> {
     if (code.length < 13) {
       _gotoErrorBottomSheet(code);
     } else if (code != "-1") {
-      _gotoSake(database, user, code);
+      if (user.sakeList.contains(code)) {
+        _gotoSake(database, user, code);
+      } else {
+        user.sakeList.add(code);
+        final CollectionReference collectionReference =
+            Firestore.instance.collection("users");
+        collectionReference
+            .document(user.uid)
+            .updateData({"sakeList": user.bookmarks}).whenComplete(() async {
+          print("Completed");
+        }).catchError((e) => print(e));
+        _gotoSake(database, user, code);
+      }
     }
   }
 
