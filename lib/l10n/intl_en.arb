@@ -132,6 +132,14 @@
   "kome_koji": "Kome-koji",
   "kome_koji_description": "Rice on which koji-kin has been grown",
   "fermentation_title": "The essential step:\nFermentation",
+  "fermentation_description": "The fermentation process takes place in 3 stages over 4 days.",
+  "yeast_lactic_acid": "Yeast + lactic acid",
+  "fermentation_day1": "On the first day, the Kome-kôji is placed in large fermentation tanks, in which the master brewer adds water and cooked rice, doubling the total volume.",
+  "fermentation_day2": "On the second day, you can hear the fermentation process at work: it's the \"rice dance\". Concretely, this is a parallel fermentation process. Enzymes break down molecules, which in turn are digested by yeasts to create sugar.",
+  "fermentation_day3": "On the third and fourth day, cooked rice and water are added again, which doubles the size of the contents. The contents of the tank are mixed very regularly.",
+  "fermentation_day4": "Control is necessary throughout the process. Fermentation will last 18 to 32 days, with constant temperature control. At the end of fermentation, the sake will have reached 23 ° alcohol, which is a world record for natural fermentation.",
+
+
 
   "temperature_desc_1": "Between 5°C and 15°C",
   "temperature_desc_2": "Between 16°C and 20°C",

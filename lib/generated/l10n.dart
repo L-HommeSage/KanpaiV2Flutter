@@ -1356,6 +1356,66 @@ class S {
     );
   }
 
+  /// `The fermentation process takes place in 3 stages over 4 days.`
+  String get fermentation_description {
+    return Intl.message(
+      'The fermentation process takes place in 3 stages over 4 days.',
+      name: 'fermentation_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yeast + lactic acid`
+  String get yeast_lactic_acid {
+    return Intl.message(
+      'Yeast + lactic acid',
+      name: 'yeast_lactic_acid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `On the first day, the Kome-kôji is placed in large fermentation tanks, in which the master brewer adds water and cooked rice, doubling the total volume.`
+  String get fermentation_day1 {
+    return Intl.message(
+      'On the first day, the Kome-kôji is placed in large fermentation tanks, in which the master brewer adds water and cooked rice, doubling the total volume.',
+      name: 'fermentation_day1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `On the second day, you can hear the fermentation process at work: it's the "rice dance". Concretely, this is a parallel fermentation process. Enzymes break down molecules, which in turn are digested by yeasts to create sugar.`
+  String get fermentation_day2 {
+    return Intl.message(
+      'On the second day, you can hear the fermentation process at work: it\'s the "rice dance". Concretely, this is a parallel fermentation process. Enzymes break down molecules, which in turn are digested by yeasts to create sugar.',
+      name: 'fermentation_day2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `On the third and fourth day, cooked rice and water are added again, which doubles the size of the contents. The contents of the tank are mixed very regularly.`
+  String get fermentation_day3 {
+    return Intl.message(
+      'On the third and fourth day, cooked rice and water are added again, which doubles the size of the contents. The contents of the tank are mixed very regularly.',
+      name: 'fermentation_day3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Control is necessary throughout the process. Fermentation will last 18 to 32 days, with constant temperature control. At the end of fermentation, the sake will have reached 23 ° alcohol, which is a world record for natural fermentation.`
+  String get fermentation_day4 {
+    return Intl.message(
+      'Control is necessary throughout the process. Fermentation will last 18 to 32 days, with constant temperature control. At the end of fermentation, the sake will have reached 23 ° alcohol, which is a world record for natural fermentation.',
+      name: 'fermentation_day4',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Between 5°C and 15°C`
   String get temperature_desc_1 {
     return Intl.message(

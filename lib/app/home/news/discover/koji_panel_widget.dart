@@ -12,7 +12,7 @@ class KojiDescriptionPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 210,
+      height: 230,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: <Widget>[

@@ -4,6 +4,7 @@ import 'package:kanpai/app/home/news/discover/rice_timeliner_widget.dart';
 import 'package:kanpai/app/home/news/discover/row_kanji_widget.dart';
 import 'package:kanpai/app/home/news/discover/row_water_quality_widget.dart';
 import 'package:kanpai/app/home/news/discover/row_water_spe.dart';
+import 'package:kanpai/app/home/news/discover/fermentation_widget.dart';
 import 'package:kanpai/app/home/news/discover/sliver_persistent_header.dart';
 import 'package:kanpai/constants/style.dart';
 import 'package:kanpai/generated/l10n.dart';
@@ -140,6 +141,7 @@ class _DiscoverPageState extends State<DiscoverPage>
         Divider(),
         _buildTitle(title: S.of(context).fermentation_title),
         Divider(),
+        Fermentation(context: context),
       ],
     );
   }
@@ -149,7 +151,7 @@ class _DiscoverPageState extends State<DiscoverPage>
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       child: Text(
         text,
-        textAlign: TextAlign.justify,
+        textAlign: TextAlign.start,
         style: TextStyle(
             fontSize: 20,
             color: kPrimaryTextColor,

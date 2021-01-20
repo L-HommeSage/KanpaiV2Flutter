@@ -197,23 +197,25 @@ class SakeInnerContent extends StatelessWidget {
         }
         if (snapshot.hasData) {
           final sake = snapshot.data;
-          return Column(
-            children: <Widget>[
-              Divider(),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                child: Text(
-                  sake.description,
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                      fontFamily: kFontFamilyCommonText,
-                      fontSize: 16,
-                      color: kTextIconColor),
-                ),
-              ),
-            ],
-          );
+          return (sake.description != "")
+              ? Column(
+                  children: <Widget>[
+                    Divider(),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 10),
+                      child: Text(
+                        sake.description,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            fontFamily: kFontFamilyCommonText,
+                            fontSize: 16,
+                            color: kTextIconColor),
+                      ),
+                    ),
+                  ],
+                )
+              : SizedBox();
         } else {
           return CircularProgressIndicator();
         }

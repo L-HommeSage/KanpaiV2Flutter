@@ -10,58 +10,60 @@ class PairingsPanel extends StatelessWidget {
   final Sake sake;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Divider(),
-        SizedBox(height: 8),
-        _buildTitle(context, S.of(context).food_parings),
-        SizedBox(height: 8),
-        SizedBox(
-          height: 120,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: sake.pairings.length,
-            itemBuilder: (context, index) {
-              return Container(
-                margin: EdgeInsets.symmetric(horizontal: 5),
+    return (sake.pairings.length > 0)
+        ? Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Divider(),
+              SizedBox(height: 8),
+              _buildTitle(context, S.of(context).food_parings),
+              SizedBox(height: 8),
+              SizedBox(
                 height: 120,
-                width: 150,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                      image: AssetImage(
-                          Pairing().getPairingImage(sake.pairings[index])),
-                      fit: BoxFit.cover),
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: sake.pairings.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: EdgeInsets.symmetric(horizontal: 5),
+                      height: 120,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                            image: AssetImage(Pairing()
+                                .getPairingImage(sake.pairings[index])),
+                            fit: BoxFit.cover),
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            gradient: LinearGradient(
+                                begin: Alignment.bottomLeft,
+                                end: Alignment.topRight,
+                                colors: [
+                                  kTextIconColor,
+                                  Color(0x0F202C39),
+                                  Color(0x00FFFFFF)
+                                ])),
+                        child: Transform.translate(
+                          offset: Offset(0, 85),
+                          child: Text(
+                            " ${Pairing().getPairingName(sake.pairings[index])}",
+                            style: TextStyle(
+                                fontFamily: kFontFamilyHeadlines,
+                                fontSize: 20,
+                                color: kLightPrimaryColor),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 ),
-                child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      gradient: LinearGradient(
-                          begin: Alignment.bottomLeft,
-                          end: Alignment.topRight,
-                          colors: [
-                            kTextIconColor,
-                            Color(0x0F202C39),
-                            Color(0x00FFFFFF)
-                          ])),
-                  child: Transform.translate(
-                    offset: Offset(0, 85),
-                    child: Text(
-                      " ${Pairing().getPairingName(sake.pairings[index])}",
-                      style: TextStyle(
-                          fontFamily: kFontFamilyHeadlines,
-                          fontSize: 20,
-                          color: kLightPrimaryColor),
-                    ),
-                  ),
-                ),
-              );
-            },
-          ),
-        ),
-      ],
-    );
+              ),
+            ],
+          )
+        : SizedBox();
   }
 
   Padding _buildTitle(BuildContext context, String title) {

@@ -64,8 +64,8 @@ class HiddenDrawerMenu extends StatelessWidget {
       children: <Widget>[
         _buildDrawerFlatButton(MdiIcons.bottleWine,
             () => _gotoMySakePage(context), S.of(context).my_sakes),
-        _buildDrawerDivider(),
-        _buildDrawerFlatButton(MdiIcons.star, () {}, S.of(context).my_rates),
+        //   _buildDrawerDivider(),
+        // _buildDrawerFlatButton(MdiIcons.star, () {}, S.of(context).my_rates),
         _buildDrawerDivider(),
         _buildDrawerFlatButton(Icons.bookmark,
             () => _gotoBookmarksPage(context), S.of(context).bookmarks),
