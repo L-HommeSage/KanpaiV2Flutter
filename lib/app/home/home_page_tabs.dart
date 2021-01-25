@@ -71,9 +71,22 @@ class _HomePageTabsState extends State<HomePageTabs>
       curve: (_toggleDrawer) ? Curves.elasticOut : Curves.easeOutExpo,
       transform: Matrix4.translationValues(_xOffset, _yOffset, 0)
         ..scale(_scaleFactor),
-      child: ClipRRect(
-          borderRadius: BorderRadius.circular(_radius),
-          child: _buildHomePageInnerContent()),
+      child: GestureDetector(
+        onTap: (!_toggleDrawer)
+            ? () {}
+            : () {
+                setState(() {
+                  _xOffset = 0;
+                  _yOffset = 0;
+                  _scaleFactor = 1;
+                  _radius = 0;
+                  _toggleDrawer = !_toggleDrawer;
+                });
+              },
+        child: ClipRRect(
+            borderRadius: BorderRadius.circular(_radius),
+            child: _buildHomePageInnerContent()),
+      ),
     );
   }
 
