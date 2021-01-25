@@ -31,23 +31,35 @@ class _TabBarNewsState extends State<TabBarNews> {
           id: "2",
           lang: "en",
           backgroundImage: "images/backgroundImage4.PNG"),
-      _buildTodayEvent(
-          id: '1', lang: 'en', database: database, context: context),
       _buildHighlightedSake(
           context: context,
           database: database,
           id: "1",
           lang: "en",
           backgroundImage: "images/backgroundImage6.PNG"),
+      _buildTodayEvent(
+          id: '1', lang: 'en', database: database, context: context),
       SizedBox(height: 45),
       SizedBox(height: 45),
     ];
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      child: ListView.builder(
-          itemCount: listItems.length,
-          itemBuilder: (context, index) => listItems[index]),
-    );
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: ListView(
+          children: <Widget>[
+            listItems[0],
+            listItems[1],
+            listItems[2],
+            listItems[3],
+            listItems[4],
+            listItems[5],
+            listItems[6],
+            listItems[7],
+          ],
+        )
+        //ListView.builder(
+        //  itemCount: listItems.length,
+        //itemBuilder: (context, index) => listItems[index]),
+        );
   }
 
   Container _buildTodayTitle(BuildContext context) {

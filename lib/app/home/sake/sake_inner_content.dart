@@ -29,7 +29,7 @@ class SakeInnerContent extends StatelessWidget {
           height: 20,
         ),
         _buildHeaderInfo(),
-        _buildStreamDescription(context),
+        _buildDescription(context),
         SizedBox(height: 8),
         _buildMainInfo(),
         SizedBox(height: 8),
@@ -187,52 +187,38 @@ class SakeInnerContent extends StatelessWidget {
     );
   }
 
-  StreamBuilder<Sake> _buildStreamDescription(BuildContext context) {
-    return StreamBuilder<Sake>(
-      stream: _getCurrentLanguageSelected(sake.id, context),
-      builder: (context, snapshot) {
-        if (snapshot.hasError) {
-          print(snapshot.error);
-          return Center(child: Text('Some error occurred'));
-        }
-        if (snapshot.hasData) {
-          final sake = snapshot.data;
-          return (sake.description != "")
-              ? Column(
-                  children: <Widget>[
-                    Divider(),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 10),
-                      child: Text(
-                        sake.description,
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                            fontFamily: kFontFamilyCommonText,
-                            fontSize: 16,
-                            color: kTextIconColor),
-                      ),
-                    ),
-                  ],
-                )
-              : SizedBox();
-        } else {
-          return CircularProgressIndicator();
-        }
-      },
-    );
+  Widget _buildDescription(BuildContext context) {
+    final String desc = sake.descriptions[_getCurrentLanguageSelected(context)];
+    return (desc != "")
+        ? Column(
+            children: <Widget>[
+              Divider(),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                child: Text(
+                  desc,
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      fontFamily: kFontFamilyCommonText,
+                      fontSize: 16,
+                      color: kTextIconColor),
+                ),
+              ),
+            ],
+          )
+        : SizedBox();
   }
 
-  Stream<Sake> _getCurrentLanguageSelected(
-      String sakeId, BuildContext context) {
+  String _getCurrentLanguageSelected(BuildContext context) {
     if (Localizations.localeOf(context).languageCode == 'en') {
-      return database.sakeDescriptionStreamEn(sakeId);
+      return 'en';
     } else if (Localizations.localeOf(context).languageCode == 'fr') {
-      return database.sakeDescriptionStreamFr(sakeId);
+      return 'fr';
     } else if (Localizations.localeOf(context).languageCode == 'jp') {
-      return database.sakeDescriptionStreamJp(sakeId);
+      return 'jp';
     } else {
-      return database.sakeDescriptionStreamEn(sakeId);
+      return 'en';
     }
   }
 }

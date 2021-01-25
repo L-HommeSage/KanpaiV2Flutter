@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:kanpai/app/home/models/sake.dart';
@@ -108,9 +109,17 @@ class DetailSliverDelegate extends SliverPersistentHeaderDelegate {
                 offset: Offset(0, -90),
                 child: Hero(
                   tag: sake.id,
-                  child: Image.network(
-                    sake.photoUrl,
+                  child: CachedNetworkImage(
+                    imageUrl: sake.photoUrl,
                     height: 300,
+                    placeholder: (context, url) => CircularProgressIndicator(
+                      valueColor:
+                          AlwaysStoppedAnimation<Color>(Colors.redAccent),
+                    ),
+                    errorWidget: (context, url, error) => Icon(
+                      Icons.error,
+                      color: kAccentColor,
+                    ),
                   ),
                 ),
               )

@@ -9,7 +9,7 @@ class Sake {
       this.region,
       this.country,
       this.photoUrl,
-      this.description,
+      this.descriptions,
       this.alcohol,
       this.rating,
       this.nbRatings,
@@ -27,7 +27,6 @@ class Sake {
   final String region;
   final String country;
   final String photoUrl;
-  final String description;
   final double alcohol;
   final double rating;
   final double polished;
@@ -38,6 +37,7 @@ class Sake {
   final List<String> pairings;
   final List<String> characteristics;
   final List<String> tagSearch;
+  final Map<String, String> descriptions;
 
   Map<String, dynamic> toMap() {
     return {
@@ -57,15 +57,8 @@ class Sake {
       'pairings': pairings,
       'characteristics': characteristics,
       'tagSearch': tagSearch,
+      'descriptions': descriptions,
     };
-  }
-
-  factory Sake.getDescription(Map<String, dynamic> data, String documentId) {
-    if (data == null) {
-      return null;
-    }
-    final String description = data['description'];
-    return Sake(description: description);
   }
 
   factory Sake.fromMap(Map<String, dynamic> data, String documentId) {
@@ -97,6 +90,7 @@ class Sake {
     final List<String> pairings = List.from(data['pairings']);
     final List<String> characteristics = List.from(data['characteristics']);
     final List<String> tagSearch = List.from(data['tagSearch']);
+    final Map<String, String> descriptions = Map.from(data['descriptions']);
 
     return Sake(
       id: documentId,
@@ -116,6 +110,7 @@ class Sake {
       pairings: pairings,
       characteristics: characteristics,
       tagSearch: tagSearch,
+      descriptions: descriptions,
     );
   }
 }

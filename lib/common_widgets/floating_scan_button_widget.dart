@@ -126,7 +126,7 @@ class _FloatingScanButtonState extends State<FloatingScanButton> {
                         borderRadius: BorderRadius.circular(200),
                         border: Border.all(
                             color: (user.registered)
-                                ? kAccentColor
+                                ? Colors.lightGreen
                                 : Color(0x4FFF6D6D),
                             width: 3)),
                     child: IconButton(
@@ -134,7 +134,7 @@ class _FloatingScanButtonState extends State<FloatingScanButton> {
                       icon: Icon(
                         Icons.check,
                         color: (user.registered)
-                            ? kAccentColor
+                            ? Colors.lightGreen
                             : Color(0x4FFF6D6D),
                       ),
                       onPressed: () {
