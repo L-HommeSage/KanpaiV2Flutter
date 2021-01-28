@@ -94,7 +94,7 @@ class _NewRefPageState extends State<NewRefPage> {
       // ====== to firestore =======
       final newRef = Firestore.instance;
       final DocumentReference doc =
-          await newRef.collection("/pending_sakes").add({
+          await newRef.collection("/new_scanned_sakes").add({
         'userId': widget.user.uid,
         'username': widget.user.displayName,
         'sakeName': sakeName,
@@ -338,12 +338,12 @@ class _NewRefPageState extends State<NewRefPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Text(
-                    "Gallery",
+                    S.of(context).gallery,
                     textAlign: TextAlign.center,
                     style: kCommonTextStyle,
                   ),
                   Text(
-                    "Camera",
+                    S.of(context).camera,
                     textAlign: TextAlign.center,
                     style: kCommonTextStyle,
                   )
