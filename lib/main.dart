@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData.light().copyWith(
           primaryColor: kPrimaryColor,
           scaffoldBackgroundColor: kPrimaryColor,
+          accentColor: kAccentColor,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         localizationsDelegates: [
