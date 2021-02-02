@@ -39,7 +39,9 @@ class SakeInnerContent extends StatelessWidget {
         ReviewsPanel(
           sake: sake,
           database: database,
-          username: user.displayName,
+          username: (user.displayName == null)
+              ? S.of(context).visitor
+              : user.displayName,
         ),
       ],
     );

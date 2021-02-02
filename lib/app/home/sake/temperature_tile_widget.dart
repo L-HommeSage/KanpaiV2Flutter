@@ -24,6 +24,10 @@ class TemperatureTile extends StatelessWidget {
       closedBuilder: (context, action) {
         return ListTile(
           leading: leading,
+          trailing: Icon(
+            Icons.arrow_forward_ios,
+            color: kAccentColor,
+          ),
           dense: true,
           title: RichText(
             text: TextSpan(

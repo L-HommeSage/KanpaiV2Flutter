@@ -232,13 +232,14 @@ class CharacteristicsPanel extends StatelessWidget {
         closedBuilder: (context, action) {
           return ListTile(
             dense: true,
-            leading: Hero(
-              tag: "riceTag",
-              child: IconImage(
-                imagePath: 'icons/riceIcon.png',
-                backgroundColor: kPrimaryTextColor,
-                iconColor: kLightPrimaryColor,
-              ),
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: kAccentColor,
+            ),
+            leading: IconImage(
+              imagePath: 'icons/riceIcon.png',
+              backgroundColor: kPrimaryTextColor,
+              iconColor: kLightPrimaryColor,
             ),
             title: RichText(
               text: TextSpan(
@@ -283,6 +284,10 @@ class CharacteristicsPanel extends StatelessWidget {
                 imagePath: 'icons/flavour.png',
                 iconColor: kLightPrimaryColor,
                 backgroundColor: Colors.pink,
+              ),
+              trailing: Icon(
+                Icons.arrow_forward_ios,
+                color: kAccentColor,
               ),
               title: RichText(
                 overflow: TextOverflow.ellipsis,

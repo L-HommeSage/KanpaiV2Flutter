@@ -36,7 +36,7 @@ abstract class AuthBase {
   Future<User> createUserWithEmail(String email, String pwd);
   Future<void> signOut();
   Stream<User> get onAuthStateChanged;
-  Future<void> createRecord(FirebaseUser user);
+  Future<void> createRecord(FirebaseUser user, bool registered);
 }
 
 class Auth implements AuthBase {
@@ -50,6 +50,7 @@ class Auth implements AuthBase {
     List myReviews = [];
     List recommendedSearch = [];
     bool registered = false;
+
     if (user == null) return null;
     return User(
       uid: user.uid,
@@ -78,7 +79,7 @@ class Auth implements AuthBase {
   @override
   Future<User> signInAnonymously() async {
     final authResult = await _firebaseAuth.signInAnonymously();
-    createRecord(authResult.user);
+    createRecord(authResult.user, false);
     return _userFromFirebase(authResult.user);
   }
 
@@ -91,9 +92,16 @@ class Auth implements AuthBase {
 
   @override
   Future<User> createUserWithEmail(String email, String pwd) async {
+    final atIndex = email.indexOf('@');
+    UserUpdateInfo updateInfo = UserUpdateInfo();
+    updateInfo.displayName = email.substring(0, atIndex);
     final authResult = await _firebaseAuth.createUserWithEmailAndPassword(
-        email: email, password: pwd);
-    createRecord(authResult.user);
+      email: email,
+      password: pwd,
+    );
+    FirebaseUser updatedUser = await _firebaseAuth.currentUser();
+    await updatedUser.updateProfile(updateInfo);
+    createRecord(updatedUser, true);
     return _userFromFirebase(authResult.user);
   }
 
@@ -108,7 +116,7 @@ class Auth implements AuthBase {
           GoogleAuthProvider.getCredential(
               idToken: googleAuth.idToken, accessToken: googleAuth.accessToken),
         );
-        createRecord(authResult.user);
+        createRecord(authResult.user, true);
         return _userFromFirebase(authResult.user);
       } else {
         throw PlatformException(
@@ -132,7 +140,7 @@ class Auth implements AuthBase {
   }
 
   @override
-  Future<void> createRecord(FirebaseUser user) async {
+  Future<void> createRecord(FirebaseUser user, bool registered) async {
     final docRef = _databaseReference.collection("users").document(user.uid);
     await docRef.get().then((value) {
       if (value.exists) {
@@ -144,9 +152,10 @@ class Auth implements AuthBase {
           'bookmarks': [],
           'myReviews': [],
           'recommendedSearch': [],
-          'registered': (user.displayName == null) ? false : true,
-          'name':
-              (user.displayName == null) ? S.current.visitor : user.displayName,
+          'registered': (registered == false) ? false : true,
+          'name': (user.displayName == null)
+              ? (registered == true) ? "emailUser" : S.current.visitor
+              : user.displayName,
         });
       }
     });

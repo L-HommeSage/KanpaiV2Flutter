@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kanpai/constants/style.dart';
 
 class SocialButton extends StatelessWidget {
   const SocialButton({
@@ -34,8 +35,10 @@ class SocialButton extends StatelessWidget {
           imageOrIcon(),
           Text(
             text,
-            style:
-                TextStyle(fontFamily: "Lato", color: textColor, fontSize: 18),
+            style: TextStyle(
+                fontFamily: kFontFamilyCommonText,
+                color: textColor,
+                fontSize: 18),
           ),
           Opacity(
             opacity: 0,

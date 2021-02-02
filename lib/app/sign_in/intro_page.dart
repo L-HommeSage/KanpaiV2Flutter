@@ -88,7 +88,9 @@ class IntroPage extends StatelessWidget {
         done: Text(
           S.of(context).visitor,
           style: TextStyle(
-              fontFamily: "Lato", fontSize: 14, color: kLightPrimaryColor),
+              fontFamily: kFontFamilyCommonText,
+              fontSize: 14,
+              color: kLightPrimaryColor),
         ),
         skip: Text(
           S.of(context).skip,
@@ -186,13 +188,13 @@ class IntroPage extends StatelessWidget {
         footer: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            SocialButton(
-              color: Color(0xFF3b5998),
-              textColor: Colors.white,
-              onPressed: () {},
-              assetName: "images/facebook-logo.png",
-              text: S.of(context).facebook,
-            ),
+            //    SocialButton(
+            //      color: Color(0xFF3b5998),
+            //      textColor: Colors.white,
+            //      onPressed: () {},
+            //      assetName: "images/facebook-logo.png",
+            //      text: S.of(context).facebook,
+            //    ),
             SocialButton(
               color: Colors.white,
               textColor: kSecondaryTextColor,
