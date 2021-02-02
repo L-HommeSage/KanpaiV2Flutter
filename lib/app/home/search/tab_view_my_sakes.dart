@@ -116,10 +116,16 @@ class _TabViewMySakesState extends State<TabViewMySakes>
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      sake.name,
-                      style: kHeadlinesTextStyle,
-                      textAlign: TextAlign.start,
+                    SizedBox(
+                      width: 250,
+                      child: Text(
+                        sake.name,
+                        style: kHeadlinesTextStyle,
+                        textAlign: TextAlign.start,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        softWrap: false,
+                      ),
                     ),
                     Text(
                       sake.family,

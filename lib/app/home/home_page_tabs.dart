@@ -42,7 +42,7 @@ class _HomePageTabsState extends State<HomePageTabs>
       _setTitle(_tabController.index);
     });
     _scrollController = ScrollController();
-    _tabController.index = 1;
+    _tabController.index = 0;
     _setTitle(_tabController.index);
   }
 

@@ -25,22 +25,21 @@ class _TabBarNewsState extends State<TabBarNews> {
         colorGradient: _getColorGradient(4),
       ),
       SizedBox(height: 20),
-      _buildHighlightedSake(
-          context: context,
-          database: database,
-          id: "2",
-          lang: "en",
-          backgroundImage: "images/backgroundImage4.PNG"),
+      _buildTodayEvent(
+          id: '1', lang: 'en', database: database, context: context),
       _buildHighlightedSake(
           context: context,
           database: database,
           id: "1",
           lang: "en",
           backgroundImage: "images/backgroundImage6.PNG"),
-      _buildTodayEvent(
-          id: '1', lang: 'en', database: database, context: context),
-      SizedBox(height: 45),
-      SizedBox(height: 45),
+      _buildHighlightedSake(
+          context: context,
+          database: database,
+          id: "2",
+          lang: "en",
+          backgroundImage: "images/backgroundImage4.PNG"),
+      SizedBox(height: 90),
     ];
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -53,7 +52,6 @@ class _TabBarNewsState extends State<TabBarNews> {
             listItems[4],
             listItems[5],
             listItems[6],
-            listItems[7],
           ],
         )
         //ListView.builder(

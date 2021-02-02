@@ -27,6 +27,7 @@ class TabBarSearch extends StatelessWidget {
 
   DefaultTabController buildTabGrids(Database database, User user) {
     return DefaultTabController(
+      initialIndex: 1,
       length: 3,
       child: Column(
         children: <Widget>[
