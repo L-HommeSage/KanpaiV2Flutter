@@ -58,7 +58,7 @@ class _AddReviewSheetState extends State<AddReviewSheet> {
               Center(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 8.0),
-                  child: RatingBar(
+                  child: RatingBar.builder(
                     initialRating: 0,
                     minRating: 1,
                     direction: Axis.horizontal,
